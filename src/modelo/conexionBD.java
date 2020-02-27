@@ -15,13 +15,18 @@ public class conexionBD {
 
 
     public conexionBD(){
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexion = DriverManager.getConnection(server,usr,psw);      //Se intenta conectar al servidor usando las credenciales
-            st = conexion.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE); //Se crea el manejador de declaraciones sensible a scroll y en concurrencia
+            conexion = DriverManager.getConnection(server,usr,psw);
+            st = conexion.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         } catch (Exception ex) {
             Logger.getLogger(conexionBD.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+
+
     }
 
 

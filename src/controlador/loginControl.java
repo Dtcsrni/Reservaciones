@@ -1,9 +1,7 @@
 package controlador;
 
 import dao.usuarioDAO;
-import dao.usuarioDAOimplements;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import dao.usuarioDAOimpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,18 +47,18 @@ public class loginControl implements Initializable {
         try {
 
             conexionBD con = new conexionBD();
-            usuarioDAO usDAO = new usuarioDAOimplements();
+            usuarioDAO usDAO = new usuarioDAOimpl();
 
             ResultSet rs = usDAO.CONSULTAR("SELECT FROM admon WHERE correo='"+id_usuario.getText().trim()+"' AND contrasena='"+txtPass.getText().trim()+"'");
 
             if(rs.next()){
 
-                if(usDAO.login(txtCorreo.getText().trim(), txtPass.getText().trim())){
+                if(usDAO.LOGIN(id_usuario.getText().trim(), txtPass.getText().trim())){
 
                     System.out.println("Acceso concedido");
                     Thread.sleep(500);
                     FXMLLoader loader = new FXMLLoader();
-                    URL location = LoginController.class.getResource("InterfazInicio.fxml");
+                    URL location = loginControl.class.getResource("InterfazInicio.fxml");
                     loader.setLocation(location);
                     BorderPane bp = loader.load();
                     Stage stage = new Stage();

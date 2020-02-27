@@ -12,6 +12,6 @@ public interface usuarioDAO {
     public ResultSet CONSULTAR(String sql) throws SQLException;
     public int ACTUALIZAR(String sql) throws SQLException;
     public void DESCONECTAR();
-    public int LOGIN(int id_usr, String pass);
+    public boolean LOGIN(String id_usr, String pass);
 
 }
