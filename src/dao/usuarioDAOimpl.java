@@ -1,22 +1,19 @@
 package dao;
 
 import javafx.scene.control.Alert;
-import modelo.conexionBD;
+import modelo.MySQLBD;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static modelo.conexionBD.conexion;
-import static modelo.conexionBD.st;
 
 public class usuarioDAOimpl implements usuarioDAO{
 
 
     public ResultSet CONSULTAR(String sql) throws SQLException {//función para hacer consultas
-        return st.executeQuery(sql);
+
+        return MySQLBD.ConsultaSQL(sql);
     }
 
     public int ACTUALIZAR(String sql) throws SQLException{//función para hacer actualizaciones
@@ -26,7 +23,7 @@ public class usuarioDAOimpl implements usuarioDAO{
         try {
             conexion.close();
         } catch (SQLException ex) {
-            Logger.getLogger(conexionBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MySQLBD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public boolean LOGIN(String id_usr, String pass){

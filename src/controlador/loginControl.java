@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import modelo.conexionBD;
+import modelo.MySQLBD;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,7 +46,7 @@ public class loginControl implements Initializable {
 
         try {
 
-            conexionBD con = new conexionBD();
+            MySQLBD con = new MySQLBD();
             usuarioDAO usDAO = new usuarioDAOimpl();
 
             ResultSet rs = usDAO.CONSULTAR("SELECT FROM admon WHERE correo='"+id_usuario.getText().trim()+"' AND contrasena='"+txtPass.getText().trim()+"'");
