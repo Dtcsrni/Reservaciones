@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/reservaciones.iml" filepath="$PROJECT_DIR$/reservaciones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Reservaciones.iml" filepath="$PROJECT_DIR$/Reservaciones.iml" />
     </modules>
   </component>
 </project>

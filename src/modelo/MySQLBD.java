@@ -28,6 +28,7 @@ public class MySQLBD {
 
 
     public static <T> T ConsultaSQL(String SQL, int tipo) throws SQLException{
+        //Case 1 es consulta, case 2 es actualización,
 
         switch (tipo) {
             case 0:
@@ -36,6 +37,7 @@ public class MySQLBD {
             case 1:
             return (T) Integer.valueOf(st.executeUpdate(SQL));
             break;
+
         }
 
 
