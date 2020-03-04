@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="98.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Pictures/cuh.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="121.0" layoutY="14.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE CÓMPUTO" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="207.0" layoutY="87.0" prefHeight="35.0" prefWidth="197.0" text="ADMINISTRADOR" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="207.0" layoutY="122.0" prefHeight="19.0" prefWidth="197.0" text="Control de reservaciones" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Button layoutY="367.0" mnemonicParsing="false" text="REGRESAR" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="241.0" layoutY="184.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="159.0" text="CONSULTAR CALENDARIOS DE RESERVACIONES" textAlignment="CENTER" wrapText="true" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
