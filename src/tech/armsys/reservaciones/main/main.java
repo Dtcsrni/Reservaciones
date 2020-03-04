@@ -5,6 +5,7 @@
  */
 package tech.armsys.reservaciones.main;
 
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -12,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import static jdk.xml.internal.SecuritySupport.getResourceAsStream;
 
 /**
  *
@@ -24,8 +27,7 @@ public class main extends Application {
 
         try{
             FXMLLoader loader = new FXMLLoader();
-            AnchorPane root = loader.load(getClass().getResourceAsStream("login.fxml"));
-
+            AnchorPane root = loader.load(getClass().getResourceAsStream("/vista/login.fxml"));
 
 
             Scene scene = new Scene(root);
