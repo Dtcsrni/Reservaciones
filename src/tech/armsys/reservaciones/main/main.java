@@ -12,6 +12,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import static jdk.xml.internal.SecuritySupport.getResourceAsStream;
@@ -27,7 +28,7 @@ public class main extends Application {
 
         try{
             FXMLLoader loader = new FXMLLoader();
-            AnchorPane root = loader.load(getClass().getResourceAsStream("/tech/armsys/reservaciones/vista/login.fxml"));
+            VBox root = loader.load(getClass().getResourceAsStream("/tech/armsys/reservaciones/vista/login.fxml"));
 
 
             Scene scene = new Scene(root);

@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,9 +34,7 @@ public class loginControl implements Initializable {
     @FXML AnchorPane ap;
     @FXML Label lblError;
 
-    MySQLBD con = new MySQLBD();
-    usuarioDAO usDAO = new usuarioDAOimpl();
-    Usuario usuario = new Usuario();
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -44,14 +43,22 @@ public class loginControl implements Initializable {
 
     @FXML
     void iniciar_sesion(ActionEvent evt) throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+        MySQLBD con = new MySQLBD();
 
-        usuario.setId_usuario(String.valueOf(id_usuario));
-        usuario.setContra(String.valueOf(txtPass));
+        Usuario usuario = new Usuario();
+        usuario.setId_usuario(id_usuario.getText());
+        usuario.setContra(txtPass.getText());
+        usuarioDAO usDAO = new usuarioDAOimpl();
+        Alert error = new Alert(Alert.AlertType.ERROR);
+        error.setTitle("Credenciales incorrectas");
+        error.setHeaderText("Credenciales incorrectas");
+        error.setContentText("Por favor intente de nuevo");
 
             MySQLBD.CONECTAR();//se conecta a la BD
 
                 if(usDAO.LOGIN(usuario) !=null){
-
+                    lblError.setVisible(false);
+                    lblError.setText("");
                     System.out.println("Acceso concedido");
                     Thread.sleep(500);
                     FXMLLoader loader = new FXMLLoader();
@@ -84,14 +91,18 @@ public class loginControl implements Initializable {
                         ((Stage)ap.getScene().getWindow()).close();
                         stage.show();
                     }
-            else{
-                System.out.println("Acceso Denegado");
-                lblError.isVisible();
-
-            }
-
-
     }
+                else{
+
+                    error.showAndWait().ifPresent((btnType) -> {
+
+                        
+                    });
+                    System.out.println("Sin datos");
+                    lblError.setVisible(true);
+                    lblError.setText("Por favor, indique sus credenciales");
+
+                }
 
 }
 

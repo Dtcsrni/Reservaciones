@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="184.0" fitWidth="186.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../recursos/cuh.png" />
+                  <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
             <Label layoutX="416.0" layoutY="6.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE CÓMPUTO" textAlignment="CENTER" wrapText="true">
@@ -57,7 +57,7 @@
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../recursos/monitor_96px.png" />
+                              <Image url="@recursos/monitor_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -72,7 +72,7 @@
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../recursos/monitor_96px.png" />
+                              <Image url="@recursos/monitor_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -87,7 +87,7 @@
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../recursos/monitor_96px.png" />
+                              <Image url="@recursos/monitor_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -102,7 +102,7 @@
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../recursos/monitor_96px.png" />
+                              <Image url="@recursos/monitor_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -132,7 +132,7 @@
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../recursos/watch_96px.png" />
+                        <Image url="@recursos/watch_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -147,7 +147,7 @@
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../recursos/watch_96px.png" />
+                        <Image url="@recursos/watch_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -162,7 +162,7 @@
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../recursos/watch_96px.png" />
+                        <Image url="@recursos/watch_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -177,7 +177,7 @@
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../recursos/watch_96px.png" />
+                        <Image url="@recursos/watch_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -219,7 +219,7 @@
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../recursos/event_accepted_96px.png" />
+                        <Image url="@recursos/event_accepted_96px.png" />
                      </image>
                   </ImageView>
                </graphic>

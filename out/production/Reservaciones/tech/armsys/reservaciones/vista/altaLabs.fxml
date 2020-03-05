@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="109.0" fitWidth="125.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../recursos/cuh.png" />
+                  <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="16.0" prefHeight="78.0" prefWidth="406.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE COMPUTO" textAlignment="CENTER" wrapText="true">
