@@ -30,7 +30,7 @@ public class main extends Application {
             FXMLLoader loader = new FXMLLoader();
             VBox root = loader.load(getClass().getResource("/tech/armsys/reservaciones/vista/login.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setTitle("SIRELAC");
+            primaryStage.setTitle("SIRELAC | BIENVENIDO");
             primaryStage.setScene(scene);
             primaryStage.show();
 

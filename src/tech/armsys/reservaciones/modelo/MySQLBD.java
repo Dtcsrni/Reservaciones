@@ -19,26 +19,34 @@ public class MySQLBD {
     private static final String psw = "";
 
 
-    public static void CONECTAR() {
+    public static boolean CONECTAR() {
         Alert error = new Alert(Alert.AlertType.ERROR);
+        Alert error1 = new Alert(Alert.AlertType.ERROR);
         error.setTitle("Fallo en la base de datos");
         error.setHeaderText("El driver no ha cargado correctamente");
-        error.setContentText("");
+        error1.setTitle("Fallo en la base de datos");
+        error1.setHeaderText("No se ha encontrado un servidor al cual conectarse");
+        error1.setContentText("Por favor inicialice el servidor");
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
             conexion = DriverManager.getConnection(server,usr,psw);
-
             st = conexion.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         }
         catch (ClassNotFoundException e) {
+            e.printStackTrace();
             error.showAndWait().ifPresent((btnType) -> {
             });
-
-
         } catch (SQLException e) {
             e.printStackTrace();
+            error1.showAndWait().ifPresent((btnType) -> {
+            });
         }
+        if(conexion!=null){
+            return true;
+        }
+        else
+            return false;
     }
 
 

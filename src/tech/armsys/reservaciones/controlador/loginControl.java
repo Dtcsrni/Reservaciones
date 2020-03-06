@@ -22,7 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class loginControl implements Initializable {
+public class loginControl implements Initializable{
     //Definición de campos de texto, etiquetas y botón
     @FXML TextField id_usuario;
     @FXML PasswordField txtPass;
@@ -31,28 +31,28 @@ public class loginControl implements Initializable {
 
     @FXML AnchorPane ap;
     @FXML ProgressIndicator progIn;
-
+    public static Usuario usuario = new Usuario();
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-    }
+           }
 
     @FXML
     void iniciar_sesion(ActionEvent evt) throws InterruptedException {
         progIn.setVisible(true);
         MySQLBD con = new MySQLBD();
-        Usuario usuario = new Usuario();
+
         usuario.setId_usuario(id_usuario.getText());
         usuario.setContra(txtPass.getText());
         usuarioDAO usDAO = new usuarioDAOimpl();
 
-        MySQLBD.CONECTAR();//se conecta a la BD
+        boolean conResult = MySQLBD.CONECTAR();//se conecta a la BD
+
         try{
 
-        if (usDAO.LOGIN(usuario) != null) {
+        if (conResult && usDAO.LOGIN(usuario) != null) {
             usDAO.CONSULTAR(usuario);
             System.out.println("Acceso concedido");
             FXMLLoader loader = new FXMLLoader();
@@ -69,6 +69,7 @@ public class loginControl implements Initializable {
                 ((Stage) ap.getScene().getWindow()).close();
                 progIn.setVisible(false);
                 stage.show();
+                MySQLBD.DESCONECTAR();
             }
             if (usuario.getTipoUsuario() == 1) {
                 URL location = loginControl.class.getResource("/tech/armsys/reservaciones/vista/usuario.fxml");
@@ -82,17 +83,22 @@ public class loginControl implements Initializable {
                 ((Stage) ap.getScene().getWindow()).close();
                 progIn.setVisible(false);
                 stage.show();
+                MySQLBD.DESCONECTAR();
             }
         } else {
-            Alert error = new Alert(Alert.AlertType.ERROR);
-            error.setTitle("Credenciales incorrectas");
-            error.setHeaderText("Credenciales incorrectas");
-            error.setContentText("Por favor intente de nuevo");
-            error.showAndWait().ifPresent((btnType) -> {
-            });
+
+            if (conResult) {
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setTitle("Credenciales incorrectas");
+                error.setHeaderText("Credenciales incorrectas");
+                error.setContentText("Por favor intente de nuevo");
+                error.showAndWait().ifPresent((btnType) -> {
+                });
+
+
+                }
+            MySQLBD.DESCONECTAR();
             progIn.setVisible(false);
-
-
             }
         } catch (SQLException ex) {
             Logger.getLogger(loginControl.class.getName()).log(Level.SEVERE,null,ex);
@@ -100,8 +106,5 @@ public class loginControl implements Initializable {
             Logger.getLogger(loginControl.class.getName()).log(Level.SEVERE,null,ex);
         }
 
-
+        }
     }
-
-
-}
