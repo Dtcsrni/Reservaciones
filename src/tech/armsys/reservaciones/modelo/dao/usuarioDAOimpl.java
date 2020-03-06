@@ -36,7 +36,7 @@ public class usuarioDAOimpl implements usuarioDAO{
             if(rs.next()){
                 usuario.setId_usuario(rs.getString("id_usuario"));
                 usuario.setNombre(rs.getString("nombre_usuario"));
-                usuario.setTipoUsuario(rs.getString("tipo"));
+                usuario.setTipoUsuario(rs.getInt("tipo"));
                 usuario.setContra(rs.getString("contra"));
             }else{
                 return null;
@@ -69,19 +69,18 @@ public class usuarioDAOimpl implements usuarioDAO{
     public Usuario LOGIN(Usuario usuario) throws SQLException {
 
             String sql1 = "SELECT * FROM usuarios WHERE id_usuario='"+usuario.getId_Usuario()+"' AND contra='"+usuario.getContra()+"'";
-            System.out.print(sql1);
+
             ResultSet rs = MySQLBD.ConsultaSQL(sql1,0);
             if(rs.next()){
-                System.out.println("Si se encuentra");
                 Usuario usr = usuario.getInstanceUser(
                         rs.getString("id_usuario"),
                         rs.getString("nombre_usuario"),
-                        rs.getString("tipo"),
+                        rs.getInt("tipo"),
                         rs.getString("contra") );
 
                 return usr;
             }
-            System.out.println("No se encuentra");
+
         return null;
     }
 

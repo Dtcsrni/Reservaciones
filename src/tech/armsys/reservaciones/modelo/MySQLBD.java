@@ -20,6 +20,10 @@ public class MySQLBD {
 
 
     public static void CONECTAR() {
+        Alert error = new Alert(Alert.AlertType.ERROR);
+        error.setTitle("Fallo en la base de datos");
+        error.setHeaderText("El driver no ha cargado correctamente");
+        error.setContentText("");
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -28,7 +32,9 @@ public class MySQLBD {
             st = conexion.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         }
         catch (ClassNotFoundException e) {
-            System.out.println("No se ha detectado el driver");
+            error.showAndWait().ifPresent((btnType) -> {
+            });
+
 
         } catch (SQLException e) {
             e.printStackTrace();

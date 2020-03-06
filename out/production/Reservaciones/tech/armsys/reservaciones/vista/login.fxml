@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,7 @@
       <children>
             <ImageView fitHeight="109.0" fitWidth="125.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/D:/Documentos/ProyectosJava/Reservaciones/src/tech/armsys/reservaciones/vista/recursos/cuh.png" />
+                  <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
             <Label layoutX="83.0" layoutY="170.0" prefHeight="30.0" prefWidth="70.0" text="Usuario" />
@@ -27,13 +28,13 @@
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:D:\Documentos\ProyectosJava\Reservaciones\src\tech\armsys\reservaciones\vista\recursos\enter_96px.png" />
+                        <Image url="@recursos/enter_96px.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
             <ImageView fitHeight="48.0" fitWidth="46.0" layoutX="28.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/D:/Documentos/ProyectosJava/Reservaciones/src/tech/armsys/reservaciones/vista/recursos/user_shield_96px.png" />
+                  <Image url="@recursos/user_shield_96px.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="45.0" prefHeight="78.0" prefWidth="382.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE COMPUTO" textAlignment="CENTER" wrapText="true">
@@ -43,12 +44,12 @@
             </Label>
             <ImageView fitHeight="48.0" fitWidth="46.0" layoutX="28.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/D:/Documentos/ProyectosJava/Reservaciones/src/tech/armsys/reservaciones/vista/recursos/password_200px.png" />
+                  <Image url="@recursos/password_200px.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="109.0" fitWidth="125.0" layoutX="502.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/D:/Documentos/ProyectosJava/Reservaciones/src/tech/armsys/reservaciones/vista/recursos/logoSiststemasCUH3NoFondo.png" />
+                  <Image url="@recursos/logoSiststemasCUH3NoFondo.png" />
                </image>
             </ImageView>
             <Label layoutX="470.0" layoutY="356.0" prefHeight="30.0" prefWidth="157.0" text="Desarrollado por Erick Vega">
@@ -61,6 +62,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+            <ProgressIndicator fx:id="progIn" layoutX="280.0" layoutY="330.0" mouseTransparent="true" visible="false" />
       </children>
     </AnchorPane>
   </children>

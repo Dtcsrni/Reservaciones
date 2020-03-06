@@ -28,9 +28,7 @@ public class main extends Application {
 
         try{
             FXMLLoader loader = new FXMLLoader();
-            VBox root = loader.load(getClass().getResourceAsStream("/tech/armsys/reservaciones/vista/login.fxml"));
-
-
+            VBox root = loader.load(getClass().getResource("/tech/armsys/reservaciones/vista/login.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("SIRELAC");
             primaryStage.setScene(scene);
@@ -40,8 +38,6 @@ public class main extends Application {
         catch(Exception ex){
             Logger.getLogger(main.class.getName()).log(Level.SEVERE,null,ex);
         }
-
-
     }
 
     /**

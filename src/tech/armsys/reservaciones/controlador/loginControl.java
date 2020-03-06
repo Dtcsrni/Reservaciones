@@ -1,8 +1,5 @@
 package tech.armsys.reservaciones.controlador;
 
-import tech.armsys.reservaciones.modelo.Usuario;
-import tech.armsys.reservaciones.modelo.dao.usuarioDAO;
-import tech.armsys.reservaciones.modelo.dao.usuarioDAOimpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,18 +8,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import tech.armsys.reservaciones.modelo.MySQLBD;
-
+import tech.armsys.reservaciones.modelo.Usuario;
+import tech.armsys.reservaciones.modelo.dao.usuarioDAO;
+import tech.armsys.reservaciones.modelo.dao.usuarioDAOimpl;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 public class loginControl implements Initializable {
     //Definición de campos de texto, etiquetas y botón
@@ -32,7 +30,8 @@ public class loginControl implements Initializable {
     @FXML Button btnEntrar;
 
     @FXML AnchorPane ap;
-    @FXML Label lblError;
+    @FXML ProgressIndicator progIn;
+
 
 
 
@@ -42,69 +41,67 @@ public class loginControl implements Initializable {
     }
 
     @FXML
-    void iniciar_sesion(ActionEvent evt) throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+    void iniciar_sesion(ActionEvent evt) throws InterruptedException {
+        progIn.setVisible(true);
         MySQLBD con = new MySQLBD();
-
         Usuario usuario = new Usuario();
         usuario.setId_usuario(id_usuario.getText());
         usuario.setContra(txtPass.getText());
         usuarioDAO usDAO = new usuarioDAOimpl();
-        Alert error = new Alert(Alert.AlertType.ERROR);
-        error.setTitle("Credenciales incorrectas");
-        error.setHeaderText("Credenciales incorrectas");
-        error.setContentText("Por favor intente de nuevo");
 
-            MySQLBD.CONECTAR();//se conecta a la BD
+        MySQLBD.CONECTAR();//se conecta a la BD
+        try{
 
-                if(usDAO.LOGIN(usuario) !=null){
-                    lblError.setVisible(false);
-                    lblError.setText("");
-                    System.out.println("Acceso concedido");
-                    Thread.sleep(500);
-                    FXMLLoader loader = new FXMLLoader();
+        if (usDAO.LOGIN(usuario) != null) {
+            usDAO.CONSULTAR(usuario);
+            System.out.println("Acceso concedido");
+            FXMLLoader loader = new FXMLLoader();
 
-                    if(usuario.getTipoUsuario().equals(0)) {
-                        lblError.isDisabled();
-                        URL location = loginControl.class.getResource("admin.fxml");
-                        loader.setLocation(location);
-                        BorderPane bp = loader.load();
-                        Stage stage = new Stage();
-                        stage.setTitle("SIRELAC | ADMINISTRADOR");
-                        Scene scene = new Scene(bp);
-                        stage.setScene(scene);
-                        stage.initOwner(ap.getScene().getWindow());
-                        stage.setMaximized(true);
-                        ((Stage)ap.getScene().getWindow()).close();
-                        stage.show();
-                    }
-                    if(usuario.getTipoUsuario().equals(1)) {
-                        lblError.isDisabled();
-                        URL location = loginControl.class.getResource("usuario.fxml");
-                        loader.setLocation(location);
-                        BorderPane bp = loader.load();
-                        Stage stage = new Stage();
-                        stage.setTitle("SIRELAC | USUARIO");
-                        Scene scene = new Scene(bp);
-                        stage.setScene(scene);
-                        stage.initOwner(ap.getScene().getWindow());
-                        stage.setMaximized(true);
-                        ((Stage)ap.getScene().getWindow()).close();
-                        stage.show();
-                    }
+            if (usuario.getTipoUsuario() == 0) {
+                URL location = loginControl.class.getResource("/tech/armsys/reservaciones/vista/admin.fxml");
+                loader.setLocation(location);
+                VBox bp = loader.load();
+                Stage stage = new Stage();
+                stage.setTitle("SIRELAC | ADMINISTRADOR");
+                Scene scene = new Scene(bp);
+                stage.setScene(scene);
+                stage.initOwner(ap.getScene().getWindow());
+                ((Stage) ap.getScene().getWindow()).close();
+                progIn.setVisible(false);
+                stage.show();
+            }
+            if (usuario.getTipoUsuario() == 1) {
+                URL location = loginControl.class.getResource("/tech/armsys/reservaciones/vista/usuario.fxml");
+                loader.setLocation(location);
+                VBox bp = loader.load();
+                Stage stage = new Stage();
+                stage.setTitle("SIRELAC | USUARIO");
+                Scene scene = new Scene(bp);
+                stage.setScene(scene);
+                stage.initOwner(ap.getScene().getWindow());
+                ((Stage) ap.getScene().getWindow()).close();
+                progIn.setVisible(false);
+                stage.show();
+            }
+        } else {
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Credenciales incorrectas");
+            error.setHeaderText("Credenciales incorrectas");
+            error.setContentText("Por favor intente de nuevo");
+            error.showAndWait().ifPresent((btnType) -> {
+            });
+            progIn.setVisible(false);
+
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(loginControl.class.getName()).log(Level.SEVERE,null,ex);
+        } catch (IOException ex) {
+            Logger.getLogger(loginControl.class.getName()).log(Level.SEVERE,null,ex);
+        }
+
+
     }
-                else{
-
-                    error.showAndWait().ifPresent((btnType) -> {
-
-                        
-                    });
-                    System.out.println("Sin datos");
-                    lblError.setVisible(true);
-                    lblError.setText("Por favor, indique sus credenciales");
-
-                }
-
-}
 
 
 }

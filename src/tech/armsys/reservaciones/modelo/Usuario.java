@@ -1,5 +1,7 @@
 package tech.armsys.reservaciones.modelo;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -8,7 +10,7 @@ public class Usuario {
     //Se definen las variables del singleton
     private StringProperty id_usuario;
     private StringProperty nombre;
-    private StringProperty tipoUsuario;
+    private IntegerProperty tipoUsuario;
     private StringProperty contra;
 
     private static Usuario usr;
@@ -17,17 +19,17 @@ public class Usuario {
 
     }
 
-    public Usuario(String id_usuario1, String nombre1, String tipoUsuario1, String contra1) {
+    public Usuario(String id_usuario1, String nombre1, int tipoUsuario1, String contra1) {
 
         this.id_usuario = new SimpleStringProperty(id_usuario1);
         this.nombre = new SimpleStringProperty(nombre1);
-        this.tipoUsuario = new SimpleStringProperty(tipoUsuario1);
+        this.tipoUsuario = new SimpleIntegerProperty(tipoUsuario1);
         this.contra = new SimpleStringProperty(contra1);
     }
 
 
 
-    public static Usuario getInstanceUser(String id_usuario1, String nombre1, String tipoUsuario1, String contra1){
+    public static Usuario getInstanceUser(String id_usuario1, String nombre1, int tipoUsuario1, String contra1){
 
         if(usr == null){//Si no se ha instanciado aún el objeto
             //Se instancia un objeto (implementación de singleton)
@@ -53,11 +55,11 @@ public class Usuario {
         this.nombre = new SimpleStringProperty(nombre1);
     }
 
-    public String getTipoUsuario(){
+    public int getTipoUsuario(){
         return tipoUsuario.get();
     }
-    public void setTipoUsuario(String tipoUsuario1){
-        this.tipoUsuario = new SimpleStringProperty(tipoUsuario1);
+    public void setTipoUsuario(int tipoUsuario1){
+        this.tipoUsuario = new SimpleIntegerProperty(tipoUsuario1);
     }
 
     public String getContra(){
