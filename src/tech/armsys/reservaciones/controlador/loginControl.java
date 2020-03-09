@@ -25,6 +25,7 @@ public class loginControl implements Initializable{
     @FXML Button btnEntrar;
 
     @FXML AnchorPane ap;
+
     @FXML ProgressIndicator progIn;
     public static Usuario usuario = new Usuario();
 
@@ -34,6 +35,12 @@ public class loginControl implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
            }
 
+    public boolean getProgIn() {
+        return progIn.isVisible();
+    }
+    public void setProgIn(boolean progIn) {
+        this.progIn.setVisible(progIn);
+    }
 
     @FXML
     void iniciar_sesion(ActionEvent evt) {
@@ -44,9 +51,11 @@ public class loginControl implements Initializable{
         usuarioDAO usDAO = new usuarioDAOimpl();
 
         boolean conResult = MySQLBD.CONECTAR();//se conecta a la BD
+            if(conResult==false){
+                progIn.setVisible(false);
+            }
 
         try{
-
         if (conResult && usDAO.LOGIN(usuario) != null) {
             usDAO.CONSULTAR(usuario);
             System.out.println("Acceso concedido");
@@ -77,4 +86,5 @@ public class loginControl implements Initializable{
         }
 
         }
+
     }

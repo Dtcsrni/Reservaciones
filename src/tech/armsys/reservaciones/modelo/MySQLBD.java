@@ -3,6 +3,7 @@ package tech.armsys.reservaciones.modelo;
 
 import javafx.scene.control.Alert;
 import tech.armsys.reservaciones.controlador.alertas;
+import tech.armsys.reservaciones.controlador.loginControl;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -15,9 +16,9 @@ public class MySQLBD {
     private static Connection conexion;
     private static Statement st;
     //Se define la forma de conexión a la base de datos
-    private static final String server = "jdbc:mysql://localhost:3306/reservacion";
-    private static final String usr = "root";
-    private static final String psw = "";
+    private static  String server = "jdbc:mysql://localhost:3306/reservacion";
+    private static  String usr = "root";
+    private static  String psw = "";
 
 
     public static boolean CONECTAR() {
