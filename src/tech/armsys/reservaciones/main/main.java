@@ -9,11 +9,8 @@ package tech.armsys.reservaciones.main;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import tech.armsys.reservaciones.controlador.ventanas;
 
 import static jdk.xml.internal.SecuritySupport.getResourceAsStream;
 
@@ -27,17 +24,13 @@ public class main extends Application {
     public void start(Stage primaryStage) {
 
         try{
-            FXMLLoader loader = new FXMLLoader();
-            VBox root = loader.load(getClass().getResource("/tech/armsys/reservaciones/vista/login.fxml"));
-            Scene scene = new Scene(root);
-            primaryStage.setTitle("SIRELAC | BIENVENIDO");
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            ventanas.mostrarVentana(null,primaryStage,"login.fxml", "login", "");
 
         }
         catch(Exception ex){
             Logger.getLogger(main.class.getName()).log(Level.SEVERE,null,ex);
         }
+
     }
 
     /**
@@ -46,5 +39,7 @@ public class main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
 
 }

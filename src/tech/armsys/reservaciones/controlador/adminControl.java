@@ -4,18 +4,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
+import javax.xml.transform.Result;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
-import tech.armsys.reservaciones.modelo.Usuario;
 
 public class adminControl implements Initializable{
     //Definición de campos de texto, etiquetas y botón
@@ -34,16 +33,10 @@ public class adminControl implements Initializable{
            }
 
     @FXML
-    void desconectar_Sesion(ActionEvent evt) throws InterruptedException, IOException {
-        URL location = loginControl.class.getResource("/tech/armsys/reservaciones/vista/admin.fxml");
-        loader.setLocation(location);
-        VBox bp1 = loader.load();
-        Stage stage = new Stage();
-        stage.setTitle("SIRELAC | ADMINISTRADOR");
-        Scene scene = new Scene(bp1);
-        stage.initOwner(ap.getScene().getWindow());
-        ((Stage) ap.getScene().getWindow()).close();
-        progIn.setVisible(false);
-        stage.show();
+    void desconectar_Sesion(ActionEvent evt) throws IOException {
+        Optional<ButtonType> resultado = alertas.mostrarAlerta("confirmacion", "logout", null, null, null);
+        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+            ventanas.mostrarVentana(evt, null, "login.fxml","login", "admin");
+            }
         }
     }

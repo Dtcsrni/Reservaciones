@@ -2,14 +2,9 @@ package tech.armsys.reservaciones.controlador;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import tech.armsys.reservaciones.modelo.MySQLBD;
 import tech.armsys.reservaciones.modelo.Usuario;
 import tech.armsys.reservaciones.modelo.dao.usuarioDAO;
@@ -39,11 +34,11 @@ public class loginControl implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
            }
 
+
     @FXML
-    void iniciar_sesion(ActionEvent evt) throws InterruptedException {
+    void iniciar_sesion(ActionEvent evt) {
         progIn.setVisible(true);
         MySQLBD con = new MySQLBD();
-
         usuario.setId_usuario(id_usuario.getText());
         usuario.setContra(txtPass.getText());
         usuarioDAO usDAO = new usuarioDAOimpl();
@@ -55,54 +50,29 @@ public class loginControl implements Initializable{
         if (conResult && usDAO.LOGIN(usuario) != null) {
             usDAO.CONSULTAR(usuario);
             System.out.println("Acceso concedido");
-            FXMLLoader loader = new FXMLLoader();
+
 
             if (usuario.getTipoUsuario() == 0) {
-                URL location = loginControl.class.getResource("/tech/armsys/reservaciones/vista/admin.fxml");
-                loader.setLocation(location);
-                VBox bp = loader.load();
-                Stage stage = new Stage();
-                stage.setTitle("SIRELAC | ADMINISTRADOR");
-                Scene scene = new Scene(bp);
-                stage.setScene(scene);
-                stage.initOwner(ap.getScene().getWindow());
-                ((Stage) ap.getScene().getWindow()).close();
+                ventanas.mostrarVentana(evt, null,"admin.fxml", "PANEL DE CONTROL", "admin");
                 progIn.setVisible(false);
-                stage.show();
                 MySQLBD.DESCONECTAR();
             }
             if (usuario.getTipoUsuario() == 1) {
-                URL location = loginControl.class.getResource("/tech/armsys/reservaciones/vista/usuario.fxml");
-                loader.setLocation(location);
-                VBox bp = loader.load();
-                Stage stage = new Stage();
-                stage.setTitle("SIRELAC | USUARIO");
-                Scene scene = new Scene(bp);
-                stage.setScene(scene);
-                stage.initOwner(ap.getScene().getWindow());
-                ((Stage) ap.getScene().getWindow()).close();
+                ventanas.mostrarVentana(evt,null, "usuario.fxml", "MENU PRINCIPAL", "usr");
                 progIn.setVisible(false);
-                stage.show();
                 MySQLBD.DESCONECTAR();
             }
         } else {
 
             if (conResult) {
-                Alert error = new Alert(Alert.AlertType.ERROR);
-                error.setTitle("Credenciales incorrectas");
-                error.setHeaderText("Credenciales incorrectas");
-                error.setContentText("Por favor intente de nuevo");
-                error.showAndWait().ifPresent((btnType) -> {
-                });
-
-
-                }
+                alertas.mostrarAlerta("error", "credenciales", null,null,null);
+                id_usuario.clear();
+                txtPass.clear();
+            }
             MySQLBD.DESCONECTAR();
             progIn.setVisible(false);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(loginControl.class.getName()).log(Level.SEVERE,null,ex);
-        } catch (IOException ex) {
+        } catch (SQLException | IOException ex) {
             Logger.getLogger(loginControl.class.getName()).log(Level.SEVERE,null,ex);
         }
 

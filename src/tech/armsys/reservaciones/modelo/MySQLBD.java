@@ -2,6 +2,7 @@ package tech.armsys.reservaciones.modelo;
 
 
 import javafx.scene.control.Alert;
+import tech.armsys.reservaciones.controlador.alertas;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -20,13 +21,7 @@ public class MySQLBD {
 
 
     public static boolean CONECTAR() {
-        Alert error = new Alert(Alert.AlertType.ERROR);
-        Alert error1 = new Alert(Alert.AlertType.ERROR);
-        error.setTitle("Fallo en la base de datos");
-        error.setHeaderText("El driver no ha cargado correctamente");
-        error1.setTitle("Fallo en la base de datos");
-        error1.setHeaderText("No se ha encontrado un servidor al cual conectarse");
-        error1.setContentText("Por favor inicialice el servidor");
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -35,12 +30,10 @@ public class MySQLBD {
         }
         catch (ClassNotFoundException e) {
             e.printStackTrace();
-            error.showAndWait().ifPresent((btnType) -> {
-            });
+            alertas.mostrarAlerta("error", "BD", null,null,"La clase de la BD no se ha encontrado");
         } catch (SQLException e) {
             e.printStackTrace();
-            error1.showAndWait().ifPresent((btnType) -> {
-            });
+            alertas.mostrarAlerta("error", "BD", null,null,"La base de datos no se ha inicializado o no existe");
         }
         if(conexion!=null){
             return true;
