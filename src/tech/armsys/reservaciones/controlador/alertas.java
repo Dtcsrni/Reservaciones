@@ -1,6 +1,7 @@
 package tech.armsys.reservaciones.controlador;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
@@ -32,6 +33,18 @@ public class alertas {
                 confirmacion.setTitle("Cerrar sesión");
                 confirmacion.setHeaderText("Confirme cierre de sesión");
                 confirmacion.setContentText("¿Está seguro que quiere cerrar su sesión y regresar a la zona de autenticación? ");
+
+                confirmacion.getButtonTypes().clear();
+                confirmacion.getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+
+                //Deactivate Defaultbehavior for yes-Button:
+                Button yesButton = (Button) confirmacion.getDialogPane().lookupButton( ButtonType.YES );
+                yesButton.setDefaultButton( false );
+
+                //Activate Defaultbehavior for no-Button:
+                Button noButton = (Button) confirmacion.getDialogPane().lookupButton( ButtonType.NO );
+                noButton.setDefaultButton( true );
+
                 result = confirmacion.showAndWait();
             }
         }

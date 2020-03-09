@@ -35,7 +35,7 @@ public class adminControl implements Initializable{
     @FXML
     void desconectar_Sesion(ActionEvent evt) throws IOException {
         Optional<ButtonType> resultado = alertas.mostrarAlerta("confirmacion", "logout", null, null, null);
-        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+        if (resultado.isPresent() && resultado.get() == ButtonType.YES) {
             ventanas.mostrarVentana(evt, null, "login.fxml","login", "admin");
             }
         }
