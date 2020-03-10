@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import javax.xml.transform.Result;
@@ -16,20 +13,22 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static tech.armsys.reservaciones.controlador.loginControl.usuario;
+
 public class adminControl implements Initializable{
     //Definición de campos de texto, etiquetas y botón
     @FXML TextField id_usuario;
 
     @FXML Button btnDesconectarse;
 
-    @FXML AnchorPane ap;
-    @FXML ProgressIndicator progIn;
+    @FXML Label lblNombre;
 
     FXMLLoader loader = new FXMLLoader();
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+         lblNombre.setText(usuario.getNombre());
            }
 
     @FXML
@@ -38,5 +37,9 @@ public class adminControl implements Initializable{
         if (resultado.isPresent() && resultado.get() == ButtonType.YES) {
             ventanas.mostrarVentana(evt, null, "login.fxml","login", "admin");
             }
+        }
+    @FXML
+    void admin_control_laboratorios(ActionEvent evt) throws IOException {
+        ventanas.mostrarVentana(evt, null, "admin_control_laboratorios.fxml","Control de Laboratorios", "admin");
         }
     }

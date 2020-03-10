@@ -44,8 +44,9 @@ public class MySQLBD {
     }
 
 
-    public static <T> T ConsultaSQL(String SQL, int tipo) {
+    public static <T> T ConsultaSQL(String SQL, int tipo) throws SQLException {
         T retorno = null;
+        CONECTAR();
         try {
         switch (tipo) {
             case 0://tipo 0 es de tipo return Result Set
@@ -61,7 +62,7 @@ public class MySQLBD {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        DESCONECTAR();
         return retorno;
     }
 

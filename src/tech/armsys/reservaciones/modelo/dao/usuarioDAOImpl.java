@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class usuarioDAOimpl implements usuarioDAO{
+public class usuarioDAOImpl implements usuarioDAO{
 
 
     public boolean CREAR(Usuario usuario)  throws SQLException {

@@ -22,9 +22,15 @@
                </image>
             </ImageView>
             <Label layoutX="83.0" layoutY="170.0" prefHeight="30.0" prefWidth="70.0" text="Usuario" />
-            <TextField fx:id="id_usuario" layoutX="153.0" layoutY="173.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca lsu ID de usuario" />
+            <TextField fx:id="id_usuario" layoutX="153.0" layoutY="173.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca lsu ID de usuario">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
             <Label layoutX="83.0" layoutY="218.0" prefHeight="30.0" prefWidth="84.0" text="Contraseña" />
-            <PasswordField fx:id="txtPass" layoutX="153.0" layoutY="221.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca su contraseña" />
+            <PasswordField fx:id="txtPass" layoutX="153.0" layoutY="221.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca su contraseña">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></PasswordField>
             <Button fx:id="btnEntrar" alignment="CENTER" contentDisplay="TOP" layoutX="283.0" layoutY="274.0" mnemonicParsing="false" onAction="#iniciar_sesion" prefHeight="64.0" prefWidth="70.0" text="ACCEDER">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">

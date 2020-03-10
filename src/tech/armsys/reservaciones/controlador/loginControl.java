@@ -4,11 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import tech.armsys.reservaciones.modelo.MySQLBD;
 import tech.armsys.reservaciones.modelo.Usuario;
 import tech.armsys.reservaciones.modelo.dao.usuarioDAO;
-import tech.armsys.reservaciones.modelo.dao.usuarioDAOimpl;
+import tech.armsys.reservaciones.modelo.dao.usuarioDAOImpl;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,12 +23,10 @@ public class loginControl implements Initializable{
 
     @FXML Button btnEntrar;
 
-    @FXML AnchorPane ap;
-
     @FXML ProgressIndicator progIn;
     public static Usuario usuario = new Usuario();
 
-
+    public static usuarioDAO usDAO;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,7 +45,7 @@ public class loginControl implements Initializable{
         MySQLBD con = new MySQLBD();
         usuario.setId_usuario(id_usuario.getText());
         usuario.setContra(txtPass.getText());
-        usuarioDAO usDAO = new usuarioDAOimpl();
+        usDAO = new usuarioDAOImpl();
 
         boolean conResult = MySQLBD.CONECTAR();//se conecta a la BD
             if(conResult==false){
