@@ -15,7 +15,7 @@ public class usuarioDAOImpl implements usuarioDAO{
     public boolean CREAR(Usuario usuario)  throws SQLException {
         int q;
             String sql1= "SELECT * FROM usuarios WHERE id_usuario='"+usuario.getId_Usuario()+"'";
-            String sql2= "INSERT INTO usuarios (id_usuario,nombre_usuario,tipo,contra) VALUES ('"+usuario.getId_Usuario()+"','"+usuario.getNombre()+"','"+usuario.getTipoUsuario()+"','"+usuario.getContra()+"','"+usuario.getGrupo()+"')";
+            String sql2= "INSERT INTO usuarios (id_usuario,nombre_usuario,tipo,contra, grupo) VALUES ('"+usuario.getId_Usuario()+"','"+usuario.getNombre()+"','"+usuario.getTipoUsuario()+"','"+usuario.getContra()+"','"+usuario.getGrupo()+"')";
             ResultSet rs = MySQLBD.ConsultaSQL(sql1,0);
             if(rs.next()){
                 return false;
@@ -79,10 +79,8 @@ public class usuarioDAOImpl implements usuarioDAO{
                         rs.getInt("tipo"),
                         rs.getString("contra") ,
                         rs.getString("grupo"));
-
                 return usr;
             }
-
         return null;
     }
 

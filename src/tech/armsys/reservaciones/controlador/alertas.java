@@ -68,7 +68,16 @@ public class alertas {
                 result = confirmacion.showAndWait();
             }
         }
-
+        if(tipoAlerta.equals("aviso")) {
+            if(subtipo.equals("alta")) {
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setTitle(titulo);
+                aviso.setHeaderText("**Alta de "+encabezado+" completada satisfactoriamente**");
+                aviso.setContentText("El "+encabezado+"ha sido agregado exitosamente a la base de datos\n " +
+                        "Los datos del espacio son los siguientes:\n"+contenido);
+                result = aviso.showAndWait();
+            }
+        }
         return result;
     }
 }

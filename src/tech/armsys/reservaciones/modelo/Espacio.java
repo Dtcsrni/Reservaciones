@@ -5,8 +5,9 @@ import javafx.beans.property.*;
 public class Espacio {
 
     //Se definen las variables del singleton
-    private DoubleProperty id_espacio;
+    private IntegerProperty id_espacio;
     private StringProperty nombre_espacio;
+    private StringProperty tipo_espacio;
     private IntegerProperty lugares;
 
     private static Espacio esp;
@@ -15,31 +16,32 @@ public class Espacio {
 
     }
 
-    public Espacio(double id_espacio1, String nombre_espacio1, int lugares) {
+    public Espacio(int id_espacio1, String nombre_espacio1,String tipo_espacio1, int lugares1) {
 
-        this.id_espacio = new SimpleDoubleProperty(id_espacio1);
+        this.id_espacio = new SimpleIntegerProperty(id_espacio1);
         this.nombre_espacio = new SimpleStringProperty(nombre_espacio1);
-        this.lugares = new SimpleIntegerProperty(lugares);
+        this.tipo_espacio = new SimpleStringProperty(tipo_espacio1);
+        this.lugares = new SimpleIntegerProperty(lugares1);
     }
 
 
 
-    public static Espacio getInstanceUser(double id_espacio1, String nombre_espacio1, int lugares){
+    public static Espacio getInstanceUser(int id_espacio1, String nombre_espacio1,String tipo_espacio1, int lugares1){
 
         if(esp == null){//Si no se ha instanciado aún el objeto
             //Se instancia un objeto (implementación de singleton)
-            esp = new Espacio(id_espacio1, nombre_espacio1, lugares);
+            esp = new Espacio(id_espacio1, nombre_espacio1,tipo_espacio1, lugares1);
         }
 
         return esp;//se devuelve el objeto
     }
     //Implementación de get y set para cada valor (encapsulamiento)
-    public double getId_Espacio() {
+    public int getId_Espacio() {
         return id_espacio.get();
     }
 
-    public void setId_espacio(double id_espacio1) {
-        this.id_espacio = new SimpleDoubleProperty(id_espacio1);
+    public void setId_espacio(Integer id_espacio1) {
+        this.id_espacio = new SimpleIntegerProperty(id_espacio1);
     }
 
     public String getNombre_espacio() {
@@ -48,6 +50,13 @@ public class Espacio {
 
     public void setNombre_espacio(String nombre_espacio1) {
         this.nombre_espacio = new SimpleStringProperty(nombre_espacio1);
+    }
+
+    public String getTipo_Espacio(){
+        return tipo_espacio.get();
+    }
+    public void setTipo_Espacio(String tipo_espacio1){
+        this.tipo_espacio = new SimpleStringProperty(tipo_espacio1);
     }
 
     public int getLugares(){

@@ -40,9 +40,10 @@ public class loginControl implements Initializable{
     }
 
     @FXML
-    void iniciar_sesion(ActionEvent evt) {
+    void iniciar_sesion(ActionEvent evt) throws SQLException {
         progIn.setVisible(true);
         MySQLBD con = new MySQLBD();
+        con.CONECTAR();
         usuario.setId_usuario(id_usuario.getText());
         usuario.setContra(txtPass.getText());
         usDAO = new usuarioDAOImpl();
@@ -81,7 +82,7 @@ public class loginControl implements Initializable{
         } catch (SQLException | IOException ex) {
             Logger.getLogger(loginControl.class.getName()).log(Level.SEVERE,null,ex);
         }
-
+        con.DESCONECTAR();
         }
 
     }

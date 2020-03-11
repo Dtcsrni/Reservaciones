@@ -47,7 +47,7 @@
                   <Image url="@recursos/user_shield_96px.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="45.0" prefHeight="78.0" prefWidth="382.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE COMPUTO" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="178.0" layoutY="45.0" prefHeight="78.0" prefWidth="304.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

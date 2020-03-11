@@ -69,17 +69,17 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtLugares" layoutX="226.0" layoutY="135.0" prefHeight="25.0" prefWidth="148.0" promptText="Lugares">
+                              <TextField fx:id="txtLugares" layoutX="226.0" layoutY="187.0" prefHeight="25.0" prefWidth="222.0" promptText="Lugares">
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor>
                               </TextField>
-                              <Label alignment="CENTER" layoutX="115.0" layoutY="137.0" prefHeight="21.0" prefWidth="106.0" text="Lugares">
+                              <Label alignment="CENTER" layoutX="108.0" layoutY="189.0" prefHeight="21.0" prefWidth="106.0" text="Lugares">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtNombreEsp" layoutX="226.0" layoutY="88.0" prefHeight="25.0" prefWidth="406.0" promptText="Nombre de laboratorio">
+                              <TextField fx:id="txtNombreEsp" layoutX="226.0" layoutY="88.0" prefHeight="25.0" prefWidth="399.0" promptText="Nombre de laboratorio">
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor>
@@ -111,11 +111,22 @@
                                     <Image url="@recursos/price_tag_96px.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="86.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="94.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@recursos/computer_96px.png" />
                                  </image>
                               </ImageView>
+                              <Label alignment="CENTER" layoutX="108.0" layoutY="141.0" prefHeight="21.0" prefWidth="113.0" text="Tipo de Espacio">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="79.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/room_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ChoiceBox fx:id="tipo_espacio" layoutX="226.0" layoutY="139.0" prefHeight="25.0" prefWidth="399.0" />
                            </children>
                         </AnchorPane>
                   </content>
