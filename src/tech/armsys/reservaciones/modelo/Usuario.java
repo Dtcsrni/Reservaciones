@@ -12,6 +12,7 @@ public class Usuario {
     private StringProperty nombre;
     private IntegerProperty tipoUsuario;
     private StringProperty contra;
+    private StringProperty grupo;
 
     private static Usuario usr;
     //función que asigna las variables provenientes de BD a las variables locales para el objeto de tipo paciente
@@ -19,21 +20,22 @@ public class Usuario {
 
     }
 
-    public Usuario(String id_usuario1, String nombre1, int tipoUsuario1, String contra1) {
+    public Usuario(String id_usuario1, String nombre1, int tipoUsuario1, String contra1, String grupo1) {
 
         this.id_usuario = new SimpleStringProperty(id_usuario1);
         this.nombre = new SimpleStringProperty(nombre1);
         this.tipoUsuario = new SimpleIntegerProperty(tipoUsuario1);
         this.contra = new SimpleStringProperty(contra1);
+        this.grupo = new SimpleStringProperty(grupo1);
     }
 
 
 
-    public static Usuario getInstanceUser(String id_usuario1, String nombre1, int tipoUsuario1, String contra1){
+    public static Usuario getInstanceUser(String id_usuario1, String nombre1, int tipoUsuario1, String contra1, String grupo1){
 
         if(usr == null){//Si no se ha instanciado aún el objeto
             //Se instancia un objeto (implementación de singleton)
-            usr = new Usuario(id_usuario1, nombre1, tipoUsuario1, contra1);
+            usr = new Usuario(id_usuario1, nombre1, tipoUsuario1, contra1, grupo1);
         }
 
         return usr;//se devuelve el objeto
@@ -68,4 +70,11 @@ public class Usuario {
     public void setContra(String contra1){
         this.contra = new SimpleStringProperty(contra1);
     }
+    public String getGrupo(){
+        return grupo.get();
+    }
+    public void setGrupo(String grupo1){
+        this.grupo = new SimpleStringProperty(grupo1);
+    }
 }
+

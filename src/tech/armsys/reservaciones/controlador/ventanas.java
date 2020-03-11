@@ -41,16 +41,16 @@ public class ventanas {
         //si el titulo contiene la palabra "login" entonces se formatea completo para el login
         if(titulo.equals("login")){
             if (window != null) {
-                window.setTitle("SIRELAC | BIENVENIDO > ACCESO");
+                window.setTitle("SIRESP | BIENVENIDO > ACCESO");
             }
         }
         else{//si no lo contiene, se formatea de acuerdo al título y tipo proporcionado
             //se formatea el título dependiendo el tipo de usuario
             if(tipo.equals("admin")){
-                tituloVentana = "SIRELAC | ADMINISTRADOR";
+                tituloVentana = "SIRESP | ADMINISTRADOR";
             }
             if(tipo.equals("usr")){
-                tituloVentana = "SIRELAC | USUARIO";
+                tituloVentana = "SIRESP | USUARIO";
             }
             if (window != null) {
                 window.setTitle(tituloVentana+" > "+titulo);

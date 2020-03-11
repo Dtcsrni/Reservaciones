@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.adminControl_laboratorios">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.adminControl_espacios">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
@@ -22,7 +22,7 @@
                   <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
-            <Label layoutX="251.0" layoutY="14.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE CÓMPUTO" textAlignment="CENTER" wrapText="true">
+            <Label layoutX="251.0" layoutY="14.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
@@ -32,7 +32,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="174.0" prefHeight="19.0" prefWidth="197.0" text="Control de laboratorios" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="174.0" prefHeight="19.0" prefWidth="197.0" text="Control de Espacio" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
@@ -60,41 +60,31 @@
             </ImageView>
             <TabPane layoutX="12.0" layoutY="211.0" prefHeight="303.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab closable="false" text="Alta de Laboratorios">
+                <Tab closable="false" text="Alta de Espacios">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" layoutX="60.0" layoutY="90.0" prefHeight="21.0" prefWidth="159.0" text="Nombre de laboratorio">
+                              <Label alignment="CENTER" layoutX="60.0" layoutY="90.0" prefHeight="21.0" prefWidth="159.0" text="Nombre de espacio">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtNoMaquinas" layoutX="226.0" layoutY="135.0" prefHeight="25.0" prefWidth="148.0" promptText="Número de máquinas">
+                              <TextField fx:id="txtLugares" layoutX="226.0" layoutY="135.0" prefHeight="25.0" prefWidth="148.0" promptText="Lugares">
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor>
                               </TextField>
-                              <Label alignment="CENTER" layoutX="115.0" layoutY="137.0" prefHeight="21.0" prefWidth="106.0" text="No.Maquinas">
+                              <Label alignment="CENTER" layoutX="115.0" layoutY="137.0" prefHeight="21.0" prefWidth="106.0" text="Lugares">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtNombreLab" layoutX="226.0" layoutY="88.0" prefHeight="25.0" prefWidth="406.0" promptText="Nombre de laboratorio">
+                              <TextField fx:id="txtNombreEsp" layoutX="226.0" layoutY="88.0" prefHeight="25.0" prefWidth="406.0" promptText="Nombre de laboratorio">
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor>
                               </TextField>
-                              <TextField fx:id="txtMaquinasOperativas" layoutX="226.0" layoutY="178.0" prefHeight="25.0" prefWidth="148.0" promptText="Máquinas operativas">
-                                 <cursor>
-                                    <Cursor fx:constant="TEXT" />
-                                 </cursor>
-                              </TextField>
-                              <Label alignment="CENTER" layoutX="73.0" layoutY="180.0" prefHeight="21.0" prefWidth="148.0" text="Máquinas operativas">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="btnAltaLaboratorio" layoutX="546.0" layoutY="226.0" mnemonicParsing="false" onAction="#altaLaboratorio" text="ALTA DE LABORATORIO">
+                              <Button fx:id="btnAltaEsp" layoutX="546.0" layoutY="226.0" mnemonicParsing="false" onAction="#altaEsp" text="ALTA DE ESPACIO">
                                  <graphic>
                                     <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -126,11 +116,6 @@
                                     <Image url="@recursos/computer_96px.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="46.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@recursos/networking_manager_96px.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                   </content>
@@ -142,15 +127,13 @@
                         </ImageView>
                      </graphic>
                 </Tab>
-                <Tab closable="false" text="Modificar laboratorio">
+                <Tab closable="false" text="Modificar Espacio">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="101.0" layoutY="120.0" prefHeight="17.0" prefWidth="125.0" text="Nombre Laboratorio" />
-                              <Label layoutX="121.0" layoutY="205.0" prefHeight="17.0" prefWidth="109.0" text="No.Operativas" />
-                              <TextField disable="true" layoutX="230.0" layoutY="201.0" prefHeight="25.0" prefWidth="126.0" />
+                              <Label layoutX="101.0" layoutY="120.0" prefHeight="17.0" prefWidth="125.0" text="Nombre de Espacio" />
                               <TextField disable="true" layoutX="230.0" layoutY="116.0" prefHeight="25.0" prefWidth="440.0" />
-                              <Button layoutX="573.0" layoutY="222.0" mnemonicParsing="false" text="MODIFICAR LABORATORIO">
+                              <Button layoutX="573.0" layoutY="222.0" mnemonicParsing="false" text="MODIFICAR ESPACIO">
                                  <graphic>
                                     <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -159,11 +142,11 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label layoutX="121.0" layoutY="166.0" prefHeight="17.0" prefWidth="84.0" text="No.Maquinas" />
+                              <Label layoutX="121.0" layoutY="166.0" prefHeight="17.0" prefWidth="84.0" text="Lugares" />
                               <TextField disable="true" layoutX="230.0" layoutY="162.0" prefHeight="25.0" prefWidth="124.0" />
-                              <Label layoutX="115.0" layoutY="60.0" prefHeight="17.0" prefWidth="204.0" text="Seleccione el laboratorio a modificar" />
+                              <Label layoutX="115.0" layoutY="60.0" prefHeight="17.0" prefWidth="204.0" text="Seleccione el espacio a modificar" />
                               <ChoiceBox layoutX="331.0" layoutY="51.0" prefHeight="35.0" prefWidth="449.0" />
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="20.0" prefHeight="19.0" prefWidth="197.0" text="Modificación de laboratorios" textAlignment="CENTER" underline="true" wrapText="true">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="20.0" prefHeight="19.0" prefWidth="197.0" text="Modificación de espacio" textAlignment="CENTER" underline="true" wrapText="true">
                                  <font>
                                     <Font name="System Italic" size="13.0" />
                                  </font>
@@ -183,11 +166,6 @@
                                     <Image url="@recursos/computer_96px.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="87.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@recursos/networking_manager_96px.png" />
-                                 </image>
-                              </ImageView>
                               <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="81.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@recursos/search_96px.png" />
@@ -204,20 +182,18 @@
                         </ImageView>
                      </graphic>
                 </Tab>
-                  <Tab closable="false" text="Baja de laboratorios">
+                  <Tab closable="false" text="Baja de Espacio">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="20.0" prefHeight="19.0" prefWidth="197.0" text="Baja de laboratorios" textAlignment="CENTER" underline="true" wrapText="true">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="20.0" prefHeight="19.0" prefWidth="197.0" text="Baja de espacios" textAlignment="CENTER" underline="true" wrapText="true">
                                  <font>
                                     <Font name="System Italic" size="13.0" />
                                  </font>
                               </Label>
-                              <Label disable="true" layoutX="127.0" layoutY="124.0" prefHeight="17.0" prefWidth="125.0" text="Nombre Laboratorio" />
-                              <Label disable="true" layoutX="123.0" layoutY="197.0" prefHeight="17.0" prefWidth="109.0" text="No.Operativas" />
-                              <TextField disable="true" editable="false" layoutX="263.0" layoutY="193.0" prefHeight="25.0" prefWidth="126.0" />
+                              <Label disable="true" layoutX="127.0" layoutY="124.0" prefHeight="17.0" prefWidth="125.0" text="Nombre Espacio" />
                               <TextField disable="true" editable="false" layoutX="264.0" layoutY="120.0" prefHeight="25.0" prefWidth="440.0" />
-                              <Button layoutX="593.0" layoutY="218.0" mnemonicParsing="false" text="BAJA DE LABORATORIO">
+                              <Button layoutX="593.0" layoutY="218.0" mnemonicParsing="false" text="BAJA DE ESPACIO">
                                  <graphic>
                                     <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -226,9 +202,9 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label disable="true" layoutX="135.0" layoutY="158.0" prefHeight="17.0" prefWidth="84.0" text="No.Maquinas" />
+                              <Label disable="true" layoutX="135.0" layoutY="158.0" prefHeight="17.0" prefWidth="84.0" text="Lugares" />
                               <TextField disable="true" editable="false" layoutX="264.0" layoutY="154.0" prefHeight="25.0" prefWidth="124.0" />
-                              <Label layoutX="109.0" layoutY="65.0" prefHeight="17.0" prefWidth="204.0" text="Seleccione el laboratorio a modificar" />
+                              <Label layoutX="109.0" layoutY="65.0" prefHeight="17.0" prefWidth="204.0" text="Seleccione el espacio a modificar" />
                               <ChoiceBox layoutX="321.0" layoutY="56.0" prefHeight="35.0" prefWidth="449.0" />
                               <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="286.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -248,11 +224,6 @@
                               <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="96.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@recursos/computer_96px.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="89.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@recursos/networking_manager_96px.png" />
                                  </image>
                               </ImageView>
                            </children>

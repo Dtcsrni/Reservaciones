@@ -15,7 +15,7 @@ public class usuarioDAOImpl implements usuarioDAO{
     public boolean CREAR(Usuario usuario)  throws SQLException {
         int q;
             String sql1= "SELECT * FROM usuarios WHERE id_usuario='"+usuario.getId_Usuario()+"'";
-            String sql2= "INSERT INTO usuarios (id_usuario,nombre_usuario,tipo,contra) VALUES ('"+usuario.getId_Usuario()+"','"+usuario.getNombre()+"','"+usuario.getTipoUsuario()+"','"+usuario.getContra()+"')";
+            String sql2= "INSERT INTO usuarios (id_usuario,nombre_usuario,tipo,contra) VALUES ('"+usuario.getId_Usuario()+"','"+usuario.getNombre()+"','"+usuario.getTipoUsuario()+"','"+usuario.getContra()+"','"+usuario.getGrupo()+"')";
             ResultSet rs = MySQLBD.ConsultaSQL(sql1,0);
             if(rs.next()){
                 return false;
@@ -38,6 +38,7 @@ public class usuarioDAOImpl implements usuarioDAO{
                 usuario.setNombre(rs.getString("nombre_usuario"));
                 usuario.setTipoUsuario(rs.getInt("tipo"));
                 usuario.setContra(rs.getString("contra"));
+                usuario.setGrupo(rs.getString("grupo"));
             }else{
                 return null;
             }
@@ -45,7 +46,7 @@ public class usuarioDAOImpl implements usuarioDAO{
     }
 
     public boolean ACTUALIZAR(Usuario usuarioBase, Usuario usuarioModif) throws SQLException{//función para hacer actualizaciones
-        String sql1= "UPDATE usuarios SET id_usuario='"+usuarioModif.getId_Usuario()+"',nombre_usuario='"+usuarioModif.getNombre()+"',tipo='"+usuarioModif.getTipoUsuario()+"',contra='"+usuarioModif.getContra()+"' WHERE id_usuario='"+usuarioBase.getId_Usuario()+"'";
+        String sql1= "UPDATE usuarios SET id_usuario='"+usuarioModif.getId_Usuario()+"',nombre_usuario='"+usuarioModif.getNombre()+"',tipo='"+usuarioModif.getTipoUsuario()+"',contra='"+usuarioModif.getContra()+"',grupo='"+usuarioModif.getGrupo()+"' WHERE id_usuario='"+usuarioBase.getId_Usuario()+"'";
 
             int rs = MySQLBD.ConsultaSQL(sql1,1);
             if(rs>0){
@@ -76,7 +77,8 @@ public class usuarioDAOImpl implements usuarioDAO{
                         rs.getString("id_usuario"),
                         rs.getString("nombre_usuario"),
                         rs.getInt("tipo"),
-                        rs.getString("contra") );
+                        rs.getString("contra") ,
+                        rs.getString("grupo"));
 
                 return usr;
             }
