@@ -6,9 +6,9 @@ import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
 
-public class alertas {
+public class Alertas {
 
-    public static Optional mostrarAlerta(String tipoAlerta, String subtipo, String titulo, String encabezado, String contenido){
+    public Optional mostrarAlerta(String tipoAlerta, String subtipo, String titulo, String encabezado, String contenido){
         Optional<ButtonType> result = Optional.empty();
 
         if (tipoAlerta.equals("error")){
@@ -24,6 +24,13 @@ public class alertas {
                     error.setTitle("Error en la base de datos");
                     error.setHeaderText("No se ha podido conectar con la base de datos correctamente");
                     error.setContentText("Verifique que la base de datos esté inicializada y funcionando correctamente. \n"+contenido);
+                    result = error.showAndWait();
+                }
+                if(subtipo.equals("alta_existente")){
+                    Alert error = new Alert(Alert.AlertType.ERROR);
+                    error.setTitle("Error en la alta");
+                    error.setHeaderText("No se ha podido dar de alta el registro solicitado");
+                    error.setContentText("El registro solicitado ya existe. Por favor, verifique los datos ingresados");
                     result = error.showAndWait();
                 }
             }
@@ -73,7 +80,7 @@ public class alertas {
                 Alert aviso = new Alert(Alert.AlertType.INFORMATION);
                 aviso.setTitle(titulo);
                 aviso.setHeaderText("**Alta de "+encabezado+" completada satisfactoriamente**");
-                aviso.setContentText("El "+encabezado+"ha sido agregado exitosamente a la base de datos\n " +
+                aviso.setContentText("El espacio "+encabezado+" ha sido agregado exitosamente a la base de datos.\n " +
                         "Los datos del espacio son los siguientes:\n"+contenido);
                 result = aviso.showAndWait();
             }

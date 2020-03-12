@@ -1,28 +1,22 @@
 package tech.armsys.reservaciones.modelo;
 
 
-import javafx.scene.control.Alert;
-import tech.armsys.reservaciones.controlador.alertas;
-import tech.armsys.reservaciones.controlador.loginControl;
+import tech.armsys.reservaciones.controlador.Alertas;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import static java.lang.System.exit;
 
 public class MySQLBD {
     //Se declaran variables de conexión y declaración
-    private static Connection conexion;
-    private static Statement st;
+    private Connection conexion;
+    private Statement st;
     //Se define la forma de conexión a la base de datos
-    private static  String server = "jdbc:mysql://localhost:3306/reservacion";
-    private static  String usr = "root";
-    private static  String psw = "";
+    private String server = "jdbc:mysql://localhost:3306/reservacion";
+    private String usr = "root";
+    private String psw = "";
 
 
-    public static boolean CONECTAR() {
-
+    public boolean CONECTAR() {
+        Alertas alerta = new Alertas();
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -31,10 +25,10 @@ public class MySQLBD {
         }
         catch (ClassNotFoundException e) {
             e.printStackTrace();
-            alertas.mostrarAlerta("error", "BD", null,null,"La clase de la BD no se ha encontrado");
+            alerta.mostrarAlerta("error", "BD", null,null,"La clase de la BD no se ha encontrado");
         } catch (SQLException e) {
             e.printStackTrace();
-            alertas.mostrarAlerta("error", "BD", null,null,"La base de datos no se ha inicializado o no existe");
+            alerta.mostrarAlerta("error", "BD", null,null,"La base de datos no se ha inicializado o no existe");
         }
         if(conexion!=null){
             return true;
@@ -44,18 +38,18 @@ public class MySQLBD {
     }
 
 
-    public static <T> T ConsultaSQL(String SQL, int tipo) throws SQLException {
+    public <T> T ConsultaSQL(String SQL, int tipo) throws SQLException {
         T retorno = null;
         try {
         switch (tipo) {
             case 0://tipo 0 es de tipo return Result Set
                     retorno = (T) st.executeQuery(SQL);
                     break;
-                    case 1://tipo 1 es de tipo return cantidad de registros afectados
+            case 1://tipo 1 es de tipo return cantidad de registros afectados
                         retorno = (T) Integer.valueOf(st.executeUpdate(SQL));
-                        break;
-                    default:
-                        break;
+                    break;
+            default:
+                    break;
 
         }
         } catch (SQLException e) {
@@ -64,7 +58,7 @@ public class MySQLBD {
         return retorno;
     }
 
-    public static void DESCONECTAR() throws SQLException {//función de desconexión
+    public void DESCONECTAR() throws SQLException {//función de desconexión
             conexion.close();
     }
 

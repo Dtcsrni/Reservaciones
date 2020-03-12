@@ -37,7 +37,7 @@
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="btnRegresar" layoutX="14.0" layoutY="549.0" mnemonicParsing="false" onAction="#botonRegresar" text="REGRESAR">
+            <Button layoutX="14.0" layoutY="549.0" mnemonicParsing="false" onAction="#botonRegresar" text="REGRESAR">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -60,7 +60,7 @@
             </ImageView>
             <TabPane layoutX="12.0" layoutY="211.0" prefHeight="303.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab closable="false" text="Alta de Espacios">
+                <Tab closable="false" onSelectionChanged="#cargarContenido" text="Alta de Espacios">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -79,12 +79,12 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtNombreEsp" layoutX="226.0" layoutY="88.0" prefHeight="25.0" prefWidth="399.0" promptText="Nombre de laboratorio">
+                              <TextField fx:id="txtNombreEspacio" layoutX="226.0" layoutY="88.0" prefHeight="25.0" prefWidth="399.0" promptText="Nombre de espacio a agregar">
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor>
                               </TextField>
-                              <Button fx:id="btnAltaEsp" layoutX="546.0" layoutY="226.0" mnemonicParsing="false" onAction="#altaEsp" text="ALTA DE ESPACIO">
+                              <Button layoutX="546.0" layoutY="226.0" mnemonicParsing="false" onAction="#altaEspacio" text="ALTA DE ESPACIO">
                                  <graphic>
                                     <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -138,13 +138,13 @@
                         </ImageView>
                      </graphic>
                 </Tab>
-                <Tab closable="false" text="Modificar Espacio">
+                <Tab closable="false" onSelectionChanged="#cargarContenidoModif" text="Modificar Espacio">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label layoutX="101.0" layoutY="120.0" prefHeight="17.0" prefWidth="125.0" text="Nombre de Espacio" />
-                              <TextField disable="true" layoutX="230.0" layoutY="116.0" prefHeight="25.0" prefWidth="440.0" />
-                              <Button layoutX="573.0" layoutY="222.0" mnemonicParsing="false" text="MODIFICAR ESPACIO">
+                              <TextField fx:id="txtNombreEspacio" disable="true" layoutX="230.0" layoutY="116.0" prefHeight="25.0" prefWidth="440.0" promptText="Nombre de espacio a modificar" />
+                              <Button layoutX="573.0" layoutY="222.0" mnemonicParsing="false" onAction="#modifEspacio" text="MODIFICAR ESPACIO">
                                  <graphic>
                                     <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -154,9 +154,9 @@
                                  </graphic>
                               </Button>
                               <Label layoutX="121.0" layoutY="166.0" prefHeight="17.0" prefWidth="84.0" text="Lugares" />
-                              <TextField disable="true" layoutX="230.0" layoutY="162.0" prefHeight="25.0" prefWidth="124.0" />
+                              <TextField fx:id="txtLugares" disable="true" layoutX="230.0" layoutY="162.0" prefHeight="25.0" prefWidth="124.0" />
                               <Label layoutX="115.0" layoutY="60.0" prefHeight="17.0" prefWidth="204.0" text="Seleccione el espacio a modificar" />
-                              <ChoiceBox layoutX="331.0" layoutY="51.0" prefHeight="35.0" prefWidth="449.0" />
+                              <ChoiceBox fx:id="tipo_espacio" layoutX="331.0" layoutY="51.0" prefHeight="35.0" prefWidth="449.0" />
                               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="20.0" prefHeight="19.0" prefWidth="197.0" text="Modificación de espacio" textAlignment="CENTER" underline="true" wrapText="true">
                                  <font>
                                     <Font name="System Italic" size="13.0" />
