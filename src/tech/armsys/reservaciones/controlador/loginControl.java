@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import tech.armsys.reservaciones.modelo.MySQLBD;
 import tech.armsys.reservaciones.modelo.Usuario;
 import tech.armsys.reservaciones.modelo.dao.usuarioDAO;
@@ -18,18 +19,23 @@ import java.util.logging.Logger;
 
 public class loginControl implements Initializable{
     //Definición de campos de texto, etiquetas y botón
-    @FXML TextField id_usuario;
-    @FXML PasswordField txtPass;
-
-    @FXML Button btnEntrar;
-
-    @FXML ProgressIndicator progIn;
+    @FXML
+    private TextField id_usuario;
+    @FXML
+    private PasswordField txtPass;
+    @FXML
+    private Button btnEntrar;
+    @FXML
+    private ProgressIndicator progIn;
     public static Usuario usuario = new Usuario();
-
     public static usuarioDAO usDAO;
+    @FXML
+    private AnchorPane anchorPaneLogin;
+    Animaciones animar = new Animaciones();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        animar.animarDesvanecer(anchorPaneLogin, 1.5f);
            }
 
     public boolean getProgIn() {
@@ -40,7 +46,7 @@ public class loginControl implements Initializable{
     }
 
     @FXML
-    void iniciar_sesion(ActionEvent evt) throws SQLException {
+    void iniciar_sesion(ActionEvent evt) throws Exception {
         Alertas alerta = new Alertas();
         progIn.setVisible(true);
         MySQLBD conexion = new MySQLBD();
@@ -59,11 +65,11 @@ public class loginControl implements Initializable{
             System.out.println("Acceso concedido");
 
             if (usuario.getTipoUsuario() == 0) {
-                ventanas.mostrarVentana(evt, null,"admin.fxml", "PANEL DE CONTROL", "admin");
+                Ventanas.mostrarVentana(evt, null,"admin.fxml", "PANEL DE CONTROL", "admin");
                 progIn.setVisible(false);
             }
             if (usuario.getTipoUsuario() == 1) {
-                ventanas.mostrarVentana(evt,null, "usuario.fxml", "MENU PRINCIPAL", "usr");
+                Ventanas.mostrarVentana(evt,null, "usuario.fxml", "MENU PRINCIPAL", "usr");
                 progIn.setVisible(false);
                 conexion.DESCONECTAR();
             }
@@ -78,7 +84,9 @@ public class loginControl implements Initializable{
             }
         } catch (SQLException | IOException ex) {
             Logger.getLogger(loginControl.class.getName()).log(Level.SEVERE,null,ex);
-            }
+            } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
     }

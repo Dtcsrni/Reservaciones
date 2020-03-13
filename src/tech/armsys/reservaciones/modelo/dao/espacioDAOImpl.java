@@ -50,20 +50,15 @@ public class espacioDAOImpl implements espacioDAO {
         return espacio;
     }
 
-    public List<Espacio> CONSULTAR() throws SQLException {
+    public List<String> CONSULTAR() throws SQLException {
         MySQLBD conexion = new MySQLBD();
         conexion.CONECTAR();
-        Espacio espacio = new Espacio();
-        List<Espacio> listaEspacios = new ArrayList<>();;
+        List<String> listaEspacios = new ArrayList<>();;
         String sql1 = "SELECT * FROM espacios";
         ResultSet rs = conexion.ConsultaSQL(sql1,0);
         if(rs!=null){
             while(rs.next()){
-                espacio.setId_espacio(rs.getInt("id_espacio"));
-                espacio.setNombre_espacio(rs.getString("nombre_espacio"));
-                espacio.setTipo_Espacio(rs.getString("tipo_espacio"));
-                espacio.setLugares(rs.getInt("lugares"));
-                listaEspacios.add(espacio);
+                listaEspacios.add(rs.getString("nombre_espacio"));
             }
         }else{
             conexion.DESCONECTAR();
@@ -73,10 +68,10 @@ public class espacioDAOImpl implements espacioDAO {
         return listaEspacios;
     }
 
-    public boolean ACTUALIZAR(Espacio espacioBase, Espacio espacioModif) throws SQLException{//función para hacer actualizaciones
+    public boolean ACTUALIZAR(String espacioBase, Espacio espacioModif) throws SQLException{//función para hacer actualizaciones
         MySQLBD conexion = new MySQLBD();
         conexion.CONECTAR();
-        String sql1= "UPDATE espacios SET id_espacio='"+null+"',nombre_espacio='"+espacioModif.getNombre_espacio()+"',tipo_espacio='"+espacioModif.getTipo_Espacio()+"',lugares='"+espacioModif.getLugares()+"' WHERE id_espacio='"+espacioBase.getId_Espacio()+"'";
+        String sql1= "UPDATE espacios SET nombre_espacio='"+espacioModif.getNombre_espacio()+"',tipo_espacio='"+espacioModif.getTipo_Espacio()+"',lugares='"+espacioModif.getLugares()+"' WHERE nombre_espacio='"+espacioBase+"'";
         int rs = conexion.ConsultaSQL(sql1,1);
         if(rs>0){
         }else{
@@ -90,7 +85,7 @@ public class espacioDAOImpl implements espacioDAO {
     public boolean BORRAR(Espacio espacio) throws SQLException{
         MySQLBD conexion = new MySQLBD();
         conexion.CONECTAR();
-        String sql1= "DELETE FROM espacios WHERE id_espacio='"+espacio.getId_Espacio()+"'";
+        String sql1= "DELETE FROM espacios WHERE nombre_espacio='"+espacio.getNombre_espacio()+"'";
         int rs = conexion.ConsultaSQL(sql1,1);
         if(rs>0){
         }else{

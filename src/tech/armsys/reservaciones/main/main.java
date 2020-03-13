@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import tech.armsys.reservaciones.controlador.ventanas;
+import tech.armsys.reservaciones.controlador.Ventanas;
 
 import static jdk.xml.internal.SecuritySupport.getResourceAsStream;
 
@@ -24,7 +24,7 @@ public class main extends Application {
     public void start(Stage primaryStage) {
 
         try{
-            ventanas.mostrarVentana(null,primaryStage,"login.fxml", "login", "");
+            Ventanas.mostrarVentana(null,primaryStage,"login.fxml", "login", "");
 
         }
         catch(Exception ex){

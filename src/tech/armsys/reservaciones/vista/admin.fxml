@@ -11,14 +11,14 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.adminControl">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorPaneAdmin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <ImageView fitHeight="128.0" fitWidth="148.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
-            <Label layoutX="261.0" layoutY="7.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE CÓMPUTO" textAlignment="CENTER" wrapText="true">
+            <Label layoutX="261.0" layoutY="7.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
@@ -28,11 +28,11 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button contentDisplay="TOP" layoutX="192.0" layoutY="229.0" mnemonicParsing="false" onAction="#admin_control_espacios" prefHeight="85.0" prefWidth="110.0" text="LABORATORIOS" textAlignment="CENTER">
+            <Button contentDisplay="TOP" layoutX="192.0" layoutY="229.0" mnemonicParsing="false" onAction="#admin_control_espacios" prefHeight="85.0" prefWidth="110.0" text="ESPACIOS" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="56.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@recursos/computer_128px.png" />
+                        <Image url="@recursos/room_96px.png" />
                      </image>
                   </ImageView>
                </graphic>

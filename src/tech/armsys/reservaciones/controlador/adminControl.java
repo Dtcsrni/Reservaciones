@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,30 +16,31 @@ import static tech.armsys.reservaciones.controlador.loginControl.usuario;
 
 public class adminControl implements Initializable{
     //Definición de campos de texto, etiquetas y botón
-    @FXML TextField id_usuario;
+    @FXML
+    private Label lblNombre;
 
-    @FXML Button btnDesconectarse;
-
-    @FXML Label lblNombre;
+    @FXML
+    private AnchorPane anchorPaneAdmin;
 
     FXMLLoader loader = new FXMLLoader();
-
+    Animaciones animar = new Animaciones();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          lblNombre.setText(usuario.getNombre());
+         animar.animarDesvanecer(anchorPaneAdmin,1.0f);
            }
 
     @FXML
-    void desconectar_Sesion(ActionEvent evt) throws IOException {
+    void desconectar_Sesion(ActionEvent evt) throws Exception {
         Alertas alerta = new Alertas();
         Optional<ButtonType> resultado = alerta.mostrarAlerta("confirmacion", "logout", null, null, null);
         if (resultado.isPresent() && resultado.get() == ButtonType.YES) {
-            ventanas.mostrarVentana(evt, null, "login.fxml","login", "admin");
+            Ventanas.mostrarVentana(evt, null, "login.fxml","login", "admin");
             }
         }
     @FXML
     void admin_control_espacios(ActionEvent evt) throws IOException {
-        ventanas.mostrarVentana(evt, null, "admin_control_espacios.fxml","Control de Espacios", "admin");
+        Ventanas.mostrarVentana(evt, null, "admin_control_espacios.fxml","Control de Espacios", "admin");
         }
     }
