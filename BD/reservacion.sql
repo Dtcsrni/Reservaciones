@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-02-2020 a las 16:56:16
+-- Tiempo de generación: 13-03-2020 a las 15:53:21
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -25,15 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `laboratorio`
+-- Estructura de tabla para la tabla `espacios`
 --
 
-CREATE TABLE `laboratorio` (
-  `id_lab` int(11) UNSIGNED NOT NULL,
-  `no_maquinas` int(10) UNSIGNED NOT NULL,
-  `operativas` int(10) UNSIGNED NOT NULL,
-  `disponible` tinyint(1) NOT NULL DEFAULT 1
+CREATE TABLE `espacios` (
+  `id_espacio` int(11) UNSIGNED NOT NULL,
+  `nombre_espacio` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `tipo_espacio` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `lugares` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `espacios`
+--
+
+INSERT INTO `espacios` (`id_espacio`, `nombre_espacio`, `tipo_espacio`, `lugares`) VALUES
+(9, 'Aula 70', 'Laboratorio de Computo', 40),
+(10, 'Aula 40', 'Laboratorio de Computo', 40),
+(14, 'Cafetería', 'Sala familiar', 100);
 
 -- --------------------------------------------------------
 
@@ -43,9 +52,11 @@ CREATE TABLE `laboratorio` (
 
 CREATE TABLE `reserva` (
   `id_reserva` int(11) NOT NULL,
-  `laboratorio` int(11) NOT NULL,
-  `usuario` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `fecha` date NOT NULL
+  `id_espacio` int(11) NOT NULL,
+  `horario` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `fecha` date NOT NULL,
+  `id_usuario` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `lugares` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- --------------------------------------------------------
@@ -55,28 +66,30 @@ CREATE TABLE `reserva` (
 --
 
 CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int(30) NOT NULL,
   `nombre_usuario` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
-  `tipo` int(100) NOT NULL,
-  `contra` varchar(50) COLLATE latin1_spanish_ci NOT NULL
+  `tipo` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `contra` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `grupo` varchar(20) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `tipo`, `contra`) VALUES
-(51175929, 'Erick Renato Vega Cerón', 0, '0000');
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `tipo`, `contra`, `grupo`) VALUES
+(1, 'Erick Renato Vega Cerón', 'Administrador', '1', '17');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `laboratorio`
+-- Indices de la tabla `espacios`
 --
-ALTER TABLE `laboratorio`
-  ADD PRIMARY KEY (`id_lab`);
+ALTER TABLE `espacios`
+  ADD PRIMARY KEY (`id_espacio`),
+  ADD UNIQUE KEY `nombre_espacio` (`nombre_espacio`);
 
 --
 -- Indices de la tabla `reserva`
@@ -93,6 +106,12 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `espacios`
+--
+ALTER TABLE `espacios`
+  MODIFY `id_espacio` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
