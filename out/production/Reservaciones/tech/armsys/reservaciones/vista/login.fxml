@@ -12,26 +12,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.loginControl">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.loginControl">
   <children>
-    <AnchorPane fx:id="ap" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorPaneLogin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fitHeight="111.0" fitWidth="147.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="176.0" fitWidth="228.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
-            <Label layoutX="83.0" layoutY="170.0" prefHeight="30.0" prefWidth="70.0" text="Usuario" />
-            <TextField fx:id="id_usuario" layoutX="153.0" layoutY="173.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca lsu ID de usuario">
+            <Label layoutX="226.0" layoutY="280.0" prefHeight="30.0" prefWidth="70.0" text="Usuario" />
+            <TextField fx:id="id_usuario" layoutX="296.0" layoutY="283.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca su ID de usuario">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
-            <Label layoutX="83.0" layoutY="218.0" prefHeight="30.0" prefWidth="84.0" text="Contraseña" />
-            <PasswordField fx:id="txtPass" layoutX="153.0" layoutY="221.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca su contraseña">
+            <Label layoutX="226.0" layoutY="344.0" prefHeight="30.0" prefWidth="84.0" text="Contraseña" />
+            <PasswordField fx:id="txtPass" layoutX="296.0" layoutY="347.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca su contraseña">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></PasswordField>
-            <Button fx:id="btnEntrar" alignment="CENTER" contentDisplay="TOP" layoutX="283.0" layoutY="274.0" mnemonicParsing="false" onAction="#iniciar_sesion" prefHeight="64.0" prefWidth="70.0" text="ACCEDER">
+            <Button fx:id="btnEntrar" alignment="CENTER" contentDisplay="TOP" layoutX="394.0" layoutY="458.0" mnemonicParsing="false" onAction="#iniciar_sesion" prefHeight="89.0" prefWidth="113.0" text="ACCEDER">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -42,27 +42,27 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ImageView fitHeight="54.0" fitWidth="70.0" layoutX="28.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="54.0" fitWidth="70.0" layoutX="171.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/user_shield_96px.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="178.0" layoutY="45.0" prefHeight="78.0" prefWidth="304.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="122.0" prefHeight="78.0" prefWidth="304.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="28.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="171.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/password_200px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="122.0" fitWidth="149.0" layoutX="478.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="178.0" fitWidth="235.0" layoutX="661.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/logoSiststemasCUH3NoFondo.png" />
                </image>
             </ImageView>
-            <Label layoutX="470.0" layoutY="356.0" prefHeight="30.0" prefWidth="157.0" text="Desarrollado por Erick Vega">
+            <Label layoutX="743.0" layoutY="562.0" prefHeight="30.0" prefWidth="157.0" text="Desarrollado por Erick Vega">
                <font>
                   <Font name="System Italic" size="9.0" />
                </font>
@@ -72,12 +72,17 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="116.0" prefHeight="19.0" prefWidth="81.0" text="ACCESO" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="409.0" layoutY="191.0" prefHeight="19.0" prefWidth="81.0" text="ACCESO" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <ProgressIndicator fx:id="progIn" layoutX="294.0" layoutY="283.0" mouseTransparent="true" visible="false" />
+            <ProgressIndicator fx:id="progIn" layoutX="425.0" layoutY="389.0" mouseTransparent="true" visible="false" />
+            <ImageView fitHeight="113.0" fitWidth="129.0" layoutX="393.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/room_96px.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
   </children>

@@ -125,7 +125,7 @@ public class Alertas {
                 Alert aviso = new Alert(Alert.AlertType.INFORMATION);
                 aviso.setTitle(titulo);
                 aviso.setHeaderText("**Alta de "+encabezado+" completada satisfactoriamente**");
-                aviso.setContentText("El "+encabezado+" ha sido agregado exitosamente a la base de datos.\n " +
+                aviso.setContentText(encabezado+" ha sido agregado exitosamente a la base de datos.\n " +
                         "Los datos son los siguientes:\n"+contenido);
                 result = aviso.showAndWait();
             }

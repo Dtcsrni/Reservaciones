@@ -11,7 +11,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.adminControl">
   <children>
-    <AnchorPane fx:id="anchorPaneAdmin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorPaneAdmin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
       <children>
             <ImageView fitHeight="128.0" fitWidth="148.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -72,7 +72,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button contentDisplay="TOP" layoutX="519.0" layoutY="229.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="110.0" text="USUARIOS" textAlignment="CENTER">
+            <Button contentDisplay="TOP" layoutX="519.0" layoutY="229.0" mnemonicParsing="false" onAction="#admin_control_usuarios" prefHeight="85.0" prefWidth="110.0" text="USUARIOS" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>

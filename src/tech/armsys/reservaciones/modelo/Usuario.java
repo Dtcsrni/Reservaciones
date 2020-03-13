@@ -10,7 +10,7 @@ public class Usuario {
     //Se definen las variables del singleton
     private StringProperty id_usuario;
     private StringProperty nombre;
-    private IntegerProperty tipoUsuario;
+    private StringProperty tipoUsuario;
     private StringProperty contra;
     private StringProperty grupo;
 
@@ -20,18 +20,18 @@ public class Usuario {
 
     }
 
-    public Usuario(String id_usuario1, String nombre1, int tipoUsuario1, String contra1, String grupo1) {
+    public Usuario(String id_usuario1, String nombre1, String tipoUsuario1, String contra1, String grupo1) {
 
         this.id_usuario = new SimpleStringProperty(id_usuario1);
         this.nombre = new SimpleStringProperty(nombre1);
-        this.tipoUsuario = new SimpleIntegerProperty(tipoUsuario1);
+        this.tipoUsuario = new SimpleStringProperty(tipoUsuario1);
         this.contra = new SimpleStringProperty(contra1);
         this.grupo = new SimpleStringProperty(grupo1);
     }
 
 
 
-    public static Usuario getInstanceUser(String id_usuario1, String nombre1, int tipoUsuario1, String contra1, String grupo1){
+    public static Usuario getInstanceUser(String id_usuario1, String nombre1, String tipoUsuario1, String contra1, String grupo1){
 
         if(usr == null){//Si no se ha instanciado aún el objeto
             //Se instancia un objeto (implementación de singleton)
@@ -57,11 +57,11 @@ public class Usuario {
         this.nombre = new SimpleStringProperty(nombre1);
     }
 
-    public int getTipoUsuario(){
+    public String getTipoUsuario(){
         return tipoUsuario.get();
     }
-    public void setTipoUsuario(int tipoUsuario1){
-        this.tipoUsuario = new SimpleIntegerProperty(tipoUsuario1);
+    public void setTipoUsuario(String tipoUsuario1){
+        this.tipoUsuario = new SimpleStringProperty(tipoUsuario1);
     }
 
     public String getContra(){

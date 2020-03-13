@@ -42,7 +42,7 @@ public class usuarioDAOImpl implements usuarioDAO{
             if(rs.next()){
                 usuario.setId_usuario(rs.getString("id_usuario"));
                 usuario.setNombre(rs.getString("nombre_usuario"));
-                usuario.setTipoUsuario(rs.getInt("tipo"));
+                usuario.setTipoUsuario(rs.getString("tipo"));
                 usuario.setContra(rs.getString("contra"));
                 usuario.setGrupo(rs.getString("grupo"));
             }else{
@@ -90,7 +90,7 @@ public class usuarioDAOImpl implements usuarioDAO{
                 Usuario usr = usuario.getInstanceUser(
                         rs.getString("id_usuario"),
                         rs.getString("nombre_usuario"),
-                        rs.getInt("tipo"),
+                        rs.getString("tipo"),
                         rs.getString("contra") ,
                         rs.getString("grupo"));
                 return usr;

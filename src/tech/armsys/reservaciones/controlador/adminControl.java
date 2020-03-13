@@ -43,4 +43,8 @@ public class adminControl implements Initializable{
     void admin_control_espacios(ActionEvent evt) throws IOException {
         Ventanas.mostrarVentana(evt, null, "admin_control_espacios.fxml","Control de Espacios", "admin");
         }
+    @FXML
+    void admin_control_usuarios(ActionEvent evt) throws IOException {
+        Ventanas.mostrarVentana(evt, null, "admin_control_usuarios.fxml","Control de Usuarios", "admin");
+    }
     }

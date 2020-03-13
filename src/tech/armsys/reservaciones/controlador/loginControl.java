@@ -64,11 +64,11 @@ public class loginControl implements Initializable{
             usDAO.CONSULTAR(usuario);
             System.out.println("Acceso concedido");
 
-            if (usuario.getTipoUsuario() == 0) {
+            if (usuario.getTipoUsuario().equals("Administrador") ) {
                 Ventanas.mostrarVentana(evt, null,"admin.fxml", "PANEL DE CONTROL", "admin");
                 progIn.setVisible(false);
             }
-            if (usuario.getTipoUsuario() == 1) {
+            if (usuario.getTipoUsuario().equals("Usuario")) {
                 Ventanas.mostrarVentana(evt,null, "usuario.fxml", "MENU PRINCIPAL", "usr");
                 progIn.setVisible(false);
                 conexion.DESCONECTAR();

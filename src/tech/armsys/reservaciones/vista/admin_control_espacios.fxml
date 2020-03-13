@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.adminControl_espacios">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.adminControl_Espacios">
   <children>
-    <AnchorPane fx:id="anchorPaneEspacios" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorPaneEspacios" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
       <children>
             <ImageView fitHeight="124.0" fitWidth="145.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="174.0" prefHeight="19.0" prefWidth="197.0" text="Control de Espacio" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="347.0" layoutY="181.0" prefHeight="19.0" prefWidth="197.0" text="Control de Espacio" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
@@ -54,9 +54,9 @@
                   <Image url="@recursos/logoSiststemasCUH3NoFondo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="58.0" fitWidth="68.0" layoutX="421.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="412.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/computer_128px.png" />
+                  <Image url="@recursos/room_96px.png" />
                </image>
             </ImageView>
             <TabPane fx:id="tabPaneEspacios" layoutX="12.0" layoutY="211.0" prefHeight="325.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
@@ -97,7 +97,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="22.0" prefHeight="19.0" prefWidth="197.0" text="Alta de Laboratorios" textAlignment="CENTER" underline="true" wrapText="true">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="22.0" prefHeight="19.0" prefWidth="197.0" text="Alta de Espacios" textAlignment="CENTER" underline="true" wrapText="true">
                                  <font>
                                     <Font name="System Italic" size="13.0" />
                                  </font>
@@ -221,7 +221,7 @@
                         </ImageView>
                      </graphic>
                 </Tab>
-                  <Tab fx:id="tabPaneElim" closable="false" onSelectionChanged="#cargarContenidoElim" text="bajaEspacio">
+                  <Tab fx:id="tabPaneElim" closable="false" onSelectionChanged="#cargarContenidoElim" text="Eliminar Espacio">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -235,7 +235,7 @@
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor></TextField>
-                              <Button fx:id="btnBaja" disable="true" layoutX="716.0" layoutY="253.0" mnemonicParsing="false" onAction="#elimEspacio" text="BAJA DE ESPACIO">
+                              <Button fx:id="btnBaja" disable="true" layoutX="716.0" layoutY="253.0" mnemonicParsing="false" onAction="#elimUsuario" text="BAJA DE ESPACIO">
                                  <graphic>
                                     <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
