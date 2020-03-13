@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 import static tech.armsys.reservaciones.controlador.loginControl.usuario;
 
-public class adminControl implements Initializable{
+public class usuarioControl implements Initializable{
     //Definición de campos de texto, etiquetas y botón
     @FXML
     private Label lblNombre;
@@ -28,9 +28,9 @@ public class adminControl implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         lblNombre.setText(usuario.getNombre());
-         animar.animarDesvanecer(anchorPaneAdmin,1.0f);
-           }
+        lblNombre.setText(usuario.getNombre());
+        animar.animarDesvanecer(anchorPaneAdmin,1.0f);
+    }
 
     @FXML
     void desconectar_Sesion(ActionEvent evt) throws Exception {
@@ -38,14 +38,11 @@ public class adminControl implements Initializable{
         Optional<ButtonType> resultado = alerta.mostrarAlerta("confirmacion", "logout", null, null, null);
         if (resultado.isPresent() && resultado.get() == ButtonType.YES) {
             Ventanas.mostrarVentana(evt, null, "login.fxml","login", "admin");
-            }
         }
-    @FXML
-    void admin_control_espacios(ActionEvent evt) throws IOException {
-        Ventanas.mostrarVentana(evt, null, "admin_control_espacios.fxml","Control de Espacios", "admin");
-        }
-    @FXML
-    void admin_control_usuarios(ActionEvent evt) throws IOException {
-        Ventanas.mostrarVentana(evt, null, "admin_control_usuarios.fxml","Control de Usuarios", "admin");
     }
+
+    @FXML
+    void usuario_control_reservaciones(ActionEvent evt) throws IOException {
+        Ventanas.mostrarVentana(evt, null, "usuario_reservar.fxml","Reservas", "admin");
     }
+}

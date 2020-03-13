@@ -50,7 +50,15 @@ public class loginControl implements Initializable{
         Alertas alerta = new Alertas();
         progIn.setVisible(true);
         MySQLBD conexion = new MySQLBD();
-        usuario.setId_usuario(Integer.parseInt(id_usuario.getText()));
+        if (id_usuario.getText().equals("")) {
+            alerta.mostrarAlerta("error", "credenciales", null,null,null);
+            id_usuario.clear();
+            txtPass.clear();
+        }
+        else{
+            usuario.setId_usuario(Integer.parseInt(id_usuario.getText()));
+        }
+
         usuario.setContra(txtPass.getText());
         usDAO = new usuarioDAOImpl();
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -8,29 +9,70 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-      <AnchorPane fx:id="AP" maxHeight="-1.0" maxWidth="-1.0" prefHeight="405.0" prefWidth="640.0">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.usuarioControl">
+   <children>
+      <AnchorPane fx:id="anchorPaneAdmin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="98.0" fitWidth="136.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="128.0" fitWidth="148.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
-            <Label layoutX="121.0" layoutY="14.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE CÓMPUTO" textAlignment="CENTER" wrapText="true">
+            <Label layoutX="261.0" layoutY="7.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="222.0" layoutY="98.0" prefHeight="35.0" prefWidth="197.0" text="USUARIO" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="91.0" prefHeight="35.0" prefWidth="197.0" text="USUARIO" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="96.0" layoutY="156.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="RESERVAR LABORATORIO" />
-            <Button layoutX="96.0" layoutY="227.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="REVISAR RESERVACIONES" />
-            <Button layoutX="14.0" layoutY="351.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="119.0" text="SALIR" />
+            <Button fx:id="btnDesconectarse" alignment="CENTER" layoutX="549.0" layoutY="92.0" mnemonicParsing="false" onAction="#desconectar_Sesion" prefHeight="32.0" prefWidth="110.0" text="Desconectarse" wrapText="true">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/logout_rounded_left_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="138.0" fitWidth="185.0" layoutX="702.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/logoSiststemasCUH3NoFondo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="335.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/admin_settings_male_96px.png" />
+               </image>
+            </ImageView>
+            <Button contentDisplay="TOP" layoutX="375.0" layoutY="265.0" mnemonicParsing="false" onAction="#usuario_control_reservaciones" prefHeight="85.0" prefWidth="110.0" text="RESERVACIONES" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/schedule_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="302.0" layoutY="131.0" prefHeight="19.0" prefWidth="81.0" text="Bienvenid@" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNombre" alignment="CENTER" contentDisplay="CENTER" layoutX="383.0" layoutY="131.0" prefHeight="19.0" prefWidth="203.0" text="Señor" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-  </children>
+   </children>
 </VBox>
