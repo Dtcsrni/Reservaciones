@@ -48,6 +48,13 @@ public class Alertas {
                 error.setContentText("No ha indicado el nombre correcto. La operación de eliminación se ha cancelado");
                 result = error.showAndWait();
                 }
+            if(subtipo.equals("busquedafallida")){
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setTitle("Error en la busqueda");
+                error.setHeaderText("No se ha podido encontrar el registro solicitado");
+                error.setContentText("El registro solicitado no existe. Por favor, verifique los datos ingresados");
+                result = error.showAndWait();
+            }
             }
         if(tipoAlerta.equals("confirmacion")){
             if(subtipo.equals("logout")){

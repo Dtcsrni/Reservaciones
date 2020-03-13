@@ -60,7 +60,7 @@
                   <Image url="@recursos/user_groups_96px.png" />
                </image>
             </ImageView>
-            <TabPane fx:id="tabPaneEspacios" layoutX="12.0" layoutY="211.0" prefHeight="325.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPaneUsuarios" layoutX="12.0" layoutY="211.0" prefHeight="325.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab closable="false" onSelectionChanged="#cargarContenido" text="Alta de Usuarios">
                      <content>
@@ -282,7 +282,7 @@
                                     <Image url="@recursos/search_96px.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="btnBuscar1" disable="true" layoutX="709.0" layoutY="50.0" mnemonicParsing="false" onAction="#buscarUsuario" text="BUSCAR">
+                              <Button fx:id="btnBuscar1" layoutX="709.0" layoutY="50.0" mnemonicParsing="false" onAction="#buscarUsuario" text="BUSCAR">
                                  <graphic>
                                     <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -406,7 +406,7 @@
                                     <Image url="@recursos/search_96px.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="btnModif11" disable="true" layoutX="677.0" layoutY="57.0" mnemonicParsing="false" onAction="#buscarUsuario2" text="BUSCAR">
+                              <Button fx:id="btnModif11" layoutX="677.0" layoutY="57.0" mnemonicParsing="false" onAction="#buscarUsuario2" text="BUSCAR">
                                  <graphic>
                                     <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                        <image>

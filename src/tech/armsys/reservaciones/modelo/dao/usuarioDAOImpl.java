@@ -40,7 +40,7 @@ public class usuarioDAOImpl implements usuarioDAO{
 
             ResultSet rs = conexion.ConsultaSQL(sql1,0);
             if(rs.next()){
-                usuario.setId_usuario(rs.getString("id_usuario"));
+                usuario.setId_usuario(rs.getInt("id_usuario"));
                 usuario.setNombre(rs.getString("nombre_usuario"));
                 usuario.setTipoUsuario(rs.getString("tipo"));
                 usuario.setContra(rs.getString("contra"));
@@ -53,10 +53,10 @@ public class usuarioDAOImpl implements usuarioDAO{
         return usuario;
     }
 
-    public boolean ACTUALIZAR(Usuario usuarioBase, Usuario usuarioModif) throws SQLException{//función para hacer actualizaciones
+    public boolean ACTUALIZAR(int usuarioBase, Usuario usuarioModif) throws SQLException{//función para hacer actualizaciones
         MySQLBD conexion = new MySQLBD();
         conexion.CONECTAR();
-        String sql1= "UPDATE usuarios SET id_usuario='"+usuarioModif.getId_Usuario()+"',nombre_usuario='"+usuarioModif.getNombre()+"',tipo='"+usuarioModif.getTipoUsuario()+"',contra='"+usuarioModif.getContra()+"',grupo='"+usuarioModif.getGrupo()+"' WHERE id_usuario='"+usuarioBase.getId_Usuario()+"'";
+        String sql1= "UPDATE usuarios SET id_usuario='"+usuarioModif.getId_Usuario()+"',nombre_usuario='"+usuarioModif.getNombre()+"',tipo='"+usuarioModif.getTipoUsuario()+"',contra='"+usuarioModif.getContra()+"',grupo='"+usuarioModif.getGrupo()+"' WHERE id_usuario='"+usuarioBase+"'";
             int rs = conexion.ConsultaSQL(sql1,1);
             if(rs>0){
             }else{
@@ -88,7 +88,7 @@ public class usuarioDAOImpl implements usuarioDAO{
             ResultSet rs = conexion.ConsultaSQL(sql1,0);
             if(rs.next()){
                 Usuario usr = usuario.getInstanceUser(
-                        rs.getString("id_usuario"),
+                        rs.getInt("id_usuario"),
                         rs.getString("nombre_usuario"),
                         rs.getString("tipo"),
                         rs.getString("contra") ,

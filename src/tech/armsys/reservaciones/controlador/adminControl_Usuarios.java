@@ -28,7 +28,7 @@ public class adminControl_Usuarios implements Initializable {
     private AnchorPane anchorPaneUsuarios;
 
     @FXML
-    private TabPane tabPaneEspacios;
+    private TabPane tabPaneUsuarios;
 
     @FXML
     private TextField txtNombreUsuario1;
@@ -104,7 +104,7 @@ public class adminControl_Usuarios implements Initializable {
     private usuarioDAO usDAO= new usuarioDAOImpl();
     private boolean result;
     private List<String> tipoUsuario = new ArrayList<>();
-    private String nombreUsuariobase;
+    private int idUsuarioBase;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -113,64 +113,82 @@ public class adminControl_Usuarios implements Initializable {
 
     @FXML
     private void buscarUsuario(ActionEvent actionEvent) throws SQLException {
-        /*
-        txtNombreEspacio2.setDisable(true);
-        txtLugares2.setDisable(true);
-        tipo_espacio_seleccionado.setDisable(true);
+
+        txtMatriculaUsuario2.setDisable(true);
+        txtNombreUsuario2.setDisable(true);
+        tipo_usuario2.setDisable(true);
+        txtpass2.setDisable(true);
+        txtGrupo2.setDisable(true);
         btnModif.setDisable(true);
+        tipo_usuario2.setDisable(true);
+
         if(tabPaneModif.isSelected()) {
-            espacio.setNombre_espacio((String)tipo_espacio2.getValue());
-            nombreEspacioBase = espacio.getNombre_espacio();
-            espacio = espDAO.CONSULTAR(espacio);
-            txtNombreEspacio2.setDisable(false);
-            txtLugares2.setDisable(false);
-            tipo_espacio_seleccionado.setDisable(false);
-            btnModif.setDisable(false);
-            txtNombreEspacio2.setText(espacio.getNombre_espacio());
-            txtLugares2.setText(Integer.toString(espacio.getLugares()));
-            tipo_espacio_seleccionado.getItems().clear();
-            tipoEspacios.clear();
-            lista.clear();
-            cargarTiposEspacio(tipoEspacios);
-            lista.addAll(tipoEspacios);
-            tipo_espacio_seleccionado.getItems().addAll(lista);
-            tipo_espacio_seleccionado.getSelectionModel().select(lista.indexOf(espacio.getTipo_Espacio()));
-            animar.animarDesvanecer(txtNombreEspacio2);
-            animar.animarDesvanecer(tipo_espacio_seleccionado);
-            animar.animarDesvanecer(txtLugares2);
+
+            usuario.setId_usuario(Integer.parseInt(txtIdUsuarioBuscar.getText()));
+            usuario = usDAO.CONSULTAR(usuario);
+
+            if(usuario==null){
+                alerta.mostrarAlerta("error","busquedafallida",null,null,null);
+            }
+            else {
+                idUsuarioBase = usuario.getId_Usuario();
+                txtMatriculaUsuario2.setDisable(false);
+                txtNombreUsuario2.setDisable(false);
+                tipo_usuario2.setDisable(false);
+                txtpass2.setDisable(false);
+                txtGrupo2.setDisable(false);
+                btnModif.setDisable(false);
+
+                txtMatriculaUsuario2.setText(String.valueOf(usuario.getId_Usuario()));
+                txtNombreUsuario2.setText(usuario.getNombre());
+                txtpass2.setText(usuario.getContra());
+                txtGrupo2.setText(usuario.getGrupo());
+                tipoUsuario.clear();
+
+                lista.clear();
+                cargarTiposUsuario(tipoUsuario);
+                lista.addAll(tipoUsuario);
+                tipo_usuario2.getItems().clear();
+                tipo_usuario2.getItems().addAll(lista);
+                tipo_usuario2.getSelectionModel().select(lista.indexOf(usuario.getTipoUsuario()));
+                animar.animarDesvanecer(txtMatriculaUsuario2);
+                animar.animarDesvanecer(txtNombreUsuario2);
+                animar.animarDesvanecer(tipo_usuario2);
+                animar.animarDesvanecer(txtpass2);
+                animar.animarDesvanecer(txtGrupo2);
+            }
         }
-        */
+
 
     }
     @FXML
     private void buscarUsuario2(ActionEvent actionEvent) throws SQLException {
-        /*
-        txtNombreEspacio2.setDisable(true);
-        txtLugares2.setDisable(true);
-        tipo_espacio_seleccionado.setDisable(true);
-        btnModif.setDisable(true);
-        if(tabPaneModif.isSelected()) {
-            espacio.setNombre_espacio((String)tipo_espacio2.getValue());
-            nombreEspacioBase = espacio.getNombre_espacio();
-            espacio = espDAO.CONSULTAR(espacio);
-            txtNombreEspacio2.setDisable(false);
-            txtLugares2.setDisable(false);
-            tipo_espacio_seleccionado.setDisable(false);
-            btnModif.setDisable(false);
-            txtNombreEspacio2.setText(espacio.getNombre_espacio());
-            txtLugares2.setText(Integer.toString(espacio.getLugares()));
-            tipo_espacio_seleccionado.getItems().clear();
-            tipoEspacios.clear();
+
+        txtMatriculaUsuario3.setDisable(true);
+        txtNombreUsuario3.setDisable(true);
+        txtTipoUsuario3.setDisable(true);
+        txtGrupo3.setDisable(true);
+        btnBaja.setDisable(true);
+
+        if(tabPaneElim.isSelected()) {
+            usuario.setId_usuario(Integer.parseInt(txtUsuarioBuscar3.getText()));
+            usuario = usDAO.CONSULTAR(usuario);
+            txtMatriculaUsuario3.setDisable(false);
+            txtNombreUsuario3.setDisable(false);
+            txtTipoUsuario3.setDisable(false);
+            txtGrupo3.setDisable(false);
+            btnBaja.setDisable(false);
+            txtNombreUsuario3.setText(usuario.getNombre());
+            txtMatriculaUsuario3.setText(Integer.toString(usuario.getId_Usuario()));
+            txtTipoUsuario3.setText(usuario.getTipoUsuario());
+            txtGrupo3.setText(usuario.getGrupo());
             lista.clear();
-            cargarTiposEspacio(tipoEspacios);
-            lista.addAll(tipoEspacios);
-            tipo_espacio_seleccionado.getItems().addAll(lista);
-            tipo_espacio_seleccionado.getSelectionModel().select(lista.indexOf(espacio.getTipo_Espacio()));
-            animar.animarDesvanecer(txtNombreEspacio2);
-            animar.animarDesvanecer(tipo_espacio_seleccionado);
-            animar.animarDesvanecer(txtLugares2);
+            animar.animarDesvanecer(txtNombreUsuario3);
+            animar.animarDesvanecer(txtMatriculaUsuario3);
+            animar.animarDesvanecer(txtGrupo3);
+            animar.animarDesvanecer(txtTipoUsuario3);
         }
-        */
+
 
     }
     /*
@@ -193,6 +211,7 @@ public class adminControl_Usuarios implements Initializable {
         }
     }*/
     private void cargarTiposUsuario(List lista){
+        lista.clear();
         lista.add("Administrador");
         lista.add("Usuario");
     }
@@ -200,42 +219,46 @@ public class adminControl_Usuarios implements Initializable {
     @FXML
     private void cargarContenido(){//carga las carreras en los choicebox
         txtMatriculaUsuario1.clear();
-        lista.clear();
         txtMatriculaUsuario1.clear();
         txtNombreUsuario1.clear();
-        tipo_usuario.getItems().clear();
         txtPass.clear();
         txtGrupo.clear();
+        tipo_usuario.getItems().clear();
+        lista.clear();
         cargarTiposUsuario(tipoUsuario);
         lista.addAll(tipoUsuario);
         tipo_usuario.getItems().addAll(lista);
     }
     @FXML
     private void cargarContenidoModif() throws SQLException {
-        /*
+        txtMatriculaUsuario2.setDisable(true);
+        txtNombreUsuario2.setDisable(true);
+        tipo_usuario2.setDisable(true);
+        txtpass2.setDisable(true);
+        txtGrupo2.setDisable(true);
+        btnModif.setDisable(true);
+
+        tipo_usuario2.getItems().clear();
+        txtMatriculaUsuario2.clear();
+        txtNombreUsuario2.clear();
+        txtpass2.clear();
+        txtGrupo2.clear();
+
         lista.clear();
-        listaEspacios.clear();
-        txtNombreEspacio2.clear();
-        txtLugares2.clear();
-        tipo_espacio2.getItems().clear();
-        tipo_espacio_seleccionado.getItems().clear();
-        listaEspacios= espDAO.CONSULTAR();
-        lista.addAll(listaEspacios);
-        tipo_espacio2.getItems().addAll(lista);
-        */
+        tipo_usuario2.getItems().clear();
+        cargarTiposUsuario(tipoUsuario);
+        lista.addAll(tipoUsuario);
+        tipo_usuario2.getItems().addAll(lista);
+
 
     }
     @FXML
-    private void cargarContenidoElim() throws SQLException {/*
+    private void cargarContenidoElim() throws SQLException {
         lista.clear();
-        listaus.clear();
-        txtNombreEspacio3.clear();
-        txtLugares3.clear();
-        txtTipo_espacio3.clear();
-        tipo_espacio3.getItems().clear();
-        listaEspacios= usDAO.CONSULTAR();
-        lista.addAll(listaEspacios);
-        tipo_espacio3.getItems().addAll(lista);*/
+        txtNombreUsuario3.clear();
+        txtGrupo3.clear();
+        txtMatriculaUsuario3.clear();
+        txtTipoUsuario3.clear();
     }
 
 
@@ -250,7 +273,7 @@ public class adminControl_Usuarios implements Initializable {
                 "-Id de Usuario: "+txtMatriculaUsuario1.getText()+"\n-Nombre de usuario: "+txtNombreUsuario1.getText()+
                         "\n-Tipo de usuario: "+tipo_usuario.getValue()+"\n-Contraseña: "+txtPass.getText()+"\n-Grupo: "+txtGrupo.getText()+"\n");
         if (resultado.isPresent() & resultado.get() == ButtonType.YES) {
-            usuario.setId_usuario(txtMatriculaUsuario1.getText());
+            usuario.setId_usuario(Integer.parseInt(txtMatriculaUsuario1.getText()));
             usuario.setNombre(txtNombreUsuario1.getText());
             usuario.setTipoUsuario((String)tipo_usuario.getValue());
             usuario.setContra(txtPass.getText());
@@ -278,72 +301,81 @@ public class adminControl_Usuarios implements Initializable {
     }
     @FXML
     private void modifUsuario(ActionEvent evt) throws Exception {
-        /*
-        Optional<ButtonType> resultado = alerta.mostrarAlerta("confirmacion", "modificacion", "Confirmación de modificación de Espacio", nombreEspacioBase,
-                "-Nombre de Espacio: "+txtNombreEspacio2.getText()+"\n-Tipo de espacio: "+(String)(tipo_espacio_seleccionado.getValue())+"\n-Lugares: "+txtLugares2.getText()+"\n");
+
+        Optional<ButtonType> resultado = alerta.mostrarAlerta("confirmacion", "modificacion", "Confirmación de modificación de Usuario", String.valueOf(idUsuarioBase),
+                "-Matricula de Usuario: "+txtMatriculaUsuario2.getText()+"\n-Nombre de usuario: "+txtNombreUsuario2.getText()+"\n-Tipo de usuario: "+tipo_usuario2.getValue()+"\n-Contraseña de usuario: "+txtpass2.getText()
+                        +"\n-Grupo de usuario: "+txtGrupo2.getText()+"\n");
         if (resultado.isPresent() && resultado.get() == ButtonType.YES) {
-            espacio.setNombre_espacio(txtNombreEspacio2.getText());
-            espacio.setTipo_Espacio((String)tipo_espacio_seleccionado.getValue());
-            espacio.setLugares(Integer.parseInt(txtLugares2.getText()));
-            result = espDAO.ACTUALIZAR(nombreEspacioBase, espacio);
+            usuario.setId_usuario(Integer.parseInt(txtMatriculaUsuario2.getText()));
+            usuario.setNombre(txtNombreUsuario2.getText());
+            usuario.setTipoUsuario((String)tipo_usuario2.getValue());
+            usuario.setContra(txtpass2.getText());
+            usuario.setGrupo(txtGrupo2.getText());
+            result = usDAO.ACTUALIZAR(idUsuarioBase, usuario);
             if(result){
-                espacio = espDAO.CONSULTAR(espacio);
-                alerta.mostrarAlerta("aviso", "modificacion","Modificación de espacio satisfactoria", espacio.getTipo_Espacio(),
-                        "-Id de Espacio: "+espacio.getId_Espacio()+"\n-Nombre de Espacio: "+espacio.getNombre_espacio()+"\n-Tipo de espacio: "+espacio.getTipo_Espacio()+"\n-Lugares: "+espacio.getLugares()+"\n");
-                tabPaneEspacios.getSelectionModel().select(0);
+                usuario = usDAO.CONSULTAR(usuario);
+                alerta.mostrarAlerta("aviso", "modificacion","Modificación de usuario satisfactoria", usuario.getTipoUsuario(),
+                        "-Matricula de Usuario: "+txtMatriculaUsuario2.getText()+"\n-Nombre de usuario: "+txtNombreUsuario2.getText()+"\n-Tipo de usuario: "+tipo_usuario2.getValue()+"\n-Contraseña de usuario: "+txtpass2.getText()
+                                +"\n-Grupo de usuario: "+txtGrupo2.getText()+"\n");
+                tabPaneUsuarios.getSelectionModel().select(0);
                 lista.clear();
-                listaEspacios.clear();
-                txtNombreEspacio2.clear();
-                txtLugares2.clear();
-                tipo_espacio2.getItems().clear();
-                tipo_espacio_seleccionado.getItems().clear();
+                txtIdUsuarioBuscar.clear();
+                txtMatriculaUsuario2.clear();
+                txtNombreUsuario2.clear();
+                tipo_usuario2.getItems().clear();
+                txtpass2.clear();
+                txtGrupo2.clear();
             }
             else{
                 alerta.mostrarAlerta("error", "alta_existente","Error", "Error al intentar realizar registro","No se ha podido realizar el registro, por favor intente nuevamente");
             }
         }
-        txtNombreEspacio2.setDisable(true);
-        txtLugares2.setDisable(true);
-        tipo_espacio_seleccionado.setDisable(true);
+        txtMatriculaUsuario2.setDisable(true);
+        txtNombreUsuario2.setDisable(true);
+        tipo_usuario2.setDisable(true);
+        txtpass2.setDisable(true);
+        txtGrupo2.setDisable(true);
         btnModif.setDisable(true);
-*/
+
     }
 
     @FXML
-    private void elimUsuario() throws Exception {/*
-        Optional<String> resultado = alerta.mostrarAlerta("confirmacion", "eliminacion", "Confirmación de eliminación de Espacio", txtNombreEspacio3.getText(),
-                "-Nombre de Espacio: "+txtNombreEspacio3.getText()+"\n-Tipo de espacio: "+txtTipo_espacio3.getText()+"\n-Lugares: "+txtLugares3.getText()+"\n");
+    private void elimUsuario() throws Exception {
+        Optional<String> resultado = alerta.mostrarAlerta("confirmacion", "eliminacion", "Confirmación de eliminación de Usuario", txtNombreUsuario3.getText(),
+                "-Matricula de Usuario: "+txtMatriculaUsuario3.getText()+"\n-Nombre de usuario: "+txtNombreUsuario3.getText()+"\n-Tipo de usuario: "+txtTipoUsuario3.getText()
+                        +"\n-Grupo de usuario: "+txtGrupo3.getText()+"\n");
         if (resultado.isPresent()) {
             System.out.println(resultado.get());
-            if(resultado.get().equals(txtNombreEspacio3.getText())){
-                espacio.setNombre_espacio(txtNombreEspacio3.getText());
-                espacio.setTipo_Espacio(txtTipo_espacio3.getText());
-                espacio.setLugares(Integer.parseInt(txtLugares3.getText()));
-                result = espDAO.BORRAR(espacio);
+            if(resultado.get().equals(txtNombreUsuario3.getText())){
+                usuario.setNombre(txtNombreUsuario3.getText());
+                usuario.setTipoUsuario(txtTipoUsuario3.getText());
+                result = usDAO.BORRAR(usuario);
                 if (result) {
-                    alerta.mostrarAlerta("aviso", "eliminacion", "Eliminación de espacio satisfactoria", espacio.getTipo_Espacio(),
-                            "-Id de Espacio: " + espacio.getId_Espacio() + "\n-Nombre de Espacio: " + espacio.getNombre_espacio() + "\n-Tipo de espacio: " + espacio.getTipo_Espacio() + "\n-Lugares: " + espacio.getLugares() + "\n");
-                    tabPaneEspacios.getSelectionModel().select(0);
+                    alerta.mostrarAlerta("aviso", "eliminacion", "Eliminación de usuario satisfactoria", usuario.getTipoUsuario(),
+                            "-Id de Espacio: " + usuario.getId_Usuario() + "\n-Nombre de Espacio: " + usuario.getNombre() + "\n-Tipo de espacio: " + usuario.getTipoUsuario() + "\n-Lugares: " + usuario.getGrupo() + "\n");
+                    tabPaneUsuarios.getSelectionModel().select(0);
                     lista.clear();
-                    listaEspacios.clear();
-                    txtNombreEspacio3.clear();
-                    txtLugares3.clear();
+                    txtMatriculaUsuario3.clear();
+                    txtNombreUsuario3.clear();
+                    txtTipoUsuario3.clear();
+                    txtGrupo3.clear();
                 } else {
-                    alerta.mostrarAlerta("error", "alta_existente", "Error", "Error al intentar realizar registro", "No se ha podido realizar el registro, por favor intente nuevamente");
-                    tabPaneEspacios.getSelectionModel().select(0);
+                    alerta.mostrarAlerta("error", "alta_existente", "Error", "Error al intentar eliminar registro", "No se ha podido eliminar el registro, por favor intente nuevamente");
+                    tabPaneUsuarios.getSelectionModel().select(0);
                 }
             }
             else {
                 alerta.mostrarAlerta("error", "eliminacionfallida", null,null,null);
-                tabPaneEspacios.getSelectionModel().select(0);
+                tabPaneUsuarios.getSelectionModel().select(0);
             }
         }
         else {
             alerta.mostrarAlerta("error", "eliminacionfallida", null,null,null);
-            tabPaneEspacios.getSelectionModel().select(0);
+            tabPaneUsuarios.getSelectionModel().select(0);
         }
         btnBaja.setDisable(true);
-    */}
+
+    }
 
 
 

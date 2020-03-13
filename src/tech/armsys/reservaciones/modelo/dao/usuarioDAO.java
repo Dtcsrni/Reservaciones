@@ -9,7 +9,7 @@ public interface usuarioDAO {
 
     public boolean CREAR(Usuario usuario) throws SQLException;
     public Usuario CONSULTAR(Usuario usuario) throws SQLException;
-    public boolean ACTUALIZAR(Usuario usuarioBase, Usuario usuarioModif) throws SQLException;
+    public boolean ACTUALIZAR(int usuarioBase, Usuario usuarioModif) throws SQLException;
     public boolean BORRAR(Usuario usuario) throws SQLException;
     public Usuario LOGIN(Usuario usuario) throws SQLException;
 

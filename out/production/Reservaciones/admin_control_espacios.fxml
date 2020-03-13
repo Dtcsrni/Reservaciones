@@ -235,7 +235,7 @@
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor></TextField>
-                              <Button fx:id="btnBaja" disable="true" layoutX="716.0" layoutY="253.0" mnemonicParsing="false" onAction="#elimUsuario" text="BAJA DE ESPACIO">
+                              <Button fx:id="btnBaja" disable="true" layoutX="716.0" layoutY="253.0" mnemonicParsing="false" onAction="#elimEspacio" text="BAJA DE ESPACIO">
                                  <graphic>
                                     <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
