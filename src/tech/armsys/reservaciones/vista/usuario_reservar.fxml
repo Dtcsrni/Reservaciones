@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
@@ -13,14 +14,14 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.usuarioControl_reservaciones">
    <children>
-      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="804.0" prefWidth="1280.0">
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="937.0">
          <children>
             <ImageView fitHeight="184.0" fitWidth="186.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
-            <Label layoutX="243.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE LABORATORIOS DE CÓMPUTO" textAlignment="CENTER" wrapText="true">
+            <Label layoutX="243.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
@@ -30,11 +31,11 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="570.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="77.0" text="REGRESAR" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="570.0" mnemonicParsing="false" onAction="#botonRegresar" prefHeight="28.0" prefWidth="77.0" text="REGRESAR" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="99.0" prefHeight="19.0" prefWidth="197.0" text="Reservar Laboratorio" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="99.0" prefHeight="19.0" prefWidth="197.0" text="Reservar Espacio" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
@@ -48,16 +49,16 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></DatePicker>
-            <TilePane fx:id="tilePaneReservas" alignment="CENTER" layoutX="9.0" layoutY="201.0" prefHeight="176.0" prefWidth="887.0">
+            <TilePane fx:id="tilePaneReservas" alignment="CENTER" layoutX="9.0" layoutY="201.0" prefHeight="206.0" prefWidth="878.0">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <children>
-                  <Button fx:id="btnLab1" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp01" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -65,14 +66,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab2" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp02" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -80,14 +84,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab1" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp03" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -95,14 +102,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab3" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp04" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -110,14 +120,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab3" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp05" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -125,14 +138,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab4" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp06" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -140,14 +156,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab5" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp07" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -155,14 +174,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab6" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp08" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -170,14 +192,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab7" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp09" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -185,14 +210,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab8" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp10" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -200,14 +228,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab9" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp11" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -215,14 +246,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab10" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp12" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -230,14 +264,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab11" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp13" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -245,14 +282,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab12" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp14" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -260,14 +300,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab13" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp15" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -275,14 +318,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab14" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp16" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -290,14 +336,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab15" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp17" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -305,14 +354,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
-                  <Button fx:id="btnLab16" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="97.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnEsp18" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@recursos/monitor_96px.png" />
+                              <Image url="@recursos/room_96px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -320,112 +372,124 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="9.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
+                     <TilePane.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                     </TilePane.margin>
                   </Button>
                </children>
             </TilePane>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="174.0" prefHeight="21.0" prefWidth="546.0" text="Hay X laboratorios con horarios disponibles. Por favor, elija el que prefiera" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="lblDisponibles" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="174.0" prefHeight="21.0" prefWidth="800.0" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="435.0" prefHeight="84.0" prefWidth="147.0" text="Los horarios disponibles para el Laboratorio X son:" wrapText="true">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Button layoutX="165.0" layoutY="419.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="147.0" text="7:00-9:00 hrs">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@recursos/watch_96px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="165.0" layoutY="496.0" mnemonicParsing="false" text="9:00-11:00 hrs">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@recursos/watch_96px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="338.0" layoutY="419.0" mnemonicParsing="false" text="18:00-20:00 hrs">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@recursos/watch_96px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="338.0" layoutY="496.0" mnemonicParsing="false" text="20:00-22:00 hrs">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@recursos/watch_96px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label layoutX="512.0" layoutY="433.0" prefHeight="21.0" prefWidth="176.0" text="Reservación a nombre de:">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="512.0" layoutY="472.0" prefHeight="21.0" prefWidth="176.0" text="Fecha solicitada:">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="512.0" layoutY="510.0" prefHeight="21.0" prefWidth="176.0" text="Horario solicitado">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="688.0" layoutY="433.0" prefHeight="21.0" prefWidth="232.0" text="Erick Renato Vega Cerón">
+            <Label fx:id="lblHorarios" layoutX="6.0" layoutY="435.0" prefHeight="109.0" prefWidth="147.0" wrapText="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="634.0" layoutY="472.0" prefHeight="21.0" prefWidth="232.0" text="03/03/2020">
+            <Button fx:id="btnHorario1" disable="true" layoutX="168.0" layoutY="435.0" mnemonicParsing="false" onAction="#botonHorario1" prefHeight="39.0" prefWidth="147.0" text="7:00-9:00 hrs" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/watch_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnHorario2" disable="true" layoutX="168.0" layoutY="512.0" mnemonicParsing="false" onAction="#botonHorario2" text="9:00-11:00 hrs" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/watch_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnHorario3" disable="true" layoutX="341.0" layoutY="435.0" mnemonicParsing="false" onAction="#botonHorario3" text="18:00-20:00 hrs" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/watch_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnHorario4" disable="true" layoutX="341.0" layoutY="512.0" mnemonicParsing="false" onAction="#botonHorario4" text="20:00-22:00 hrs" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/watch_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="lblReser2" layoutX="552.0" layoutY="409.0" prefHeight="28.0" prefWidth="155.0" text="Fecha solicitada:" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/schedule_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="lblReser3" layoutX="552.0" layoutY="439.0" prefHeight="28.0" prefWidth="155.0" text="Horario solicitado" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/watch_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="lblNombreReser1" layoutX="555.0" layoutY="560.0" prefHeight="21.0" prefWidth="209.0" text="Erick Renato Vega Cerón" visible="false">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="644.0" layoutY="509.0" prefHeight="21.0" prefWidth="232.0" text="9:00-11:00 hrs">
+            <Label fx:id="lblFechaReser2" layoutX="709.0" layoutY="409.0" prefHeight="21.0" prefWidth="163.0" text="03/03/2020" visible="false">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" contentDisplay="TOP" layoutX="797.0" layoutY="499.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="99.0" text="RESERVAR" textAlignment="CENTER">
+            <Label fx:id="lblHorarioReser3" layoutX="709.0" layoutY="439.0" prefHeight="21.0" prefWidth="163.0" text="9:00-11:00 hrs" visible="false">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnReservar" alignment="CENTER" contentDisplay="TOP" layoutX="797.0" layoutY="499.0" mnemonicParsing="false" onAction="#botonReservar" prefHeight="39.0" prefWidth="99.0" text="RESERVAR" textAlignment="CENTER" visible="false">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -436,6 +500,32 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="697.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/calendar_96px.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnLimpiar" layoutX="607.0" layoutY="134.0" mnemonicParsing="false" onAction="#botonLimpiar" text="Limpiar" visible="false">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/broom_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="lblReser1" alignment="CENTER" contentDisplay="TOP" layoutX="592.0" layoutY="463.0" prefHeight="99.0" prefWidth="121.0" text="Reservación a nombre de:" visible="false" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="52.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/identity_theft_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
          </children>
       </AnchorPane>
    </children>

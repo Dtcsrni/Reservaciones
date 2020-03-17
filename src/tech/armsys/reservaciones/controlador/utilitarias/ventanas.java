@@ -1,4 +1,4 @@
-package tech.armsys.reservaciones.controlador;
+package tech.armsys.reservaciones.controlador.utilitarias;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 
 
-public class Ventanas {
+public class ventanas {
     static private String rutaVistas = "/tech/armsys/reservaciones/vista/";
 
     public String getRutaVistas() {
@@ -25,7 +25,7 @@ public class Ventanas {
     public static void mostrarVentana(ActionEvent evt, Stage stage, String fxml, String titulo, String tipo) throws IOException {
 
         fxml= rutaVistas+fxml;//se
-        Parent root = FXMLLoader.load(Ventanas.class.getResource(fxml)); //se crea la variable root referente a la ventana padre y se asigna a el tipo fxml (ventana) que obtenga el cargador de FXML
+        Parent root = FXMLLoader.load(ventanas.class.getResource(fxml)); //se crea la variable root referente a la ventana padre y se asigna a el tipo fxml (ventana) que obtenga el cargador de FXML
         Scene scene = new Scene(root);  //se crea la escena nueva con el contenido de la ventana padre
         Stage window = null;    //se crea el stage y se inicializa a null
         String tituloVentana="";    //se crea el titulo de ventana y se inicializa vacía

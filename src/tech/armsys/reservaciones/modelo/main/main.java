@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tech.armsys.reservaciones.main;
+package tech.armsys.reservaciones.modelo.main;
 
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import tech.armsys.reservaciones.controlador.Ventanas;
+import tech.armsys.reservaciones.controlador.utilitarias.ventanas;
 
 import static jdk.xml.internal.SecuritySupport.getResourceAsStream;
 
@@ -21,16 +22,9 @@ import static jdk.xml.internal.SecuritySupport.getResourceAsStream;
 public class main extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
 
-        try{
-            Ventanas.mostrarVentana(null,primaryStage,"login.fxml", "login", "");
-
-        }
-        catch(Exception ex){
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE,null,ex);
-        }
-
+     ventanas.mostrarVentana(null,primaryStage,"login.fxml", "login", "");//Muestra el login
     }
 
     /**

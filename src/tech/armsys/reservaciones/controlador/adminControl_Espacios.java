@@ -1,15 +1,15 @@
 package tech.armsys.reservaciones.controlador;
 
-import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
+import tech.armsys.reservaciones.controlador.utilitarias.Alertas;
+import tech.armsys.reservaciones.controlador.utilitarias.Animaciones;
+import tech.armsys.reservaciones.controlador.utilitarias.ventanas;
 import tech.armsys.reservaciones.modelo.Espacio;
 import tech.armsys.reservaciones.modelo.dao.espacioDAO;
 import tech.armsys.reservaciones.modelo.dao.espacioDAOImpl;
@@ -68,11 +68,12 @@ public class adminControl_Espacios implements Initializable {
 
     private Alertas alerta = new Alertas();
     private Espacio espacio = new Espacio();
-    private Animaciones animar = new Animaciones();
     private espacioDAO espDAO= new espacioDAOImpl();
+    private Animaciones animar = new Animaciones();
     private boolean result;
     private List<String> tipoEspacios = new ArrayList<>();
-    private List<String> listaEspacios = new ArrayList<>();
+    private List<Espacio> listaEspacios = new ArrayList<>();
+    private List<String> listaEspaciosNombre = new ArrayList<>();
     private String nombreEspacioBase;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -163,14 +164,18 @@ public class adminControl_Espacios implements Initializable {
         txtTipo_espacio3.clear();
         tipo_espacio3.getItems().clear();
         listaEspacios= espDAO.CONSULTAR();
-        lista.addAll(listaEspacios);
+        for(int i=0; i<=listaEspacios.size(); i++){
+            listaEspaciosNombre.add(listaEspacios.get(i).getNombre_espacio());
+        }
+
+        lista.addAll(listaEspaciosNombre);
         tipo_espacio3.getItems().addAll(lista);
     }
 
 
     @FXML
     private void botonRegresar(ActionEvent evt) throws IOException {
-            Ventanas.mostrarVentana(evt, null, "admin.fxml","PANEL DE CONTROL", "admin");
+            ventanas.mostrarVentana(evt, null, "admin.fxml","PANEL DE CONTROL", "admin");
     }
     @FXML
     private void altaEspacio(ActionEvent evt) throws Exception {

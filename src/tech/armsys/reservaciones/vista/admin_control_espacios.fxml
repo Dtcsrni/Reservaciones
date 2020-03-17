@@ -298,6 +298,18 @@
                   </Tab>
               </tabs>
             </TabPane>
+            <Button layoutX="325.0" layoutY="549.0" mnemonicParsing="false" onAction="#botonRegresar" text="Limpiar">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/erase_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
       </children>
     </AnchorPane>
   </children>

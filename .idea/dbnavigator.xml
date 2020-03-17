@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="79784a62-3010-4915-b08d-7f47099efb80">
-        <schema name="reservacion" object-types="table, view, procedure, function" />
+        <schema name="reservacion" object-types="table, procedure, function, column, constraint, view, index, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
@@ -115,7 +115,7 @@
           <session-management value="true" />
           <ddl-file-binding value="true" />
           <database-logging value="false" />
-          <connect-automatically value="true" />
+          <connect-automatically value="false" />
           <restore-workspace value="true" />
           <restore-workspace-deep value="true" />
           <environment-type value="default" />
@@ -198,7 +198,7 @@
           <session-management value="true" />
           <ddl-file-binding value="true" />
           <database-logging value="false" />
-          <connect-automatically value="true" />
+          <connect-automatically value="false" />
           <restore-workspace value="true" />
           <restore-workspace-deep value="true" />
           <environment-type value="default" />

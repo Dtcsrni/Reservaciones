@@ -1,4 +1,4 @@
-package tech.armsys.reservaciones.controlador;
+package tech.armsys.reservaciones.controlador.utilitarias;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;

@@ -7,10 +7,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import tech.armsys.reservaciones.modelo.Espacio;
+import tech.armsys.reservaciones.controlador.utilitarias.Alertas;
+import tech.armsys.reservaciones.controlador.utilitarias.Animaciones;
+import tech.armsys.reservaciones.controlador.utilitarias.ventanas;
 import tech.armsys.reservaciones.modelo.Usuario;
-import tech.armsys.reservaciones.modelo.dao.espacioDAO;
-import tech.armsys.reservaciones.modelo.dao.espacioDAOImpl;
 import tech.armsys.reservaciones.modelo.dao.usuarioDAO;
 import tech.armsys.reservaciones.modelo.dao.usuarioDAOImpl;
 
@@ -264,7 +264,7 @@ public class adminControl_Usuarios implements Initializable {
 
     @FXML
     private void botonRegresar(ActionEvent evt) throws IOException {
-        Ventanas.mostrarVentana(evt, null, "admin.fxml","PANEL DE CONTROL", "admin");
+        ventanas.mostrarVentana(evt, null, "admin.fxml","PANEL DE CONTROL", "admin");
     }
     @FXML
     private void altaUsuario(ActionEvent evt) throws Exception {

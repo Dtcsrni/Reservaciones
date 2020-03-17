@@ -1,4 +1,4 @@
-package tech.armsys.reservaciones.controlador;
+package tech.armsys.reservaciones.controlador.utilitarias;
 
 import javafx.animation.FadeTransition;
 import javafx.scene.Node;

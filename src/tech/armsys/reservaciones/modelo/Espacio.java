@@ -26,7 +26,7 @@ public class Espacio {
 
 
 
-    public static Espacio getInstanceUser(int id_espacio1, String nombre_espacio1,String tipo_espacio1, int lugares1){
+    public static Espacio getSesionUsuario(int id_espacio1, String nombre_espacio1, String tipo_espacio1, int lugares1){
 
         if(esp == null){//Si no se ha instanciado aún el objeto
             //Se instancia un objeto (implementación de singleton)

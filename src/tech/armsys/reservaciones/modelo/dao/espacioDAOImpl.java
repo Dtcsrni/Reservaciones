@@ -1,8 +1,7 @@
 package tech.armsys.reservaciones.modelo.dao;
 
 import tech.armsys.reservaciones.modelo.Espacio;
-import tech.armsys.reservaciones.modelo.MySQLBD;
-import tech.armsys.reservaciones.modelo.Usuario;
+import tech.armsys.reservaciones.modelo.conexion_MySQLBD;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,86 +12,93 @@ public class espacioDAOImpl implements espacioDAO {
 
     public boolean CREAR(Espacio espacio)  throws SQLException {
         int q;
-        MySQLBD conexion = new MySQLBD();
-        conexion.CONECTAR();
+        conexion_MySQLBD conexion = new conexion_MySQLBD();
+        conexion.conectar();
         String sql1= "SELECT * FROM espacios WHERE nombre_espacio = '"+espacio.getNombre_espacio()+"'";
         String sql2= "INSERT INTO espacios (nombre_espacio,tipo_espacio,lugares) VALUES ('"+espacio.getNombre_espacio()+"','"+espacio.getTipo_Espacio()+"','"+espacio.getLugares()+"')";
-        ResultSet rs = conexion.ConsultaSQL(sql1,0);
+        ResultSet rs = conexion.consultaSQL(sql1,0);
         if(rs.next()){
-            conexion.DESCONECTAR();
+            conexion.desconectar();
             return false;
         }else{
-            q = conexion.ConsultaSQL(sql2, 1);
+            q = conexion.consultaSQL(sql2, 1);
             if(q==0){
-                conexion.DESCONECTAR();
+                conexion.desconectar();
                 return false;}
         }
-        conexion.DESCONECTAR();
+        conexion.desconectar();
         System.out.println("Se ha agregado un espacio exitosamente");
         return true;
     }
 
     public Espacio CONSULTAR(Espacio espacio) throws SQLException {//función para hacer consultas
-        MySQLBD conexion = new MySQLBD();
-        conexion.CONECTAR();
+        conexion_MySQLBD conexion = new conexion_MySQLBD();
+        conexion.conectar();
         String sql1 = "SELECT * FROM espacios WHERE nombre_espacio = '"+espacio.getNombre_espacio()+"'";
-        ResultSet rs = conexion.ConsultaSQL(sql1,0);
+        ResultSet rs = conexion.consultaSQL(sql1,0);
         if(rs.next()){
             espacio.setId_espacio(rs.getInt("id_espacio"));
             espacio.setNombre_espacio(rs.getString("nombre_espacio"));
             espacio.setTipo_Espacio(rs.getString("tipo_espacio"));
             espacio.setLugares(rs.getInt("lugares"));
         }else{
-            conexion.DESCONECTAR();
+            conexion.desconectar();
             return null;
         }
-        conexion.DESCONECTAR();
+        conexion.desconectar();
         return espacio;
     }
 
-    public List<String> CONSULTAR() throws SQLException {
-        MySQLBD conexion = new MySQLBD();
-        conexion.CONECTAR();
-        List<String> listaEspacios = new ArrayList<>();;
+    public List<Espacio> CONSULTAR() throws SQLException {
+        conexion_MySQLBD conexion = new conexion_MySQLBD();
+        conexion.conectar();
+        List<Espacio> listaEspacios = new ArrayList<>();;
+        Espacio espacio;
         String sql1 = "SELECT * FROM espacios";
-        ResultSet rs = conexion.ConsultaSQL(sql1,0);
+        ResultSet rs = conexion.consultaSQL(sql1,0);
         if(rs!=null){
             while(rs.next()){
-                listaEspacios.add(rs.getString("nombre_espacio"));
+                espacio = new Espacio();
+                espacio.setId_espacio(rs.getInt("id_espacio"));
+                espacio.setNombre_espacio(rs.getString("nombre_espacio"));
+                espacio.setTipo_Espacio(rs.getString("tipo_espacio"));
+                espacio.setLugares(rs.getInt("lugares"));
+
+                listaEspacios.add(espacio);
             }
         }else{
-            conexion.DESCONECTAR();
+            conexion.desconectar();
             return null;
         }
-        conexion.DESCONECTAR();
+        conexion.desconectar();
         return listaEspacios;
     }
 
     public boolean ACTUALIZAR(String espacioBase, Espacio espacioModif) throws SQLException{//función para hacer actualizaciones
-        MySQLBD conexion = new MySQLBD();
-        conexion.CONECTAR();
+        conexion_MySQLBD conexion = new conexion_MySQLBD();
+        conexion.conectar();
         String sql1= "UPDATE espacios SET nombre_espacio='"+espacioModif.getNombre_espacio()+"',tipo_espacio='"+espacioModif.getTipo_Espacio()+"',lugares='"+espacioModif.getLugares()+"' WHERE nombre_espacio='"+espacioBase+"'";
-        int rs = conexion.ConsultaSQL(sql1,1);
+        int rs = conexion.consultaSQL(sql1,1);
         if(rs>0){
         }else{
-            conexion.DESCONECTAR();
+            conexion.desconectar();
             return false;
         }
-        conexion.DESCONECTAR();
+        conexion.desconectar();
         return true;
     }
 
     public boolean BORRAR(Espacio espacio) throws SQLException{
-        MySQLBD conexion = new MySQLBD();
-        conexion.CONECTAR();
+        conexion_MySQLBD conexion = new conexion_MySQLBD();
+        conexion.conectar();
         String sql1= "DELETE FROM espacios WHERE nombre_espacio='"+espacio.getNombre_espacio()+"'";
-        int rs = conexion.ConsultaSQL(sql1,1);
+        int rs = conexion.consultaSQL(sql1,1);
         if(rs>0){
         }else{
-            conexion.DESCONECTAR();
+            conexion.desconectar();
             return false;
         }
-        conexion.DESCONECTAR();
+        conexion.desconectar();
         return true;
     }
 

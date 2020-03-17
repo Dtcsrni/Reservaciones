@@ -77,7 +77,7 @@
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <ProgressIndicator fx:id="progIn" layoutX="425.0" layoutY="389.0" mouseTransparent="true" visible="false" />
+            <ProgressIndicator fx:id="indicador_progreso" layoutX="425.0" layoutY="389.0" mouseTransparent="true" visible="false" />
             <ImageView fitHeight="113.0" fitWidth="129.0" layoutX="393.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/room_96px.png" />

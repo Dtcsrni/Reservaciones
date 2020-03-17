@@ -6,7 +6,7 @@ module Reservaciones{
 
 
     opens tech.armsys.reservaciones.controlador;
-    opens tech.armsys.reservaciones.main;
+    opens tech.armsys.reservaciones.modelo.main;
     opens tech.armsys.reservaciones.modelo;
     opens tech.armsys.reservaciones.vista;
     opens tech.armsys.reservaciones.vista.recursos;

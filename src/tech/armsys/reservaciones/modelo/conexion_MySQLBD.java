@@ -1,11 +1,11 @@
 package tech.armsys.reservaciones.modelo;
 
 
-import tech.armsys.reservaciones.controlador.Alertas;
+import tech.armsys.reservaciones.controlador.utilitarias.Alertas;
 
 import java.sql.*;
 
-public class MySQLBD {
+public class conexion_MySQLBD {
     //Se declaran variables de conexión y declaración
     private Connection conexion;
     private Statement st;
@@ -15,7 +15,7 @@ public class MySQLBD {
     private String psw = "";
 
 
-    public boolean CONECTAR() {
+    public boolean conectar() {
         Alertas alerta = new Alertas();
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -33,12 +33,13 @@ public class MySQLBD {
         if(conexion!=null){
             return true;
         }
-        else
+        else{
             return false;
+        }
     }
 
 
-    public <T> T ConsultaSQL(String SQL, int tipo) throws SQLException {
+    public <T> T consultaSQL(String SQL, int tipo) throws SQLException {
         T retorno = null;
         try {
         switch (tipo) {
@@ -58,7 +59,7 @@ public class MySQLBD {
         return retorno;
     }
 
-    public void DESCONECTAR() throws SQLException {//función de desconexión
+    public void desconectar() throws SQLException {//función de desconexión
             conexion.close();
     }
 
