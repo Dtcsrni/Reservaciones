@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +15,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.usuarioControl_reservaciones">
    <children>
-      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="937.0">
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="937.0" style="-fx-background-color: aliceblue;">
          <children>
             <ImageView fitHeight="184.0" fitWidth="186.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,10 +32,17 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="570.0" mnemonicParsing="false" onAction="#botonRegresar" prefHeight="28.0" prefWidth="77.0" text="REGRESAR" textAlignment="CENTER">
+            <Button alignment="CENTER" layoutX="13.0" layoutY="563.0" mnemonicParsing="false" onAction="#botonRegresar" prefHeight="31.0" prefWidth="121.0" text="REGRESAR" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/back_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="99.0" prefHeight="19.0" prefWidth="197.0" text="Reservar Espacio" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="13.0" />
@@ -54,7 +62,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <children>
-                  <Button fx:id="btnEsp01" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp01" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -71,8 +79,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp02" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp02" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -89,8 +100,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp03" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp03" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -107,8 +121,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp04" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp04" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -125,8 +142,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp05" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp05" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -143,8 +163,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp06" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp06" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -161,8 +184,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp07" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp07" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -179,8 +205,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp08" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp08" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -197,8 +226,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp09" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp09" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -215,8 +247,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp10" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp10" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -233,8 +268,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp11" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp11" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -251,8 +289,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp12" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp12" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -269,8 +310,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp13" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp13" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -287,8 +331,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp14" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp14" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -305,8 +352,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp15" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp15" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -323,8 +373,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp16" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp16" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -341,8 +394,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp17" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp17" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -359,8 +415,11 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
-                  <Button fx:id="btnEsp18" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" textAlignment="CENTER" visible="false" wrapText="true">
+                  <Button fx:id="btnEsp18" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#botonEspacioSeleccionado" prefHeight="101.0" prefWidth="90.0" style="-fx-background-radius: 1em;" text="Laboratorio Aula 70" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="65.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -377,6 +436,9 @@
                      <TilePane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" />
                      </TilePane.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" radius="4.75" width="0.0" />
+                     </effect>
                   </Button>
                </children>
             </TilePane>
@@ -385,12 +447,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lblHorarios" layoutX="6.0" layoutY="435.0" prefHeight="109.0" prefWidth="147.0" wrapText="true">
+            <Label fx:id="lblHorarios" layoutX="9.0" layoutY="406.0" prefHeight="137.0" prefWidth="129.0" wrapText="true">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Italic" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="btnHorario1" disable="true" layoutX="168.0" layoutY="435.0" mnemonicParsing="false" onAction="#botonHorario1" prefHeight="39.0" prefWidth="147.0" text="7:00-9:00 hrs" visible="false">
+            <Button fx:id="btnHorario1" disable="true" layoutX="144.0" layoutY="435.0" mnemonicParsing="false" onAction="#botonHorario1" prefHeight="39.0" prefWidth="147.0" text="7:00-9:00 hrs" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
@@ -405,7 +467,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnHorario2" disable="true" layoutX="168.0" layoutY="512.0" mnemonicParsing="false" onAction="#botonHorario2" text="9:00-11:00 hrs" visible="false">
+            <Button fx:id="btnHorario2" disable="true" layoutX="144.0" layoutY="512.0" mnemonicParsing="false" onAction="#botonHorario2" text="9:00-11:00 hrs" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
@@ -420,7 +482,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnHorario3" disable="true" layoutX="341.0" layoutY="435.0" mnemonicParsing="false" onAction="#botonHorario3" text="18:00-20:00 hrs" visible="false">
+            <Button fx:id="btnHorario3" disable="true" layoutX="317.0" layoutY="435.0" mnemonicParsing="false" onAction="#botonHorario3" prefHeight="39.0" prefWidth="155.0" text="18:00-20:00 hrs" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
@@ -435,7 +497,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnHorario4" disable="true" layoutX="341.0" layoutY="512.0" mnemonicParsing="false" onAction="#botonHorario4" text="20:00-22:00 hrs" visible="false">
+            <Button fx:id="btnHorario4" disable="true" layoutX="317.0" layoutY="512.0" mnemonicParsing="false" onAction="#botonHorario4" prefHeight="39.0" prefWidth="155.0" text="20:00-22:00 hrs" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
@@ -450,7 +512,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="lblReser2" layoutX="552.0" layoutY="409.0" prefHeight="28.0" prefWidth="155.0" text="Fecha solicitada:" visible="false">
+            <Label fx:id="lblReser2" layoutX="552.0" layoutY="406.0" prefHeight="28.0" prefWidth="155.0" text="Fecha solicitada:" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
@@ -462,7 +524,7 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label fx:id="lblReser3" layoutX="552.0" layoutY="439.0" prefHeight="28.0" prefWidth="155.0" text="Horario solicitado" visible="false">
+            <Label fx:id="lblReser3" layoutX="552.0" layoutY="441.0" prefHeight="28.0" prefWidth="155.0" text="Horario solicitado" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
@@ -474,17 +536,17 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label fx:id="lblNombreReser1" layoutX="555.0" layoutY="560.0" prefHeight="21.0" prefWidth="209.0" text="Erick Renato Vega Cerón" visible="false">
+            <Label fx:id="lblNombreReser1" layoutX="637.0" layoutY="510.0" prefHeight="68.0" prefWidth="140.0" text="Erick Renato Vega Cerón" visible="false" wrapText="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lblFechaReser2" layoutX="709.0" layoutY="409.0" prefHeight="21.0" prefWidth="163.0" text="03/03/2020" visible="false">
+            <Label fx:id="lblFechaReser2" layoutX="709.0" layoutY="393.0" prefHeight="54.0" prefWidth="186.0" text="03/03/2020" visible="false" wrapText="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lblHorarioReser3" layoutX="709.0" layoutY="439.0" prefHeight="21.0" prefWidth="163.0" text="9:00-11:00 hrs" visible="false">
+            <Label fx:id="lblHorarioReser3" layoutX="713.0" layoutY="444.0" prefHeight="21.0" prefWidth="163.0" text="9:00-11:00 hrs" visible="false">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -513,8 +575,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
             </Button>
-            <Label fx:id="lblReser1" alignment="CENTER" contentDisplay="TOP" layoutX="592.0" layoutY="463.0" prefHeight="99.0" prefWidth="121.0" text="Reservación a nombre de:" visible="false" wrapText="true">
+            <Label fx:id="lblReser1" alignment="CENTER" contentDisplay="TOP" layoutX="522.0" layoutY="482.0" prefHeight="99.0" prefWidth="121.0" text="Reservación a nombre de:" visible="false" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -526,6 +591,11 @@
                   </ImageView>
                </graphic>
             </Label>
+            <ImageView fx:id="imgFull" fitHeight="39.0" fitWidth="44.0" layoutX="218.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@recursos/delete_96px.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

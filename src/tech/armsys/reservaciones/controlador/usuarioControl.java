@@ -40,12 +40,16 @@ public class usuarioControl implements Initializable{
         Alertas alerta = new Alertas();
         Optional<ButtonType> resultado = alerta.mostrarAlerta("confirmacion", "logout", null, null, null);
         if (resultado.isPresent() && resultado.get() == ButtonType.YES) {
-            ventanas.mostrarVentana(evt, null, "login.fxml","login", "admin");
+            ventanas.mostrarVentana(evt, null, "login.fxml","login", "usuario");
         }
     }
 
     @FXML
     void usuario_control_reservaciones(ActionEvent evt) throws IOException {
-        ventanas.mostrarVentana(evt, null, "usuario_reservar.fxml","Reservas", "admin");
+        ventanas.mostrarVentana(evt, null, "usuario_reservar.fxml","Reservas", "usuario");
+    }
+    @FXML
+    void usuario_control_reservas(ActionEvent evt) throws IOException {
+        ventanas.mostrarVentana(evt, null, "usuario_reservaciones.fxml","Reservas", "usuario");
     }
 }

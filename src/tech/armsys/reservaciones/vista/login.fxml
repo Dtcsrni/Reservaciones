@@ -6,6 +6,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,17 +22,29 @@
                   <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
-            <Label layoutX="226.0" layoutY="280.0" prefHeight="30.0" prefWidth="70.0" text="Usuario" />
-            <TextField fx:id="id_usuario" layoutX="296.0" layoutY="283.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca su ID de usuario">
+            <Label layoutX="193.0" layoutY="292.0" prefHeight="35.0" prefWidth="101.0" text="Usuario">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <TextField fx:id="id_usuario" layoutX="344.0" layoutY="283.0" prefHeight="54.0" prefWidth="478.0" promptText="Introduzca su ID de usuario">
                <cursor>
                   <Cursor fx:constant="TEXT" />
-               </cursor></TextField>
-            <Label layoutX="226.0" layoutY="344.0" prefHeight="30.0" prefWidth="84.0" text="Contraseña" />
-            <PasswordField fx:id="txtPass" layoutX="296.0" layoutY="347.0" prefHeight="25.0" prefWidth="382.0" promptText="Introduzca su contraseña">
+               </cursor>
+               <font>
+                  <Font size="25.0" />
+               </font></TextField>
+            <Label layoutX="177.0" layoutY="371.0" prefHeight="36.0" prefWidth="133.0" text="Contraseña">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <PasswordField fx:id="txtPass" layoutX="344.0" layoutY="362.0" prefHeight="54.0" prefWidth="478.0" promptText="Introduzca su contraseña">
                <cursor>
                   <Cursor fx:constant="TEXT" />
-               </cursor></PasswordField>
-            <Button fx:id="btnEntrar" alignment="CENTER" contentDisplay="TOP" layoutX="394.0" layoutY="458.0" mnemonicParsing="false" onAction="#iniciar_sesion" prefHeight="89.0" prefWidth="113.0" text="ACCEDER">
+               </cursor>
+               <font>
+                  <Font size="25.0" />
+               </font></PasswordField>
+            <Button fx:id="btnEntrar" alignment="CENTER" contentDisplay="TOP" defaultButton="true" layoutX="393.0" layoutY="473.0" mnemonicParsing="false" onAction="#iniciar_sesion" prefHeight="89.0" prefWidth="113.0" text="ACCEDER" textAlignment="CENTER" wrapText="true">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -41,30 +54,28 @@
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <ImageView fitHeight="54.0" fitWidth="70.0" layoutX="171.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/user_shield_96px.png" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="122.0" prefHeight="78.0" prefWidth="304.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
+               </cursor>
+               <effect>
+                  <DropShadow color="#737bab" height="0.0" offsetX="-7.0" offsetY="7.0" radius="1.7850000000000001" width="9.14" />
+               </effect></Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="151.0" prefHeight="78.0" prefWidth="343.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="171.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="97.0" fitWidth="101.0" layoutX="65.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/password_200px.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="178.0" fitWidth="235.0" layoutX="661.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/logoSiststemasCUH3NoFondo.png" />
+                  <Image url="@recursos/logoSiststemasCUH3g17Transparente.png" />
                </image>
             </ImageView>
-            <Label layoutX="743.0" layoutY="562.0" prefHeight="30.0" prefWidth="157.0" text="Desarrollado por Erick Vega">
+            <Label layoutX="712.0" layoutY="562.0" prefHeight="30.0" prefWidth="184.0" text="Desarrollado por Erick Vega">
                <font>
-                  <Font name="System Italic" size="9.0" />
+                  <Font name="System Italic" size="15.0" />
                </font>
             </Label>
             <Label fx:id="lblError" layoutX="417.0" layoutY="282.0" prefHeight="54.0" prefWidth="157.0" style="-fx-background-color: black;" text="Datos incorrectos, intente nuevamente" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
@@ -72,15 +83,25 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="409.0" layoutY="191.0" prefHeight="19.0" prefWidth="81.0" text="ACCESO" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="409.0" layoutY="220.0" prefHeight="19.0" prefWidth="81.0" text="ACCESO" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="System Italic" size="13.0" />
+                  <Font name="System Italic" size="15.0" />
                </font>
             </Label>
             <ProgressIndicator fx:id="indicador_progreso" layoutX="425.0" layoutY="389.0" mouseTransparent="true" visible="false" />
-            <ImageView fitHeight="113.0" fitWidth="129.0" layoutX="393.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="151.0" fitWidth="157.0" layoutX="393.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/room_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="97.0" fitWidth="101.0" layoutX="65.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/user_shield_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="756.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/LogoArmsysBlissFondoPEQUE.png" />
                </image>
             </ImageView>
       </children>

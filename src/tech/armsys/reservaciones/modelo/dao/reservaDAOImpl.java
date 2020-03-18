@@ -1,5 +1,6 @@
 package tech.armsys.reservaciones.modelo.dao;
 
+import tech.armsys.reservaciones.controlador.utilitarias.Alertas;
 import tech.armsys.reservaciones.modelo.conexion_MySQLBD;
 import tech.armsys.reservaciones.modelo.Reserva;
 
@@ -16,9 +17,10 @@ public class reservaDAOImpl implements reservaDAO{
 
     public boolean CREAR(Reserva reserva)  throws SQLException {
         int q;
+        Alertas alerta = new Alertas();
         conexion_MySQLBD conexion = new conexion_MySQLBD();
         conexion.conectar();
-        String sql1= "SELECT * FROM reserva WHERE nombre_espacio='"+reserva.getNombre_espacio()+"'";
+        String sql1= "SELECT * FROM reserva WHERE nombre_espacio='"+reserva.getNombre_espacio()+"' AND horario='"+reserva.getHorario()+"' AND fecha='"+reserva.getFecha()+"'";
         String sql2= "INSERT INTO reserva (nombre_espacio, horario, fecha, nombre_usuario, lugares_disponibles) VALUES ('"+reserva.getNombre_espacio()+"','"+reserva.getHorario()+"','"+reserva.getFecha()+"','"+reserva.getNombre_usuario()+"','"+reserva.getLugares_Disponibles()+"')";
         ResultSet rs = conexion.consultaSQL(sql1,0);//se revisa si el usuario ya existe primero
         if(rs.next()){//si ya existe entonces se retorna false
@@ -34,26 +36,31 @@ public class reservaDAOImpl implements reservaDAO{
         return true;
     }
 
-    public Reserva CONSULTAR(Reserva reserva) throws SQLException {//función para hacer consultas
-        int q;
+    public List<Reserva> CONSULTAR(Reserva reserva) throws SQLException {//función para hacer consultas
         conexion_MySQLBD conexion = new conexion_MySQLBD();
-        conexion.conectar();
-        String sql1 = "SELECT * FROM reserva WHERE id_reserva='"+reserva.getId_Reserva()+"'";
+        List<Reserva> listaReservas = new ArrayList<Reserva>();
+        String sql1 = "SELECT * FROM reserva WHERE nombre_usuario='"+reserva.getNombre_usuario()+"'";
 
+        conexion.conectar();
         ResultSet rs = conexion.consultaSQL(sql1,0);
-        if(rs.next()){
-            reserva.setId_reserva(rs.getInt("id_reserva"));
-            reserva.setNombre_espacio(rs.getString("nombre_usuario"));
-            reserva.setHorario(rs.getString("horario"));
-            reserva.setFecha(rs.getString("fecha"));
-            reserva.setNombre_usuario(rs.getString("nombre_usuario"));
-            reserva.setLugares_disponibles(rs.getInt("lugares_disponibles"));
+        if(rs!=null){
+            while(rs.next()){
+                reserva = new Reserva();
+                reserva.setId_reserva(rs.getInt("id_reserva"));
+                reserva.setNombre_espacio(rs.getString("nombre_espacio"));
+                reserva.setHorario(rs.getString("horario"));
+                reserva.setFecha(rs.getString("fecha"));
+                reserva.setNombre_usuario(rs.getString("nombre_usuario"));
+                reserva.setLugares_disponibles(rs.getInt("lugares_disponibles"));
+
+                listaReservas.add(reserva);
+            }
         }else{
             conexion.desconectar();
             return null;
         }
         conexion.desconectar();;
-        return reserva;
+        return listaReservas;
     }
     public List<Reserva> CONSULTAR_FECHA(Reserva reserva) throws SQLException {//función para hacer consultas
         conexion_MySQLBD conexion = new conexion_MySQLBD();

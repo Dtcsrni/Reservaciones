@@ -51,7 +51,7 @@
                </cursor></Button>
             <ImageView fitHeight="138.0" fitWidth="185.0" layoutX="716.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/logoSiststemasCUH3NoFondo.png" />
+                  <Image url="@recursos/logoSiststemasCUH3g17Transparente.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="412.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.usuarioControl_reservas">
+   <children>
+      <AnchorPane fx:id="anchorPaneAdmin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="607.0" prefWidth="900.0" style="-fx-background-color: aliceblue;">
+         <children>
+            <ImageView fitHeight="128.0" fitWidth="148.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/cuh.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="261.0" layoutY="7.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="91.0" prefHeight="35.0" prefWidth="197.0" text="USUARIO" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="137.0" fitWidth="140.0" layoutX="729.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/search_property_96px.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="356.0" layoutY="128.0" prefHeight="19.0" prefWidth="197.0" text="Revisar Reservaciones" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="216.0" prefHeight="84.0" prefWidth="230.0" text="Las Reservaciones a su nombre son las siguientes" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="181.0" layoutY="447.0" text="Fecha de reservación" underline="true" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="175.0" layoutY="475.0" text="Horario de reservación" underline="true" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="189.0" layoutY="420.0" text="Espacio Reservado" underline="true" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="352.0" layoutY="420.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="352.0" layoutY="447.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="352.0" layoutY="475.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="698.0" layoutY="549.0" mnemonicParsing="false" text="CANCELAR RESERVACIÓN">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/event_declined_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" layoutX="14.0" layoutY="555.0" mnemonicParsing="false" onAction="#botonRegresar" prefHeight="31.0" prefWidth="121.0" text="REGRESAR" textAlignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/back_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TilePane fx:id="tilePaneReservas" layoutX="268.0" layoutY="158.0" prefHeight="242.0" prefWidth="612.0">
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </TilePane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

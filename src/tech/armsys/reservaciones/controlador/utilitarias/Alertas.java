@@ -34,6 +34,13 @@ public class Alertas {
                     error.setContentText("El registro solicitado ya existe. Por favor, verifique los datos ingresados");
                     result = error.showAndWait();
                 }
+            if(subtipo.equals("alta_fallida")){
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setTitle("Error en la reservación");
+                error.setHeaderText("No se ha podido hacer la reservación");
+                error.setContentText("El registro solicitado ya existe. Por favor, verifique los datos ingresados");
+                result = error.showAndWait();
+            }
                 if(subtipo.equals("modificacion_fallida")){
                 Alert error = new Alert(Alert.AlertType.ERROR);
                 error.setTitle("Error en la modificación");
@@ -96,6 +103,26 @@ public class Alertas {
 
                 result = confirmacion.showAndWait();
             }
+            if(subtipo.equals("alta_reserva")){
+                Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmacion.setTitle("Confirmación de Reserva");
+                confirmacion.setHeaderText("Confirme la reserva de "+encabezado);
+                confirmacion.setContentText("¿Está seguro que quiere agendar una reserva "+encabezado+"?" +
+                        "\nPor favor verifique que los datos sean correctos:\n\n" +contenido);
+
+                confirmacion.getButtonTypes().clear();
+                confirmacion.getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+
+                //Deactivate Defaultbehavior for yes-Button:
+                Button yesButton = (Button) confirmacion.getDialogPane().lookupButton( ButtonType.YES );
+                yesButton.setDefaultButton( false );
+
+                //Activate Defaultbehavior for no-Button:
+                Button noButton = (Button) confirmacion.getDialogPane().lookupButton( ButtonType.NO );
+                noButton.setDefaultButton( true );
+
+                result = confirmacion.showAndWait();
+            }
             if(subtipo.equals("modificacion")){
                 Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
                 confirmacion.setTitle("Confirmación de Modificación");
@@ -133,6 +160,14 @@ public class Alertas {
                 aviso.setTitle(titulo);
                 aviso.setHeaderText("**Alta de "+encabezado+" completada satisfactoriamente**");
                 aviso.setContentText(encabezado+" ha sido agregado exitosamente a la base de datos.\n " +
+                        "Los datos son los siguientes:\n"+contenido);
+                result = aviso.showAndWait();
+            }
+            if(subtipo.equals("alta_reserva")) {
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setTitle(titulo);
+                aviso.setHeaderText("**Reserva de "+encabezado+" completada satisfactoriamente**");
+                aviso.setContentText(encabezado+" ha sido agendado satisfactoriamente.\n " +
                         "Los datos son los siguientes:\n"+contenido);
                 result = aviso.showAndWait();
             }

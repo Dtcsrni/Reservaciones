@@ -6,6 +6,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 
 public class Reserva {
@@ -13,7 +16,7 @@ public class Reserva {
     private IntegerProperty id_reserva;
     private StringProperty  nombre_espacio;
     private StringProperty  horario;
-    private StringProperty fecha;
+    private StringProperty   fecha;
     private StringProperty   nombre_usuario;
     private IntegerProperty  lugares_disponibles;
 

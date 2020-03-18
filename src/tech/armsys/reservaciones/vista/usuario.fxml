@@ -45,7 +45,7 @@
             </Button>
             <ImageView fitHeight="138.0" fitWidth="185.0" layoutX="702.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/logoSiststemasCUH3NoFondo.png" />
+                  <Image url="@recursos/logoSiststemasCUH3g17Transparente.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="335.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
@@ -53,11 +53,11 @@
                   <Image url="@recursos/admin_settings_male_96px.png" />
                </image>
             </ImageView>
-            <Button contentDisplay="TOP" layoutX="375.0" layoutY="265.0" mnemonicParsing="false" onAction="#usuario_control_reservaciones" prefHeight="85.0" prefWidth="110.0" text="RESERVACIONES" textAlignment="CENTER">
+            <Button contentDisplay="TOP" layoutX="343.0" layoutY="264.0" mnemonicParsing="false" onAction="#usuario_control_reservaciones" prefHeight="85.0" prefWidth="163.0" text="RESERVAR" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@recursos/schedule_96px.png" />
+                        <Image url="@recursos/event_accepted_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -75,6 +75,18 @@
                   <Font name="System Italic" size="14.0" />
                </font>
             </Label>
+            <Button contentDisplay="TOP" layoutX="343.0" layoutY="379.0" mnemonicParsing="false" onAction="#usuario_control_reservas" prefHeight="97.0" prefWidth="163.0" text="REVISAR RESERVACIONES" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/search_property_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
    </children>
