@@ -93,14 +93,15 @@ public class usuarioControl_reservas implements Initializable {
                     alerta.mostrarAlerta("aviso", "baja_reserva", "Eliminación de reserva satisfactoria", reserva.getNombre_espacio(),
                             "-Id de reserva: " + reserva.getId_Reserva() + "\n-Nombre de Espacio: " + reserva.getNombre_espacio());
                     lista.clear();
-
+                    ventanas.mostrarVentana(evt, null, "usuario.fxml","Reservas", "usuario");
                 } else {
                     alerta.mostrarAlerta("error", "baja_reserva", "Error", "Error al intentar eliminar registro", "No se ha podido eliminar el registro, por favor intente nuevamente");
+                    ventanas.mostrarVentana(evt, null, "usuario.fxml","Reservas", "usuario");
                 }
             }
             else {
                 alerta.mostrarAlerta("error", "baja_reserva", "Error", "Error al intentar eliminar registro", "No se ha podido eliminar el registro, por favor intente nuevamente");
-
+                ventanas.mostrarVentana(evt, null, "usuario.fxml","Reservas", "usuario");
             }
         }
         else {
@@ -108,7 +109,7 @@ public class usuarioControl_reservas implements Initializable {
 
         }
 
-        ventanas.mostrarVentana(evt, null, "usuario.fxml","Reservas", "usuario");
+
 
     }
 }

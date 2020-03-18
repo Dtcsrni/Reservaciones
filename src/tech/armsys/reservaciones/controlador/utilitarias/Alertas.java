@@ -13,6 +13,14 @@ public class Alertas {
         Optional result = Optional.empty();
 
         if (tipoAlerta.equals("error")){
+            if(subtipo.equals("baja_reserva")) {
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setTitle(titulo);
+                aviso.setHeaderText("**Eliminación de "+encabezado+" completada satisfactoriamente**");
+                aviso.setContentText(encabezado+" ha sido cancelado exitosamente de la base de datos.\n " +
+                        "Los datos son los siguientes:\n"+contenido);
+                result = aviso.showAndWait();
+            }
                 if(subtipo.equals("credenciales")){
                     Alert error = new Alert(Alert.AlertType.ERROR);
                     error.setTitle("Error de validación");
@@ -198,14 +206,7 @@ public class Alertas {
                         "Los datos son los siguientes:\n"+contenido);
                 result = aviso.showAndWait();
             }
-            if(subtipo.equals("baja_reserva")) {
-                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
-                aviso.setTitle(titulo);
-                aviso.setHeaderText("**Eliminación de "+encabezado+" completada satisfactoriamente**");
-                aviso.setContentText(encabezado+" ha sido cancelado exitosamente de la base de datos.\n " +
-                        "Los datos son los siguientes:\n"+contenido);
-                result = aviso.showAndWait();
-            }
+
         }
         if(result.isEmpty()){
             System.out.println("Result Vacío");
