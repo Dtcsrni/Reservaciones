@@ -1,14 +1,11 @@
 package tech.armsys.reservaciones.modelo;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 
 public class Usuario {
     //Se definen las variables del singleton
-    private IntegerProperty id_usuario;
+    private LongProperty id_usuario;
     private StringProperty nombre;
     private StringProperty tipoUsuario;
     private StringProperty contra;
@@ -20,9 +17,9 @@ public class Usuario {
 
     }
 
-    public Usuario(int id_usuario1, String nombre1, String tipoUsuario1, String contra1, String grupo1) {
+    public Usuario(long id_usuario1, String nombre1, String tipoUsuario1, String contra1, String grupo1) {
 
-        this.id_usuario = new SimpleIntegerProperty(id_usuario1);
+        this.id_usuario = new SimpleLongProperty(id_usuario1);
         this.nombre = new SimpleStringProperty(nombre1);
         this.tipoUsuario = new SimpleStringProperty(tipoUsuario1);
         this.contra = new SimpleStringProperty(contra1);
@@ -31,7 +28,7 @@ public class Usuario {
 
 
 
-    public static Usuario getInstanceUser(int id_usuario1, String nombre1, String tipoUsuario1, String contra1, String grupo1){
+    public static Usuario getInstanceUser(long id_usuario1, String nombre1, String tipoUsuario1, String contra1, String grupo1){
 
         if(usr == null){//Si no se ha instanciado aún el objeto
             //Se instancia un objeto (implementación de singleton)
@@ -41,12 +38,12 @@ public class Usuario {
         return usr;//se devuelve el objeto
     }
     //Implementación de get y set para cada valor (encapsulamiento)
-    public int getId_Usuario() {
+    public long getId_Usuario() {
         return id_usuario.get();
     }
 
-    public void setId_usuario(int id_usuario1) {
-        this.id_usuario = new SimpleIntegerProperty(id_usuario1);
+    public void setId_usuario(long id_usuario1) {
+        this.id_usuario = new SimpleLongProperty(id_usuario1);
     }
 
     public String getNombre() {

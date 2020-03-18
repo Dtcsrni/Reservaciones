@@ -50,7 +50,7 @@ public class usuarioDAOImpl implements usuarioDAO{
         return usuario;
     }
 
-    public boolean ACTUALIZAR(int usuarioBase, Usuario usuarioModif) throws SQLException{//función para hacer actualizaciones
+    public boolean ACTUALIZAR(long usuarioBase, Usuario usuarioModif) throws SQLException{//función para hacer actualizaciones
         conexion_MySQLBD conexion = new conexion_MySQLBD();
         conexion.conectar();
         String sql1= "UPDATE usuarios SET id_usuario='"+usuarioModif.getId_Usuario()+"',nombre_usuario='"+usuarioModif.getNombre()+"',tipo='"+usuarioModif.getTipoUsuario()+"',contra='"+usuarioModif.getContra()+"',grupo='"+usuarioModif.getGrupo()+"' WHERE id_usuario='"+usuarioBase+"'";

@@ -104,7 +104,7 @@ public class adminControl_Usuarios implements Initializable {
     private usuarioDAO usDAO= new usuarioDAOImpl();
     private boolean result;
     private List<String> tipoUsuario = new ArrayList<>();
-    private int idUsuarioBase;
+    private long idUsuarioBase;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -179,7 +179,7 @@ public class adminControl_Usuarios implements Initializable {
             txtGrupo3.setDisable(false);
             btnBaja.setDisable(false);
             txtNombreUsuario3.setText(usuario.getNombre());
-            txtMatriculaUsuario3.setText(Integer.toString(usuario.getId_Usuario()));
+            txtMatriculaUsuario3.setText(Long.toString(usuario.getId_Usuario()));
             txtTipoUsuario3.setText(usuario.getTipoUsuario());
             txtGrupo3.setText(usuario.getGrupo());
             lista.clear();
@@ -265,6 +265,10 @@ public class adminControl_Usuarios implements Initializable {
     @FXML
     private void botonRegresar(ActionEvent evt) throws IOException {
         ventanas.mostrarVentana(evt, null, "admin.fxml","PANEL DE CONTROL", "admin");
+    }
+    @FXML
+    private void botonLimpiar(ActionEvent evt) throws IOException {
+        ventanas.mostrarVentana(evt, null, "admin_control_usuarios.fxml","Control de Usuarios", "admin");
     }
     @FXML
     private void altaUsuario(ActionEvent evt) throws Exception {

@@ -78,37 +78,41 @@ public class usuarioControl_reservas implements Initializable {
 
         boolean result;
         Alertas alerta = new Alertas();
-        reserva.setNombre_espacio(reserva.getNombre_espacio());
-        reserva.setNombre_usuario(usuarioToken.getNombre());
+        if (!boxReservas.getSelectionModel().isEmpty()) {
+            reserva.setNombre_espacio(reserva.getNombre_espacio());
+            reserva.setNombre_usuario(usuarioToken.getNombre());
 
 
-        Optional<String> resultado = alerta.mostrarAlerta("confirmacion", "baja_reserva", "Confirmación de cancelación de Reserva", reserva.getNombre_espacio(),
-                "-Usuario que reserva: "+reserva.getNombre_usuario()+"\n-Espacio: "+reserva.getNombre_espacio()+
-                        "\n-Horario: "+reserva.getHorario()+"\n-Fecha: "+reserva.getFecha()+"\n-Lugares disponibles: "+reserva.getLugares_Disponibles()+"\n");
-        if (resultado.isPresent()) {
-            if(resultado.get().equals(reserva.getNombre_espacio())){
+            Optional<String> resultado = alerta.mostrarAlerta("confirmacion", "baja_reserva", "Confirmación de cancelación de Reserva", reserva.getNombre_espacio(),
+                    "-Usuario que reserva: " + reserva.getNombre_usuario() + "\n-Espacio: " + reserva.getNombre_espacio() +
+                            "\n-Horario: " + reserva.getHorario() + "\n-Fecha: " + reserva.getFecha() + "\n-Lugares disponibles: " + reserva.getLugares_Disponibles() + "\n");
+            if (resultado.isPresent()) {
+                if (resultado.get().equals(reserva.getNombre_espacio())) {
 
-                result = reservaDao.BORRAR(reserva);
-                if (result) {
-                    alerta.mostrarAlerta("aviso", "baja_reserva", "Eliminación de reserva satisfactoria", reserva.getNombre_espacio(),
-                            "-Id de reserva: " + reserva.getId_Reserva() + "\n-Nombre de Espacio: " + reserva.getNombre_espacio());
-                    lista.clear();
-                    ventanas.mostrarVentana(evt, null, "usuario.fxml","Reservas", "usuario");
+                    result = reservaDao.BORRAR(reserva);
+                    if (result) {
+                        alerta.mostrarAlerta("aviso", "baja_reserva", "Eliminación de reserva satisfactoria", reserva.getNombre_espacio(),
+                                "-Id de reserva: " + reserva.getId_Reserva() + "\n-Nombre de Espacio: " + reserva.getNombre_espacio());
+                        lista.clear();
+                        ventanas.mostrarVentana(evt, null, "usuario.fxml", "Reservas", "usuario");
+                    } else {
+                        alerta.mostrarAlerta("error", "baja_reserva", "Error", "Error al intentar eliminar registro", "No se ha podido eliminar el registro, por favor intente nuevamente");
+                        ventanas.mostrarVentana(evt, null, "usuario.fxml", "Reservas", "usuario");
+                    }
                 } else {
                     alerta.mostrarAlerta("error", "baja_reserva", "Error", "Error al intentar eliminar registro", "No se ha podido eliminar el registro, por favor intente nuevamente");
-                    ventanas.mostrarVentana(evt, null, "usuario.fxml","Reservas", "usuario");
+                    ventanas.mostrarVentana(evt, null, "usuario.fxml", "Reservas", "usuario");
                 }
-            }
-            else {
+            } else {
                 alerta.mostrarAlerta("error", "baja_reserva", "Error", "Error al intentar eliminar registro", "No se ha podido eliminar el registro, por favor intente nuevamente");
-                ventanas.mostrarVentana(evt, null, "usuario.fxml","Reservas", "usuario");
+
             }
-        }
-        else {
-            alerta.mostrarAlerta("error", "baja_reserva", "Error", "Error al intentar eliminar registro", "No se ha podido eliminar el registro, por favor intente nuevamente");
+
+
+        }else{
+            alerta.mostrarAlerta("error", "baja_reserva", "Error", "Indique una reservación a borrar e intente nuevamente", "No se ha podido borrar la reservación por que no se ha indicado una");
 
         }
-
 
 
     }

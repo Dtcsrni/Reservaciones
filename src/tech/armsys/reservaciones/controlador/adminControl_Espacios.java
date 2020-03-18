@@ -178,6 +178,10 @@ public class adminControl_Espacios implements Initializable {
             ventanas.mostrarVentana(evt, null, "admin.fxml","PANEL DE CONTROL", "admin");
     }
     @FXML
+    private void botonLimpiar(ActionEvent evt) throws IOException {
+        ventanas.mostrarVentana(evt, null, "admin_control_espacios.fxml","Control de Usuarios", "admin");
+    }
+    @FXML
     private void altaEspacio(ActionEvent evt) throws Exception {
 
         Optional<ButtonType> resultado = alerta.mostrarAlerta("confirmacion", "alta", "Confirmación de alta de Espacio", txtNombreEspacio.getText(),
