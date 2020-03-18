@@ -62,6 +62,28 @@ public class reservaDAOImpl implements reservaDAO{
         conexion.desconectar();;
         return listaReservas;
     }
+    public List<String> CONSULTAR_FECHAS(Reserva reserva) throws SQLException {//función para hacer consultas
+        conexion_MySQLBD conexion = new conexion_MySQLBD();
+        List<String> listaReservas = new ArrayList<String>();
+        String sql1 = "SELECT * FROM reserva WHERE nombre_usuario='"+reserva.getNombre_usuario()+"'";
+
+        conexion.conectar();
+        ResultSet rs = conexion.consultaSQL(sql1,0);
+        if(rs!=null){
+            while(rs.next()){
+
+                reserva.setFecha(rs.getString("fecha"));
+
+                listaReservas.add(reserva.getFecha());
+            }
+        }else{
+            conexion.desconectar();
+            return null;
+        }
+        conexion.desconectar();;
+        return listaReservas;
+    }
+
     public List<Reserva> CONSULTAR_FECHA(Reserva reserva) throws SQLException {//función para hacer consultas
         conexion_MySQLBD conexion = new conexion_MySQLBD();
         List<Reserva> listaReservas = new ArrayList<Reserva>();
@@ -101,6 +123,30 @@ public class reservaDAOImpl implements reservaDAO{
         }
         conexion.desconectar();
         return true;
+    }
+    public Reserva CONSULTAR_POR_FECHA(Reserva reserva) throws SQLException {//función para hacer consultas
+        conexion_MySQLBD conexion = new conexion_MySQLBD();
+        List<Reserva> listaReservas = new ArrayList<Reserva>();
+        String sql1 = "SELECT * FROM reserva WHERE fecha='"+reserva.getFecha()+"'";
+
+        conexion.conectar();
+        ResultSet rs = conexion.consultaSQL(sql1,0);
+        if(rs!=null){
+            while(rs.next()){
+                reserva = new Reserva();
+                reserva.setId_reserva(rs.getInt("id_reserva"));
+                reserva.setNombre_espacio(rs.getString("nombre_espacio"));
+                reserva.setHorario(rs.getString("horario"));
+                reserva.setFecha(rs.getString("fecha"));
+                reserva.setNombre_usuario(rs.getString("nombre_usuario"));
+                reserva.setLugares_disponibles(rs.getInt("lugares_disponibles"));
+            }
+        }else{
+            conexion.desconectar();
+            return null;
+        }
+        conexion.desconectar();;
+        return reserva;
     }
 
     public boolean BORRAR(Reserva reserva) throws SQLException{

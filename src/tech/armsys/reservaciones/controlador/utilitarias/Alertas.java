@@ -41,6 +41,7 @@ public class Alertas {
                 error.setContentText("El registro solicitado ya existe. Por favor, verifique los datos ingresados");
                 result = error.showAndWait();
             }
+
                 if(subtipo.equals("modificacion_fallida")){
                 Alert error = new Alert(Alert.AlertType.ERROR);
                 error.setTitle("Error en la modificación");
@@ -153,6 +154,16 @@ public class Alertas {
 
                 result = confirmacion.showAndWait();
             }
+            if(subtipo.equals("baja_reserva")){
+                TextInputDialog confirmacion = new TextInputDialog("Nombre de entidad");
+                confirmacion.setTitle("Confirmación de Cancelación");
+                confirmacion.setHeaderText("Confirme la cancelación de "+encabezado+" escribiendo el nombre de la entidad en el recuadro");
+                confirmacion.setContentText("¿Está seguro que quiere cancelar "+encabezado+"?" +
+                        "\nPor favor verifique que los datos sean correctos, una vez eliminado de la base de datos " +
+                        "LA OPERACIÓN ES IRREVERSIBLE:\n\n" +contenido);
+
+                result = confirmacion.showAndWait();
+            }
         }
         if(tipoAlerta.equals("aviso")) {
             if(subtipo.equals("alta")) {
@@ -184,6 +195,14 @@ public class Alertas {
                 aviso.setTitle(titulo);
                 aviso.setHeaderText("**Eliminación de "+encabezado+" completada satisfactoriamente**");
                 aviso.setContentText(encabezado+" ha sido eliminado exitosamente de la base de datos.\n " +
+                        "Los datos son los siguientes:\n"+contenido);
+                result = aviso.showAndWait();
+            }
+            if(subtipo.equals("baja_reserva")) {
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setTitle(titulo);
+                aviso.setHeaderText("**Eliminación de "+encabezado+" completada satisfactoriamente**");
+                aviso.setContentText(encabezado+" ha sido cancelado exitosamente de la base de datos.\n " +
                         "Los datos son los siguientes:\n"+contenido);
                 result = aviso.showAndWait();
             }
