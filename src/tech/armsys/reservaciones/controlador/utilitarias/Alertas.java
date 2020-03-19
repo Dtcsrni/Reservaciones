@@ -13,6 +13,13 @@ public class Alertas {
         Optional result = Optional.empty();
 
         if (tipoAlerta.equals("error")){
+            if(subtipo.equals("falta_datos")) {
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setTitle(titulo);
+                aviso.setHeaderText(encabezado);
+                aviso.setContentText(contenido);
+                result = aviso.showAndWait();
+            }
             if(subtipo.equals("baja_reserva")) {
                 Alert aviso = new Alert(Alert.AlertType.INFORMATION);
                 aviso.setTitle(titulo);

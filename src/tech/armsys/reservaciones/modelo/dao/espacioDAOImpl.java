@@ -73,6 +73,30 @@ public class espacioDAOImpl implements espacioDAO {
         conexion.desconectar();
         return listaEspacios;
     }
+    public List<String> CONSULTAR_NOMBRES() throws SQLException {
+        conexion_MySQLBD conexion = new conexion_MySQLBD();
+        conexion.conectar();
+        List<String> listaEspacios = new ArrayList<>();;
+        Espacio espacio;
+        String sql1 = "SELECT * FROM espacios";
+        ResultSet rs = conexion.consultaSQL(sql1,0);
+        if(rs!=null){
+            while(rs.next()){
+                espacio = new Espacio();
+                espacio.setId_espacio(rs.getInt("id_espacio"));
+                espacio.setNombre_espacio(rs.getString("nombre_espacio"));
+                espacio.setTipo_Espacio(rs.getString("tipo_espacio"));
+                espacio.setLugares(rs.getInt("lugares"));
+
+                listaEspacios.add(espacio.getNombre_espacio());
+            }
+        }else{
+            conexion.desconectar();
+            return null;
+        }
+        conexion.desconectar();
+        return listaEspacios;
+    }
 
     public boolean ACTUALIZAR(String espacioBase, Espacio espacioModif) throws SQLException{//función para hacer actualizaciones
         conexion_MySQLBD conexion = new conexion_MySQLBD();
