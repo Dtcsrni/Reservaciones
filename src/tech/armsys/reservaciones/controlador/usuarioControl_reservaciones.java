@@ -110,7 +110,7 @@ public class usuarioControl_reservaciones {
     private String horario4 = "20:00-22:00 hrs";
     private int numeroReservasporDia = 4;
 
-    private int cantidadTotalBotones = 18;
+    public static int cantidadTotalBotones = 18;
 
     private Reserva reserva = new Reserva();
     private reservaDAO reservaDao = new reservaDAOImpl();
@@ -308,7 +308,7 @@ public class usuarioControl_reservaciones {
         for(int i=0; i<cantidad; i++){
             switch(i){
                 case 0:
-                    btnEsp01.setText(listaEspacios.get(i).getNombre_espacio());
+                    btnEsp01.setText(espaciosLista.get(i).getNombre_espacio());
                     
                     btnEsp01.setVisible(true);
                     break;
