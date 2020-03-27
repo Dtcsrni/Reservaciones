@@ -152,7 +152,7 @@ public class reservaDAOImpl implements reservaDAO{
     public boolean BORRAR(Reserva reserva) throws SQLException{
         conexion_MySQLBD conexion = new conexion_MySQLBD();
         conexion.conectar();
-        String sql1= "DELETE FROM reserva WHERE id_reserva='"+reserva.getId_Reserva()+"'";
+        String sql1= "DELETE FROM reserva WHERE nombre_usuario='"+reserva.getNombre_usuario()+"' AND nombre_espacio='"+reserva.getNombre_espacio()+"' AND horario='"+reserva.getHorario()+"'";
         int rs = conexion.consultaSQL(sql1,1);
         if(rs>0){
         }else{

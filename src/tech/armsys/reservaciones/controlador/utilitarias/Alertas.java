@@ -183,8 +183,8 @@ public class Alertas {
             if(subtipo.equals("baja_reserva")) {
                 Alert aviso = new Alert(Alert.AlertType.INFORMATION);
                 aviso.setTitle(titulo);
-                aviso.setHeaderText("**Eliminación de "+encabezado+" completada satisfactoriamente**");
-                aviso.setContentText(encabezado+" ha sido cancelado exitosamente de la base de datos.\n " +
+                aviso.setHeaderText("**Cancelación de reserva en "+encabezado+" completada satisfactoriamente**");
+                aviso.setContentText("La reservación en "+encabezado+" ha sido cancelada exitosamente de la base de datos.\n " +
                         "Los datos son los siguientes:\n"+contenido);
                 result = aviso.showAndWait();
             }

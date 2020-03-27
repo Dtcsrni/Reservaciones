@@ -14,6 +14,8 @@ import tech.armsys.reservaciones.controlador.utilitarias.Alertas;
 import tech.armsys.reservaciones.controlador.utilitarias.ventanas;
 import tech.armsys.reservaciones.modelo.Espacio;
 import tech.armsys.reservaciones.modelo.Reserva;
+import tech.armsys.reservaciones.modelo.dao.espacioDAO;
+import tech.armsys.reservaciones.modelo.dao.espacioDAOImpl;
 import tech.armsys.reservaciones.modelo.dao.reservaDAO;
 import tech.armsys.reservaciones.modelo.dao.reservaDAOImpl;
 import static tech.armsys.reservaciones.controlador.loginControl.usuarioToken;
@@ -29,6 +31,8 @@ import java.util.*;
 
 public class usuarioControl_reservas implements Initializable {
     private Reserva reserva = new Reserva();
+    private Espacio  espacioObj = new Espacio();
+    private espacioDAO espacioDao = new espacioDAOImpl();
     @FXML
     private ComboBox boxReservas;
     private reservaDAO reservaDao = new reservaDAOImpl();
@@ -43,6 +47,20 @@ public class usuarioControl_reservas implements Initializable {
     private Label lblFecha;
     @FXML
     private Label lblHorario;
+    @FXML
+    private Label lblNombreUsuario;
+    @FXML
+    private Label lblEspacioReservado;
+    @FXML
+    private Label lblFechaReservacion;
+    @FXML
+    private Label lblHorarioReservacion;
+    @FXML
+    private Label lblMensajeInicial;
+    @FXML
+    private Button btnLimpiar;
+    @FXML
+    private Button btnCancelarReservacion;
     @FXML
     private TilePane tilePaneHorarios;
     @FXML
@@ -105,6 +123,7 @@ public class usuarioControl_reservas implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        lblNombreUsuario.setText(usuarioToken.getNombre());
     }
 
     @FXML
@@ -115,16 +134,25 @@ public class usuarioControl_reservas implements Initializable {
     private void cargarReservaciones() throws SQLException {
             reserva.setNombre_usuario(usuarioToken.getNombre());
             listaReservas = reservaDao.CONSULTAR(reserva);
-            lista.clear();
-            boxReservas.getItems().clear();
-            for(Reserva listas: listaReservas){
-                if(!lista.contains(listas.getFecha())){
-                lista.add(listas.getFecha());
+            if(listaReservas.isEmpty()){
+                lblMensajeInicial.setText("Usted no ha hecho ninguna reservación aún");
+            }
+            else{
+
+                boxReservas.setVisible(true);
+                lista.clear();
+                boxReservas.getItems().clear();
+                for(Reserva listas: listaReservas){
+                    if(!lista.contains(listas.getFecha())){
+                        lista.add(listas.getFecha());
+                    }
                 }
+
+                lista.addAll(listaFechas);
+                boxReservas.getItems().addAll(lista);
+
             }
 
-            lista.addAll(listaFechas);
-            boxReservas.getItems().addAll(lista);
     }
     private void mostrarBotones(int cantidad){
         //For de borrado localizado de botones
@@ -365,29 +393,52 @@ public class usuarioControl_reservas implements Initializable {
 
     @FXML
     private void fechaSeleccionada() throws SQLException {
+        btnLimpiar.setVisible(true);
         for(int i=0 ;i<listaReservas.size(); i++){
             if(listaReservas.get(i).getFecha().equals(boxReservas.getValue().toString())){
                 listaHorarios.add(listaReservas.get(i).getHorario());
                 listaEspacios.add(listaReservas.get(i).getNombre_espacio());
-
             }
         }
 
         mostrarBotones(listaHorarios.size());
         nombrarBotones(listaHorarios.size(),listaHorarios,listaEspacios);
+        boxReservas.setDisable(true);
+    }
+
+    @FXML
+    private void mostrarReservaciónSeleccionada(ActionEvent evt) throws SQLException {
+        String nombreEspacio;
+        String nombreHorario;
+        StringTokenizer tokenizer;
+        List<Espacio> listaEspacios = new ArrayList<Espacio>();
+        String botonSeleccionado = evt.getSource().toString();
+        botonSeleccionado = botonSeleccionado.substring(36);//se corta el texto para eliminar lo anterior al nombre de espacio
+        botonSeleccionado = botonSeleccionado.replace("'","");//se da formato
+        botonSeleccionado = botonSeleccionado.replace(" | ","|");
+
+        tokenizer = new StringTokenizer(botonSeleccionado, "|");//se divide el texto antes y después de |
+
+        nombreEspacio = tokenizer.nextToken();//se almacena el contenido del primer token, el nombre de espacio
+        nombreHorario = tokenizer.nextToken();//se almacena el contenido del segundo token, el nombre de horario
 
 
 
 
+        reserva.setNombre_espacio(nombreEspacio);
         reserva.setFecha(boxReservas.getValue().toString());
-        reserva =  reservaDao.CONSULTAR_POR_FECHA(reserva);
+        reserva.setHorario(nombreHorario);
+
+        lblEspacioReservado.setVisible(true);
+        lblFechaReservacion.setVisible(true);
+        lblHorarioReservacion.setVisible(true);
+        btnCancelarReservacion.setVisible(true);
         lblNombreEspacio.setVisible(true);
         lblNombreEspacio.setText(reserva.getNombre_espacio());
         lblFecha.setVisible(true);
         lblFecha.setText(reserva.getFecha());
         lblHorario.setVisible(true);
         lblHorario.setText(reserva.getHorario());
-        boxReservas.setDisable(true);
     }
 
     @FXML
@@ -397,24 +448,24 @@ public class usuarioControl_reservas implements Initializable {
 
     @FXML
     private void botonCancelarReservacion(ActionEvent evt) throws SQLException, IOException {
-
         boolean result;
+
+
+
         Alertas alerta = new Alertas();
         if (!boxReservas.getSelectionModel().isEmpty()) {
-            reserva.setNombre_espacio(reserva.getNombre_espacio());
-            reserva.setNombre_usuario(usuarioToken.getNombre());
 
 
             Optional<String> resultado = alerta.mostrarAlerta("confirmacion", "baja_reserva", "Confirmación de cancelación de Reserva", reserva.getNombre_espacio(),
                     "-Usuario que reserva: " + reserva.getNombre_usuario() + "\n-Espacio: " + reserva.getNombre_espacio() +
-                            "\n-Horario: " + reserva.getHorario() + "\n-Fecha: " + reserva.getFecha() + "\n-Lugares disponibles: " + reserva.getLugares_Disponibles() + "\n");
+                            "\n-Horario: " + reserva.getHorario() + "\n-Fecha: " + reserva.getFecha() +"\n");
             if (resultado.isPresent()) {
                 if (resultado.get().equals(reserva.getNombre_espacio())) {
 
                     result = reservaDao.BORRAR(reserva);
                     if (result) {
                         alerta.mostrarAlerta("aviso", "baja_reserva", "Eliminación de reserva satisfactoria", reserva.getNombre_espacio(),
-                                "-Id de reserva: " + reserva.getId_Reserva() + "\n-Nombre de Espacio: " + reserva.getNombre_espacio());
+                                "\n-Nombre de Espacio: " + reserva.getNombre_espacio()+"\n-Horario: "+reserva.getHorario());
                         lista.clear();
                         ventanas.mostrarVentana(evt, null, "usuario.fxml", "Reservas", "usuario");
                     } else {

@@ -36,47 +36,47 @@
                   <Image url="@recursos/search_property_96px.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="356.0" layoutY="128.0" prefHeight="19.0" prefWidth="197.0" text="Revisar Reservaciones" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="122.0" prefHeight="19.0" prefWidth="197.0" text="Revisar Reservaciones" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="31.0" layoutY="179.0" prefHeight="84.0" prefWidth="230.0" text="Las Reservaciones a su nombre son las siguientes" wrapText="true">
+            <Label fx:id="lblMensajeInicial" layoutX="36.0" layoutY="167.0" prefHeight="77.0" prefWidth="357.0" text="Favor de elegir la fecha de reservación" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="174.0" layoutY="485.0" text="Fecha de reservación" underline="true" wrapText="true">
+            <Label fx:id="lblFechaReservacion" layoutX="37.0" layoutY="490.0" text="Fecha de reservación" underline="true" visible="false" wrapText="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="168.0" layoutY="513.0" text="Horario de reservación" underline="true" wrapText="true">
+            <Label fx:id="lblHorarioReservacion" layoutX="31.0" layoutY="518.0" text="Horario de reservación" underline="true" visible="false" wrapText="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="182.0" layoutY="458.0" text="Espacio Reservado" underline="true" wrapText="true">
+            <Label fx:id="lblEspacioReservado" layoutX="45.0" layoutY="463.0" text="Espacio Reservado" underline="true" visible="false" wrapText="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lblNombreEspacio" layoutX="352.0" layoutY="420.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado" visible="false">
+            <Label fx:id="lblNombreEspacio" layoutX="217.0" layoutY="463.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lblFecha" layoutX="352.0" layoutY="447.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado" visible="false">
+            <Label fx:id="lblFecha" layoutX="217.0" layoutY="490.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lblHorario" layoutX="352.0" layoutY="475.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado" visible="false">
+            <Label fx:id="lblHorario" layoutX="217.0" layoutY="518.0" prefHeight="21.0" prefWidth="387.0" text="Espacio Reservado" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="698.0" layoutY="549.0" mnemonicParsing="false" onAction="#botonCancelarReservacion" text="CANCELAR RESERVACIÓN">
+            <Button fx:id="btnCancelarReservacion" layoutX="698.0" layoutY="549.0" mnemonicParsing="false" onAction="#botonCancelarReservacion" text="CANCELAR RESERVACIÓN" visible="false">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -84,6 +84,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button alignment="CENTER" layoutX="14.0" layoutY="555.0" mnemonicParsing="false" onAction="#botonRegresar" prefHeight="31.0" prefWidth="121.0" text="REGRESAR" textAlignment="CENTER">
                <cursor>
@@ -97,10 +100,13 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ComboBox fx:id="boxReservas" layoutX="400.0" layoutY="204.0" onAction="#fechaSeleccionada" prefHeight="35.0" prefWidth="339.0" />
-            <TilePane fx:id="tilePaneHorarios" alignment="CENTER" layoutX="9.0" layoutY="255.0" prefHeight="192.0" prefWidth="881.0">
+            <ComboBox fx:id="boxReservas" layoutX="393.0" layoutY="190.0" onAction="#fechaSeleccionada" prefHeight="35.0" prefWidth="339.0" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <TilePane fx:id="tilePaneHorarios" alignment="CENTER" layoutY="248.0" prefHeight="175.0" prefWidth="900.0">
                <children>
-                  <Button fx:id="btn00" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn00" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -112,10 +118,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn01" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn01" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -127,10 +136,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn02" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn02" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -142,10 +154,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn03" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn03" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -157,10 +172,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn04" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn04" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -172,10 +190,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn05" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn05" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -187,10 +208,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn06" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn06" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -202,10 +226,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn07" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn07" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -217,10 +244,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn08" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn08" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -232,10 +262,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn09" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn09" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -247,10 +280,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn10" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn10" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -262,10 +298,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn11" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn11" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -277,10 +316,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn12" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn12" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -292,10 +334,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn13" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn13" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -307,10 +352,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn14" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn14" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -322,10 +370,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn15" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn15" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -337,10 +388,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn16" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn16" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -352,10 +406,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn17" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn17" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -367,10 +424,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn18" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn18" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -382,10 +442,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn19" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn19" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -397,10 +460,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn20" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn20" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -412,10 +478,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn21" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn21" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -427,10 +496,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn22" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn22" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -442,10 +514,13 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btn23" mnemonicParsing="false" text="Horario" textAlignment="CENTER" visible="false">
+                  <Button fx:id="btn23" alignment="CENTER" mnemonicParsing="false" onAction="#mostrarReservaciónSeleccionada" text="Horario" textAlignment="CENTER" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -457,12 +532,15 @@
                         <Insets bottom="3.0" left="3.0" right="3.0" />
                      </TilePane.margin>
                      <font>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </TilePane>
-            <Button layoutX="781.0" layoutY="205.0" mnemonicParsing="false" onAction="#botonLimpiar" text="Limpiar">
+            <Button fx:id="btnLimpiar" layoutX="781.0" layoutY="191.0" mnemonicParsing="false" onAction="#botonLimpiar" text="Limpiar" visible="false">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -470,7 +548,15 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
+            <Label fx:id="lblNombreUsuario" alignment="CENTER" contentDisplay="CENTER" layoutX="229.0" layoutY="142.0" prefHeight="19.0" prefWidth="443.0" text="Nombre" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
