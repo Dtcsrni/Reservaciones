@@ -1,5 +1,6 @@
 package tech.armsys.reservaciones.controlador;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,6 +34,18 @@ public class adminControl_Reportes implements Initializable {
     private ComboBox comboMeses;
     @FXML
     private TextField txtAnio;
+    @FXML
+    private Label lblCantidadReservaciones;
+    @FXML
+    private Label lblCantidad;
+    @FXML
+    private Label lblMes;
+    @FXML
+    private Button btnConsultar;
+    @FXML
+    private Button btnLimpiar;
+
+
     Reserva reserva = new Reserva();
     private reservaDAO reservaDao= new reservaDAOImpl();
     Alertas alerta = new Alertas();
@@ -69,10 +82,10 @@ public class adminControl_Reportes implements Initializable {
         int anio = 2020;
         String annio;
         StringTokenizer tokenizer;
-        TableColumn id_Columna = new TableColumn("Id Reserva");
+        /*TableColumn id_Columna = new TableColumn("Id de Reserva");
         id_Columna.setMinWidth(100);
         id_Columna.setCellValueFactory(
-                new PropertyValueFactory<Reserva, String>("id_columna"));
+                new PropertyValueFactory<Reserva, Integer>("id_reserva"));*/
 
         TableColumn nombreEspacio_Columna = new TableColumn("Nombre de Espacio");
         nombreEspacio_Columna.setMinWidth(100);
@@ -94,6 +107,11 @@ public class adminControl_Reportes implements Initializable {
         nombreUsuario_columna.setCellValueFactory(
                 new PropertyValueFactory<Reserva, String>("nombre_usuario"));
 
+        /*TableColumn lugaresDisponibles_columna = new TableColumn("Lugares Disponibles");
+        lugaresDisponibles_columna.setMinWidth(100);
+        lugaresDisponibles_columna.setCellValueFactory(
+                new PropertyValueFactory<Reserva, Integer>("lugares_disponibles"));*/
+
         if (txtAnio.getLength()<4 || txtAnio.getLength()>4){//si el año no tiene exactamente 4 cifras
             alerta.mostrarAlerta("error", "falta_datos", "Campos incompletos o erroneos", "Falta información", "No se han completado correctamente todos los campos para hacer la consulta, favor de completarlos");
         }else{
@@ -101,20 +119,21 @@ public class adminControl_Reportes implements Initializable {
             if(listaReservas.isEmpty()){//Si no se encuentran registros
                 alerta.mostrarAlerta("error", "sin_resultados", "Campos incompletos o erroneos", "Falta información", "No se han completado correctamente todos los campos para hacer la consulta, favor de completarlos");
             }else{//Si se encuentran registros en el mes y año indicados
+                for(int i=0; i<listaReservas.size();i++){
+                    filas.add(listaReservas.get(i));
+                }
+                tblReportes.setVisible(true);
+                tblReportes.setItems(filas);
+                tblReportes.getColumns().addAll(nombreEspacio_Columna, horario_columna, fecha_columna, nombreUsuario_columna);
+                lblCantidadReservaciones.setVisible(true);
+                lblCantidadReservaciones.setText(String.valueOf(listaReservas.size()));
+                lblCantidad.setVisible(true);
+                lblMes.setVisible(true);
+                btnConsultar.setDisable(true);
+                txtAnio.setDisable(true);
+                comboMeses.setDisable(true);
+                btnLimpiar.setVisible(true);
 
-                firstNameCol.setMinWidth(100);
-                firstNameCol.setCellValueFactory(
-                        new PropertyValueFactory<Person, String>("firstName"));
-
-
-                lastNameCol.setMinWidth(100);
-                lastNameCol.setCellValueFactory(
-                        new PropertyValueFactory<Person, String>("lastName"));
-
-                TableColumn emailCol = new TableColumn("Email");
-                emailCol.setMinWidth(200);
-                emailCol.setCellValueFactory(
-                        new PropertyValueFactory<Person, String>("email"));
             }
         }
 
@@ -122,6 +141,10 @@ public class adminControl_Reportes implements Initializable {
 
     }
 
+    @FXML
+    private void botonLimpiar(ActionEvent evt) throws IOException {
+        ventanas.mostrarVentana(evt, null, "admin_control_reportes.fxml","Control de Reportes", "admin");
+    }
 
     @FXML
     private void botonRegresar(ActionEvent evt) throws IOException {

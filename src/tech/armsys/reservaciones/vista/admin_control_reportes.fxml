@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -32,7 +31,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="126.0" fitWidth="121.0" layoutX="1012.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="126.0" fitWidth="121.0" layoutX="924.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/sistemas_logo.png" />
                </image>
@@ -55,26 +54,22 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="516.0" layoutY="210.0" prefHeight="17.0" prefWidth="28.0" text="MES" />
-            <Label layoutX="453.0" layoutY="236.0" prefHeight="21.0" prefWidth="154.0" text="Cantidad de reservaciones:" />
-            <Label alignment="CENTER" layoutX="63.0" layoutY="303.0" prefHeight="10.0" prefWidth="41.0" text="#" textAlignment="CENTER" />
-            <TableView fx:id="tblReportes" layoutX="3.0" layoutY="274.0" prefHeight="398.0" prefWidth="1123.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="ID de Reserva" />
-                  <TableColumn prefWidth="75.0" text="Nombre de Espacio" />
-                  <TableColumn prefWidth="75.0" text="Horario" />
-                  <TableColumn prefWidth="75.0" text="Fecha" />
-                  <TableColumn prefWidth="75.0" text="Nombre de Usuario" />
-                  <TableColumn prefWidth="75.0" text="Lugares Disponibles" />
-               </columns>
+            <Label fx:id="lblMes" alignment="CENTER" layoutX="516.0" layoutY="210.0" prefHeight="17.0" prefWidth="28.0" text="MES" visible="false" />
+            <Label fx:id="lblCantidad" layoutX="453.0" layoutY="236.0" prefHeight="21.0" prefWidth="154.0" text="Cantidad de reservaciones:" visible="false" />
+            <Label fx:id="lblCantidadReservaciones" alignment="CENTER" layoutX="607.0" layoutY="238.0" prefHeight="10.0" prefWidth="41.0" text="#" textAlignment="CENTER" visible="false" />
+            <TableView fx:id="tblReportes" layoutX="3.0" layoutY="274.0" prefHeight="398.0" prefWidth="1049.0" visible="false">
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TableView>
             <Label layoutX="583.0" layoutY="144.0" prefHeight="21.0" prefWidth="154.0" text="Indique el año a mostrar" />
-            <Button layoutX="753.0" layoutY="172.0" mnemonicParsing="false" onAction="#botonConsultar" text="Consultar" />
+            <Button fx:id="btnConsultar" layoutX="753.0" layoutY="172.0" mnemonicParsing="false" onAction="#botonConsultar" text="Consultar" />
             <TextField fx:id="txtAnio" alignment="CENTER" layoutX="580.0" layoutY="172.0" />
             <ComboBox fx:id="comboMeses" layoutX="295.0" layoutY="172.0" prefHeight="25.0" prefWidth="183.0" />
+            <Button fx:id="btnLimpiar" layoutX="838.0" layoutY="172.0" mnemonicParsing="false" onAction="#botonLimpiar" text="Limpiar" visible="false" />
          </children>
       </AnchorPane>
    </children>
