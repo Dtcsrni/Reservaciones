@@ -104,6 +104,7 @@ public class adminControl_Espacios implements Initializable {
             lista.addAll(tipoEspacios);
             tipo_espacio_seleccionado.getItems().addAll(lista);
             tipo_espacio_seleccionado.getSelectionModel().select(lista.indexOf(espacio.getTipo_Espacio()));
+            //Se anima la transición después de que se selecciona
             animar.animarDesvanecer(txtNombreEspacio2);
             animar.animarDesvanecer(tipo_espacio_seleccionado);
             animar.animarDesvanecer(txtLugares2);

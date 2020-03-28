@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.adminControl">
-  <children>
-    <AnchorPane fx:id="anchorPaneAdmin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
-      <children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.usuarioControl">
+   <children>
+      <AnchorPane fx:id="anchorPaneAdmin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
+         <children>
             <ImageView fitHeight="128.0" fitWidth="148.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/cuh.png" />
@@ -23,22 +23,11 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="91.0" prefHeight="35.0" prefWidth="197.0" text="ADMINISTRADOR" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="91.0" prefHeight="35.0" prefWidth="197.0" text="USUARIO" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button contentDisplay="TOP" layoutX="192.0" layoutY="229.0" mnemonicParsing="false" onAction="#admin_control_espacios" prefHeight="85.0" prefWidth="110.0" text="ESPACIOS" textAlignment="CENTER">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@recursos/room_96px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
             <Button fx:id="btnDesconectarse" alignment="CENTER" layoutX="549.0" layoutY="92.0" mnemonicParsing="false" onAction="#desconectar_Sesion" prefHeight="32.0" prefWidth="110.0" text="Desconectarse" wrapText="true">
                <font>
                   <Font size="10.0" />
@@ -52,10 +41,11 @@
                         <Image url="@recursos/logout_rounded_left_96px.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
+               </graphic>
+            </Button>
             <ImageView fitHeight="138.0" fitWidth="185.0" layoutX="702.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/sistemas_logo.png" />
+                  <Image url="@recursos/logoSiststemasCUH3g17Transparente.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="335.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
@@ -63,32 +53,11 @@
                   <Image url="@recursos/admin_settings_male_96px.png" />
                </image>
             </ImageView>
-            <Button contentDisplay="TOP" disable="true" layoutX="192.0" layoutY="371.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="110.0" text="RESERVACIONES" textAlignment="CENTER">
+            <Button contentDisplay="TOP" layoutX="343.0" layoutY="264.0" mnemonicParsing="false" onAction="#usuario_control_reservaciones" prefHeight="85.0" prefWidth="163.0" text="RESERVAR" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@recursos/schedule_96px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button contentDisplay="TOP" layoutX="519.0" layoutY="229.0" mnemonicParsing="false" onAction="#admin_control_usuarios" prefHeight="85.0" prefWidth="110.0" text="USUARIOS" textAlignment="CENTER">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@recursos/user_groups_96px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button contentDisplay="TOP" layoutX="519.0" layoutY="371.0" mnemonicParsing="false" onAction="#admin_control_reportes" prefHeight="85.0" prefWidth="110.0" text="REPORTES" textAlignment="CENTER">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@recursos/audit_96px.png" />
+                        <Image url="@recursos/event_accepted_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -106,7 +75,19 @@
                   <Font name="System Italic" size="14.0" />
                </font>
             </Label>
-      </children>
-    </AnchorPane>
-  </children>
+            <Button contentDisplay="TOP" layoutX="343.0" layoutY="379.0" mnemonicParsing="false" onAction="#usuario_control_reservas" prefHeight="97.0" prefWidth="163.0" text="REVISAR RESERVACIONES" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/search_property_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
 </VBox>

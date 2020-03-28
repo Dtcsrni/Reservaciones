@@ -12,6 +12,7 @@ public interface reservaDAO {
     public List<Reserva> CONSULTAR(Reserva espacio) throws SQLException;
     public List<String> CONSULTAR_FECHAS(Reserva reserva) throws SQLException;
     public Reserva CONSULTAR_POR_FECHA(Reserva reserva) throws SQLException;
+    public List<Reserva> CONSULTAR_ANIO(int anio, int mes) throws SQLException;
     public List<Reserva> CONSULTAR_FECHA(Reserva reserva) throws SQLException;
     public boolean ACTUALIZAR(int reservaBase, Reserva reservaModif) throws SQLException;
     public boolean BORRAR(Reserva espacio) throws SQLException;

@@ -77,6 +77,13 @@ public class Alertas {
                 error.setContentText("El registro solicitado no existe. Por favor, verifique los datos ingresados");
                 result = error.showAndWait();
             }
+            if(subtipo.equals("sin_resultados")){
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setTitle("Sin reservaciones");
+                error.setHeaderText("No existen reservaciones para ese periodo");
+                error.setContentText("Favor de verificar el periodo e intente nuevamente");
+                result = error.showAndWait();
+            }
             }
         if(tipoAlerta.equals("confirmacion")){
             if(subtipo.equals("logout")){

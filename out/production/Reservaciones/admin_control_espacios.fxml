@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.adminControl_Espacios">
+  <children>
+    <AnchorPane fx:id="anchorPaneEspacios" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
+      <children>
+            <ImageView fitHeight="124.0" fitWidth="145.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/cuh.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="251.0" layoutY="14.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="88.0" prefHeight="35.0" prefWidth="197.0" text="ADMINISTRADOR" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="347.0" layoutY="181.0" prefHeight="19.0" prefWidth="197.0" text="Control de Espacio" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="549.0" mnemonicParsing="false" onAction="#botonRegresar" text="REGRESAR">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/back_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <ImageView fitHeight="138.0" fitWidth="185.0" layoutX="716.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/logoSiststemasCUH3g17Transparente.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="412.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/room_96px.png" />
+               </image>
+            </ImageView>
+            <TabPane fx:id="tabPaneEspacios" layoutX="12.0" layoutY="211.0" prefHeight="325.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab closable="false" onSelectionChanged="#cargarContenido" text="Alta de Espacios">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="60.0" layoutY="90.0" prefHeight="21.0" prefWidth="159.0" text="Nombre de espacio">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtLugares" layoutX="226.0" layoutY="187.0" prefHeight="25.0" prefWidth="222.0" promptText="Lugares disponibles">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextField>
+                              <Label alignment="CENTER" layoutX="108.0" layoutY="189.0" prefHeight="21.0" prefWidth="106.0" text="Lugares">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtNombreEspacio" layoutX="226.0" layoutY="88.0" prefHeight="25.0" prefWidth="399.0" promptText="Nombre de espacio a agregar">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextField>
+                              <Button layoutX="708.0" layoutY="252.0" mnemonicParsing="false" onAction="#altaEspacio" text="ALTA DE ESPACIO">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@recursos/add_96px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="22.0" prefHeight="19.0" prefWidth="197.0" text="Alta de Espacios" textAlignment="CENTER" underline="true" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="300.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/add_node_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="31.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/price_tag_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="94.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/computer_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" layoutX="108.0" layoutY="141.0" prefHeight="21.0" prefWidth="113.0" text="Tipo de Espacio">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="79.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/room_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ChoiceBox fx:id="tipo_espacio" layoutX="226.0" layoutY="139.0" prefHeight="25.0" prefWidth="399.0">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ChoiceBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@recursos/add_node_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                </Tab>
+                <Tab fx:id="tabPaneModif" closable="false" onSelectionChanged="#cargarContenidoModif" text="Modificar Espacio">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="307.0" prefWidth="867.0">
+                           <children>
+                              <Label layoutX="102.0" layoutY="120.0" prefHeight="17.0" prefWidth="106.0" text="Nombre de Espacio" />
+                              <TextField fx:id="txtNombreEspacio2" disable="true" layoutX="217.0" layoutY="116.0" prefHeight="25.0" prefWidth="440.0" promptText="Nombre de espacio a modificar">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
+                              <Button fx:id="btnModif" disable="true" layoutX="693.0" layoutY="255.0" mnemonicParsing="false" onAction="#modifEspacio" text="MODIFICAR ESPACIO">
+                                 <graphic>
+                                    <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@recursos/edit_property_96px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label layoutX="135.0" layoutY="214.0" prefHeight="17.0" prefWidth="58.0" text="Lugares" />
+                              <TextField fx:id="txtLugares2" disable="true" layoutX="217.0" layoutY="210.0" prefHeight="25.0" prefWidth="124.0" promptText="Lugares disponibles">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
+                              <Label layoutX="115.0" layoutY="60.0" prefHeight="17.0" prefWidth="204.0" text="Seleccione el espacio a modificar" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="20.0" prefHeight="19.0" prefWidth="197.0" text="Modificación de espacio" textAlignment="CENTER" underline="true" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="286.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/edit_node_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="72.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/price_tag_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="102.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/computer_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="81.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/search_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ComboBox fx:id="tipo_espacio2" layoutX="313.0" layoutY="56.0" onAction="#modifChoiceSeleccionado" prefHeight="35.0" prefWidth="367.0">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </ComboBox>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="87.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/room_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ChoiceBox fx:id="tipo_espacio_seleccionado" disable="true" layoutX="217.0" layoutY="169.0" prefHeight="25.0" prefWidth="399.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ChoiceBox>
+                              <Label layoutX="119.0" layoutY="173.0" prefHeight="17.0" prefWidth="90.0" text="Tipo de espacio" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@recursos/edit_node_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                </Tab>
+                  <Tab fx:id="tabPaneElim" closable="false" onSelectionChanged="#cargarContenidoElim" text="Eliminar Espacio">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="20.0" prefHeight="19.0" prefWidth="197.0" text="Baja de espacios" textAlignment="CENTER" underline="true" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label disable="true" layoutX="127.0" layoutY="124.0" prefHeight="17.0" prefWidth="125.0" text="Nombre Espacio" />
+                              <TextField fx:id="txtNombreEspacio3" disable="true" editable="false" layoutX="222.0" layoutY="122.0" opacity="0.7" prefHeight="25.0" prefWidth="440.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
+                              <Button fx:id="btnBaja" disable="true" layoutX="716.0" layoutY="253.0" mnemonicParsing="false" onAction="#elimEspacio" text="BAJA DE ESPACIO">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@recursos/delete_96px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label disable="true" layoutX="134.0" layoutY="207.0" prefHeight="17.0" prefWidth="84.0" text="Lugares" />
+                              <TextField fx:id="txtLugares3" disable="true" editable="false" layoutX="221.0" layoutY="205.0" opacity="0.7" prefHeight="25.0" prefWidth="124.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
+                              <Label layoutX="109.0" layoutY="65.0" prefHeight="17.0" prefWidth="204.0" text="Seleccione el espacio a modificar" />
+                              <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="286.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/delete_node_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="74.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/search_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView disable="true" fitHeight="29.0" fitWidth="29.0" layoutX="95.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/price_tag_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView disable="true" fitHeight="29.0" fitWidth="29.0" layoutX="95.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/computer_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView disable="true" fitHeight="29.0" fitWidth="29.0" layoutX="95.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@recursos/room_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <Label disable="true" layoutX="131.0" layoutY="167.0" prefHeight="17.0" prefWidth="90.0" text="Tipo de espacio" />
+                              <TextField fx:id="txtTipo_espacio3" disable="true" editable="false" layoutX="222.0" layoutY="165.0" opacity="0.7" prefHeight="25.0" prefWidth="440.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextField>
+                              <ComboBox fx:id="tipo_espacio3" layoutX="300.0" layoutY="56.0" onAction="#elimChoiceSeleccionado" prefHeight="35.0" prefWidth="367.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@recursos/delete_node_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <Button layoutX="325.0" layoutY="549.0" mnemonicParsing="false" onAction="#botonLimpiar" text="Limpiar">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/erase_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
