@@ -3,6 +3,9 @@ module Reservaciones{
     requires javafx.controls;
     requires java.sql;
     requires mysql.connector.java;
+    requires poi;
+    requires poi.ooxml;
+    requires java.desktop;
 
 
     opens tech.armsys.reservaciones.controlador;

@@ -9,18 +9,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import tech.armsys.reservaciones.controlador.utilitarias.Alertas;
+import tech.armsys.reservaciones.controlador.utilitarias.Exportaciones;
 import tech.armsys.reservaciones.controlador.utilitarias.ventanas;
 import tech.armsys.reservaciones.modelo.Reserva;
 import tech.armsys.reservaciones.modelo.dao.reservaDAO;
 import tech.armsys.reservaciones.modelo.dao.reservaDAOImpl;
+import java.awt.Desktop;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class adminControl_Reportes implements Initializable {
 
@@ -44,13 +44,17 @@ public class adminControl_Reportes implements Initializable {
     private Button btnConsultar;
     @FXML
     private Button btnLimpiar;
+    @FXML
+    private Button btnExportar;
 
-
+    Exportaciones excel = new Exportaciones();
     Reserva reserva = new Reserva();
     private reservaDAO reservaDao= new reservaDAOImpl();
     Alertas alerta = new Alertas();
 
-
+    int anio;
+    int mes;
+    String nombreMes;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cargarMeses(lista);
@@ -79,9 +83,12 @@ public class adminControl_Reportes implements Initializable {
 
     @FXML
     private void botonConsultar() throws SQLException {
-        int anio = 2020;
         String annio;
         StringTokenizer tokenizer;
+        anio = Integer.parseInt(txtAnio.getText());
+        mes = (comboMeses.getSelectionModel().getSelectedIndex())+1;
+        nombreMes = comboMeses.getValue().toString();
+
         /*TableColumn id_Columna = new TableColumn("Id de Reserva");
         id_Columna.setMinWidth(100);
         id_Columna.setCellValueFactory(
@@ -115,7 +122,7 @@ public class adminControl_Reportes implements Initializable {
         if (txtAnio.getLength()<4 || txtAnio.getLength()>4){//si el año no tiene exactamente 4 cifras
             alerta.mostrarAlerta("error", "falta_datos", "Campos incompletos o erroneos", "Falta información", "No se han completado correctamente todos los campos para hacer la consulta, favor de completarlos");
         }else{
-            listaReservas = reservaDao.CONSULTAR_ANIO(Integer.parseInt(txtAnio.getText()),(comboMeses.getSelectionModel().getSelectedIndex()+1));
+            listaReservas = reservaDao.CONSULTAR_ANIO(anio,mes);
             if(listaReservas.isEmpty()){//Si no se encuentran registros
                 alerta.mostrarAlerta("error", "sin_resultados", "Campos incompletos o erroneos", "Falta información", "No se han completado correctamente todos los campos para hacer la consulta, favor de completarlos");
             }else{//Si se encuentran registros en el mes y año indicados
@@ -133,12 +140,23 @@ public class adminControl_Reportes implements Initializable {
                 txtAnio.setDisable(true);
                 comboMeses.setDisable(true);
                 btnLimpiar.setVisible(true);
-
+                btnExportar.setVisible(true);
             }
         }
+    }
 
-
-
+    @FXML
+    private void botonExportar() throws IOException {
+        boolean resultado;
+        File documentoExcel = new File(excel.excelRuta);
+        Optional<ButtonType> resultado2;
+        resultado = excel.exportarAExcel(listaReservas,nombreMes,anio);
+        if(resultado){
+        resultado2 = alerta.mostrarAlerta("confirmacion", "excel_creado", nombreMes, String.valueOf(anio), null);
+            if (resultado2.isPresent() && resultado2.get() == ButtonType.YES) {
+                Desktop.getDesktop().open( documentoExcel );
+            }
+        }
     }
 
     @FXML

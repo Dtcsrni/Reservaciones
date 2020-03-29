@@ -21,7 +21,7 @@ public class Alertas {
                 result = aviso.showAndWait();
             }
             if(subtipo.equals("baja_reserva")) {
-                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                Alert aviso = new Alert(Alert.AlertType.ERROR);
                 aviso.setTitle(titulo);
                 aviso.setHeaderText(encabezado);
                 aviso.setContentText(contenido);
@@ -87,7 +87,7 @@ public class Alertas {
             }
         if(tipoAlerta.equals("confirmacion")){
             if(subtipo.equals("logout")){
-                Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert confirmacion = new Alert(Alert.AlertType.WARNING);
                 confirmacion.setTitle("Cerrar sesión");
                 confirmacion.setHeaderText("Confirme cierre de sesión");
                 confirmacion.setContentText("¿Está seguro que quiere cerrar su sesión y regresar a la zona de autenticación? ");
@@ -185,6 +185,25 @@ public class Alertas {
 
                 result = confirmacion.showAndWait();
             }
+            if(subtipo.equals("excel_creado")){
+                Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmacion.setTitle("Exportación satisfactoria");
+                confirmacion.setHeaderText("Los datos de "+titulo+"-"+encabezado+" se han exportado a la hoja de cálculo satisfactoriamente");
+                confirmacion.setContentText("¿Desea abrir la hoja de cálculo?");
+
+                confirmacion.getButtonTypes().clear();
+                confirmacion.getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+
+                //Deactivate Defaultbehavior for yes-Button:
+                Button yesButton = (Button) confirmacion.getDialogPane().lookupButton( ButtonType.YES );
+                yesButton.setDefaultButton( true );
+
+                //Activate Defaultbehavior for no-Button:
+                Button noButton = (Button) confirmacion.getDialogPane().lookupButton( ButtonType.NO );
+                noButton.setDefaultButton( false );
+
+                result = confirmacion.showAndWait();
+            }
         }
         if(tipoAlerta.equals("aviso")) {
             if(subtipo.equals("baja_reserva")) {
@@ -227,6 +246,7 @@ public class Alertas {
                         "Los datos son los siguientes:\n"+contenido);
                 result = aviso.showAndWait();
             }
+
 
         }
         if(result.isEmpty()){
