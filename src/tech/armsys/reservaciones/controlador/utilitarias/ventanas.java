@@ -32,6 +32,7 @@ public class ventanas {
 
         //si hay un objeto de tipo evento se asigna, si no, entonces hay uno de tipo stage, y se asigna al objeto Stage local
         if(evt!= null){
+
             window = (Stage)((Node)evt.getSource()).getScene().getWindow();
         }
         else if(stage !=null){

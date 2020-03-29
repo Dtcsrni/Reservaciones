@@ -83,7 +83,6 @@ public class adminControl_Reportes implements Initializable {
 
     @FXML
     private void botonConsultar() throws SQLException {
-        String annio;
         StringTokenizer tokenizer;
         anio = Integer.parseInt(txtAnio.getText());
         mes = (comboMeses.getSelectionModel().getSelectedIndex())+1;
@@ -136,6 +135,7 @@ public class adminControl_Reportes implements Initializable {
                 lblCantidadReservaciones.setText(String.valueOf(listaReservas.size()));
                 lblCantidad.setVisible(true);
                 lblMes.setVisible(true);
+                lblMes.setText(nombreMes+"-"+anio);
                 btnConsultar.setDisable(true);
                 txtAnio.setDisable(true);
                 comboMeses.setDisable(true);

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import tech.armsys.reservaciones.controlador.utilitarias.Alertas;
 import tech.armsys.reservaciones.controlador.utilitarias.Animaciones;
 import tech.armsys.reservaciones.controlador.utilitarias.ventanas;
@@ -108,4 +109,9 @@ public class loginControl implements Initializable{
     }
 
     }
+
+    @FXML private void sobre(ActionEvent evt) throws IOException {
+        ventanas.mostrarVentana(evt, null,"creditos.fxml", "PANEL DE CONTROL", "admin");
+    }
+
 }

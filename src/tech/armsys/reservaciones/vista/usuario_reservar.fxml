@@ -22,14 +22,9 @@
                   <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
-            <Label layoutX="243.0" prefHeight="84.0" prefWidth="399.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
+            <Label layoutX="238.0" layoutY="6.0" prefHeight="35.0" prefWidth="442.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="71.0" prefHeight="35.0" prefWidth="197.0" text="USUARIO" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Button alignment="CENTER" layoutX="13.0" layoutY="563.0" mnemonicParsing="false" onAction="#botonRegresar" prefHeight="31.0" prefWidth="121.0" text="REGRESAR" textAlignment="CENTER">
@@ -43,9 +38,9 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="99.0" prefHeight="19.0" prefWidth="197.0" text="Reservar Espacio" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="86.0" prefHeight="19.0" prefWidth="197.0" text="Reservar Espacio" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="System Italic" size="13.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="266.0" layoutY="118.0" prefHeight="21.0" prefWidth="353.0" text="Por favor, seleccione la fecha que desea reservar" textAlignment="CENTER" wrapText="true">
@@ -551,11 +546,11 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnReservar" alignment="CENTER" contentDisplay="TOP" layoutX="797.0" layoutY="499.0" mnemonicParsing="false" onAction="#botonReservar" prefHeight="39.0" prefWidth="99.0" text="RESERVAR" textAlignment="CENTER" visible="false">
+            <Button fx:id="btnReservar" alignment="CENTER" contentDisplay="TOP" layoutX="797.0" layoutY="499.0" mnemonicParsing="false" onAction="#botonReservar" prefHeight="39.0" prefWidth="99.0" text="RESERVAR" textAlignment="CENTER">
                <graphic>
-                  <ImageView fitHeight="70.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="70.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
-                        <Image url="@recursos/event_accepted_96px.png" />
+                        <Image url="@recursos/schedule_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -564,7 +559,7 @@
                </cursor></Button>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="697.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/calendar_96px.png" />
+                  <Image url="@recursos/sistemas_logo.png" />
                </image>
             </ImageView>
             <Button fx:id="btnLimpiar" layoutX="607.0" layoutY="134.0" mnemonicParsing="false" onAction="#botonLimpiar" text="Limpiar" visible="false">
@@ -594,6 +589,11 @@
             <ImageView fx:id="imgFull" fitHeight="39.0" fitWidth="44.0" layoutX="218.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@recursos/delete_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="54.0" fitWidth="64.0" layoutX="410.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/event_accepted_96px.png" />
                </image>
             </ImageView>
          </children>

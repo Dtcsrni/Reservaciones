@@ -6,6 +6,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,38 +14,44 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.loginControl">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.loginControl">
   <children>
-    <AnchorPane fx:id="anchorPaneLogin" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorPaneLogin" maxHeight="-1.0" maxWidth="-1.0" prefWidth="901.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fitHeight="176.0" fitWidth="228.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="176.0" fitWidth="228.0" layoutX="24.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/cuh.png" />
                </image>
             </ImageView>
-            <Label layoutX="193.0" layoutY="292.0" prefHeight="35.0" prefWidth="101.0" text="Usuario">
+            <Label layoutX="203.0" layoutY="330.0" prefHeight="35.0" prefWidth="101.0" text="Usuario">
                <font>
-                  <Font size="25.0" />
+                  <Font name="System Bold" size="25.0" />
                </font></Label>
-            <TextField fx:id="id_usuario" layoutX="344.0" layoutY="283.0" prefHeight="54.0" prefWidth="478.0" promptText="Introduzca su ID de usuario">
+            <TextField fx:id="id_usuario" layoutX="354.0" layoutY="321.0" prefHeight="54.0" prefWidth="478.0" promptText="Introduzca su ID de usuario">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
                <font>
                   <Font size="25.0" />
-               </font></TextField>
-            <Label layoutX="177.0" layoutY="371.0" prefHeight="36.0" prefWidth="133.0" text="Contraseña">
+               </font>
+               <effect>
+                  <DropShadow height="9.0" offsetY="2.0" radius="7.0" />
+               </effect></TextField>
+            <Label layoutX="187.0" layoutY="409.0" prefHeight="36.0" prefWidth="133.0" text="Contraseña">
                <font>
-                  <Font size="25.0" />
+                  <Font name="System Bold" size="25.0" />
                </font></Label>
-            <PasswordField fx:id="txtPass" layoutX="344.0" layoutY="362.0" prefHeight="54.0" prefWidth="478.0" promptText="Introduzca su contraseña">
+            <PasswordField fx:id="txtPass" layoutX="354.0" layoutY="400.0" prefHeight="54.0" prefWidth="478.0" promptText="Introduzca su contraseña">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
                <font>
                   <Font size="25.0" />
-               </font></PasswordField>
-            <Button fx:id="btnEntrar" alignment="CENTER" contentDisplay="TOP" defaultButton="true" layoutX="393.0" layoutY="473.0" mnemonicParsing="false" onAction="#iniciar_sesion" prefHeight="89.0" prefWidth="113.0" text="ACCEDER" textAlignment="CENTER" wrapText="true">
+               </font>
+               <effect>
+                  <DropShadow height="9.0" offsetY="2.0" radius="7.0" />
+               </effect></PasswordField>
+            <Button fx:id="btnEntrar" alignment="CENTER" contentDisplay="TOP" defaultButton="true" layoutX="403.0" layoutY="511.0" mnemonicParsing="false" onAction="#iniciar_sesion" prefHeight="89.0" prefWidth="113.0" text="ACCEDER" textAlignment="CENTER" wrapText="true">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -56,54 +63,82 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <effect>
-                  <DropShadow color="#737bab" height="0.0" offsetX="-7.0" offsetY="7.0" radius="1.7850000000000001" width="9.14" />
+                  <DropShadow color="#737bab" height="4.57" offsetY="7.0" radius="2.9275" width="9.14" />
                </effect></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="151.0" prefHeight="78.0" prefWidth="343.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="288.0" layoutY="189.0" prefHeight="78.0" prefWidth="343.0" text="SISTEMA DE RESERVACIÓN DE ESPACIOS" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#475f97" height="8.0" offsetY="3.0" radius="3.5" width="8.0" />
+               </effect>
             </Label>
-            <ImageView fitHeight="97.0" fitWidth="101.0" layoutX="65.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="97.0" fitWidth="101.0" layoutX="75.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/password_200px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="178.0" fitWidth="235.0" layoutX="661.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="178.0" fitWidth="235.0" layoutX="671.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/logoSiststemasCUH3g17Transparente.png" />
+                  <Image url="@recursos/sistemas_logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="712.0" layoutY="562.0" prefHeight="30.0" prefWidth="184.0" text="Desarrollado por Erick Vega">
+            <Label layoutX="722.0" layoutY="600.0" prefHeight="30.0" prefWidth="184.0" text="Desarrollado por Erick Vega">
                <font>
                   <Font name="System Italic" size="15.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Label>
             <Label fx:id="lblError" layoutX="417.0" layoutY="282.0" prefHeight="54.0" prefWidth="157.0" style="-fx-background-color: black;" text="Datos incorrectos, intente nuevamente" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="409.0" layoutY="220.0" prefHeight="19.0" prefWidth="81.0" text="ACCESO" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="419.0" layoutY="258.0" prefHeight="19.0" prefWidth="81.0" text="ACCESO" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="15.0" />
                </font>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#475f97" height="8.0" offsetY="3.0" radius="3.5" width="8.0" />
+               </effect>
             </Label>
             <ProgressIndicator fx:id="indicador_progreso" layoutX="425.0" layoutY="389.0" mouseTransparent="true" visible="false" />
-            <ImageView fitHeight="151.0" fitWidth="157.0" layoutX="393.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="151.0" fitWidth="157.0" layoutX="403.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/room_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="97.0" fitWidth="101.0" layoutX="65.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="97.0" fitWidth="101.0" layoutX="75.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/user_shield_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="756.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="89.0" fitWidth="113.0" layoutX="766.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/LogoArmsysBlissFondoPEQUE.png" />
+                  <Image url="@recursos/armsys-logoBlissCortoTransp.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
+            <ToolBar layoutY="5.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="21.0" prefWidth="930.0">
+               <items>
+                <Button mnemonicParsing="false" onAction="#sobre" prefHeight="10.0" prefWidth="81.0" text="Sobre">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@recursos/info_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </items>
+            </ToolBar>
       </children>
     </AnchorPane>
   </children>

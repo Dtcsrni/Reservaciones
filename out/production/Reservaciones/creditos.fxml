@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="735.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.armsys.reservaciones.controlador.creditosControl">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: aliceblue;" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="205.0" fitWidth="261.0" layoutX="185.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/armsys-logoBlissCortoTransp.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="113.0" layoutY="233.0" text="Desarrollado por: Erick Renato Vega Cerón">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="59.0" fitWidth="81.0" layoutX="37.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/workspace_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="140.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/gmail_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="140.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/github_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="94.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/facebook_96px.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="112.0" layoutY="490.0" prefHeight="59.0" prefWidth="392.0" text="Las imagenes utilizadas en este software son propiedad de sus respectivos dueños" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="55.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/copyright_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="81.0" layoutX="486.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/computer_128px.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="112.0" layoutY="572.0" prefHeight="59.0" prefWidth="392.0" text="ArmsysTech@2020 Todos los derechos reservados" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="255.0" layoutY="684.0" mnemonicParsing="false" onAction="#botonRegresar" text="REGRESAR">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/back_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField alignment="CENTER" editable="false" layoutX="207.0" layoutY="285.0" prefHeight="25.0" prefWidth="179.0" text="armsystechno@gmail.com">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <TextField alignment="CENTER" editable="false" layoutX="204.0" layoutY="319.0" prefHeight="25.0" prefWidth="179.0" text="https://github.com/Dtcsrni">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <TextField alignment="CENTER" editable="false" layoutX="171.0" layoutY="355.0" prefHeight="25.0" prefWidth="245.0" text="https://www.facebook.com/armsystech">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
