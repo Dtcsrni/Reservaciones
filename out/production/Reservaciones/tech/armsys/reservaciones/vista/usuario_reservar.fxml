@@ -546,9 +546,9 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnReservar" alignment="CENTER" contentDisplay="TOP" layoutX="797.0" layoutY="499.0" mnemonicParsing="false" onAction="#botonReservar" prefHeight="39.0" prefWidth="99.0" text="RESERVAR" textAlignment="CENTER">
+            <Button fx:id="btnReservar" alignment="CENTER" contentDisplay="TOP" layoutX="797.0" layoutY="499.0" mnemonicParsing="false" onAction="#botonReservar" prefHeight="39.0" prefWidth="99.0" text="RESERVAR" textAlignment="CENTER" visible="false">
                <graphic>
-                  <ImageView fitHeight="70.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fitHeight="70.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@recursos/schedule_96px.png" />
                      </image>

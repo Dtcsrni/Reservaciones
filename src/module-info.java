@@ -1,6 +1,10 @@
 module Reservaciones{
     requires javafx.fxml;
     requires javafx.controls;
+    requires  javafx.graphics;
+    requires  javafx.media;
+    requires  javafx.swing;
+    requires  javafx.swt;
     requires java.sql;
     requires mysql.connector.java;
     requires poi;
